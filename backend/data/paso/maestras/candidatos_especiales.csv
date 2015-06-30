@@ -1,0 +1,5 @@
+id_candidato,id_lista,id_cargo,id_distrito,id_comuna,nombre,norden
+BLC,BLC,,,,Votos en BLANCO,1
+NUL,NUL,,,,Votos NULOS,1
+REC,REC,,,,Votos RECURRIDOS,1
+IMP,IMP,,,,Votos de Identidad Impugnada,1

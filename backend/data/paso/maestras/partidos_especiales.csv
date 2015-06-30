@@ -1,0 +1,5 @@
+id_partido,descripcion,nro_partido
+BLC,Votos en BLANCO,995
+NUL,Votos NULOS,996
+REC,Votos RECURRIDOS,997
+IMP,Votos de Identidad Impugnada,998
