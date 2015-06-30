@@ -1,0 +1,6 @@
+id_lista,id_partido,descripcion,nro_lista
+BLC,,Votos en BLANCO,BLC
+NUL,,Votos NULOS,NUL
+REC,,Votos RECURRIDOS,REC
+IMP,,Votos de Identidad Impugnada,IMP
+TEC,,Votos no leídos por motivos técnicos,TEC

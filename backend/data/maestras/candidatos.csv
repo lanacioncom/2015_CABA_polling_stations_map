@@ -1,0 +1,1013 @@
+id_candidato,id_lista,id_cargo,id_distrito,id_comuna,nombre,norden,sexo,dni,titular
+5292,81,1,CABA,,Luis Fernando Zamora,1,M,4991776,SI
+5293,16,1,CABA,,Martín Lousteau,1,M,21954012,SI
+5294,17,1,CABA,,Myriam Bregman,1,F,22600553,SI
+5295,23,1,CABA,,Mariano Recalde,1,M,22675544,SI
+5296,18,1,CABA,,Horacio Rodríguez Larreta,1,M,17692128,SI
+5297,16,2,CABA,,Roy Cortina,1,M,18670276,SI
+5298,16,2,CABA,,Maximiliano Ferraro,2,M,25044243,SI
+5299,16,2,CABA,,María Patricia Vischi,3,F,17636329,SI
+5300,16,2,CABA,,Diego Mariano García de García Vilas,4,M,24042656,SI
+5301,16,2,CABA,,Natalia Fidel,5,F,26436017,SI
+5302,16,2,CABA,,Marcelo Alejandro Guouman,6,M,23092696,SI
+5303,16,2,CABA,,Marcelo Hugo Depierro,7,M,21115152,SI
+5304,16,2,CABA,,Maricel Etchecoin Moro,8,F,27441715,SI
+5305,16,2,CABA,,Federico Saravia,9,M,25218726,SI
+5306,16,2,CABA,,Bárbara Bonelli,10,F,34321330,SI
+5307,16,2,CABA,,Yolanda Inés Amado,11,F,11433601,SI
+5308,16,2,CABA,,Daniel Oscar Mojico,12,M,31422168,SI
+5309,16,2,CABA,,Virginia González Gass,13,F,11328764,SI
+5310,16,2,CABA,,Cristian Jorge Bentivenga,14,M,23178479,SI
+5311,16,2,CABA,,Graciela Mónica Paradiso,15,F,10139417,SI
+5312,16,2,CABA,,Mario Raúl Dodaro,16,M,20507728,SI
+5313,16,2,CABA,,Pablo Andrés Ghibaudi,17,M,24569049,SI
+5314,16,2,CABA,,Paula Andrea Stregger,18,F,27279710,SI
+5315,16,2,CABA,,Diego Hernán Giuffrida,19,M,24687236,SI
+5316,16,2,CABA,,Ezequiel Miguel Doti,20,M,28309283,SI
+5317,16,2,CABA,,María Dujovne,21,F,17770762,SI
+5318,16,2,CABA,,Lucas Hernán Lagos,22,M,34352690,SI
+5319,16,2,CABA,,Federico Martín Salierno,23,M,27860515,SI
+5320,16,2,CABA,,María Lorena Clienti,24,F,23375021,SI
+5321,16,2,CABA,,Daniel José Reyes,25,M,13740155,SI
+5322,16,2,CABA,,Víctor Hugo Caceres,26,M,14713944,SI
+5323,16,2,CABA,,Sabrina Bertolotti,27,F,28986988,SI
+5324,16,2,CABA,,Silvia Alejandra Catalano,28,F,18127911,SI
+5325,16,2,CABA,,Alberto César Gaitan,29,M,4363474,SI
+5326,16,2,CABA,,Luis Eduardo Polo,30,M,17930573,SI
+5327,16,2,CABA,,Berta Santillán,1,F,27506628,NO
+5328,16,2,CABA,,Martín Rodolfo Ruiz,2,M,33435506,NO
+5329,16,2,CABA,,Carlos Daniel Coronel,3,M,14907868,NO
+5330,16,2,CABA,,Julia Viviana Scaliarini,4,F,14958074,NO
+5331,16,2,CABA,,Reinaldo Brotzman,5,M,26691515,NO
+5332,16,2,CABA,,María Magdalena Macaggi,6,F,12514059,NO
+5333,16,2,CABA,,Ana María Olga Rodriguez,7,F,22353958,NO
+5334,16,2,CABA,,Guillermo Ignacio Warnes,8,M,13914233,NO
+5335,16,2,CABA,,Pamela Pequeño,9,F,26952315,NO
+5336,16,2,CABA,,Francisco Moreno Guirado,10,M,11353781,NO
+5337,22,2,CABA,,Itaí Hagman,1,M,19010320,SI
+5338,22,2,CABA,,Fabio Basteiro,2,M,16520975,SI
+5339,22,2,CABA,,Diana Ruth Kordon,3,F,5012025,SI
+5340,22,2,CABA,,Lucía Vassallo del Giorgio,4,F,33877992,SI
+5341,22,2,CABA,,Matías Ignacio Fachal,5,M,26887331,SI
+5342,22,2,CABA,,Dominga Isabel Machado,6,F,6137305,SI
+5343,22,2,CABA,,Ignacio Kostzer,7,M,32371808,SI
+5344,22,2,CABA,,Norma Noemí Colque,8,F,23165968,SI
+5345,22,2,CABA,,María Cristina Chiste,9,F,16823071,SI
+5346,22,2,CABA,,Nahuel March Ríos,10,M,34028988,SI
+5347,22,2,CABA,,Victoria Freire,11,F,31477868,SI
+5348,22,2,CABA,,Rodolfo Antonio Kempf,12,M,22054123,SI
+5349,22,2,CABA,,Martina Violeta Prina,13,F,32147986,SI
+5350,22,2,CABA,,Ana María Pagano,14,F,12587105,SI
+5351,22,2,CABA,,Guido Alberto Saccal,15,M,31763194,SI
+5352,22,2,CABA,,Alejandro Rascován,16,M,30081189,SI
+5353,22,2,CABA,,Adela Sofía Zaltzman,17,F,6052983,SI
+5354,22,2,CABA,,María Belén Mobrici,18,F,34258025,SI
+5355,22,2,CABA,,Adrián Lutvak,19,M,34987728,SI
+5356,22,2,CABA,,María del Carmen Gola,20,F,4281990,SI
+5357,22,2,CABA,,Teresa Horovitz,21,F,3453504,SI
+5358,22,2,CABA,,Nicolás Gabriel Tauber Sánz,22,M,26122369,SI
+5359,22,2,CABA,,Esteban Alberto Carré,23,M,30821311,SI
+5360,22,2,CABA,,Julieta Marina Minervini,24,F,31494849,SI
+5361,22,2,CABA,,Josefa Elsa Cola Arena,25,F,4633570,SI
+5362,22,2,CABA,,Sebastián Gabriel Di Giorgio,26,M,33936088,SI
+5363,22,2,CABA,,Laura Inés Cecilia Schargrodsky,27,F,17547359,SI
+5364,22,2,CABA,,Pilar Vázquez,28,F,32064739,SI
+5365,22,2,CABA,,Damián Alfredo Papini,29,M,24516293,SI
+5366,22,2,CABA,,Blanca Mabel García,30,F,10843411,SI
+5367,22,2,CABA,,Aníbal Félix Vázquez,1,M,5407352,NO
+5368,22,2,CABA,,Camila María Lusardi,2,F,34519315,NO
+5369,22,2,CABA,,Abel Ramón de Sousa Barros,3,M,22981110,NO
+5370,22,2,CABA,,María Inés Martínez,4,F,18125262,NO
+5371,22,2,CABA,,Paula Sabrina Palacio Vieyra,5,F,35319159,NO
+5372,22,2,CABA,,Agustín Vanella Bengolea,6,M,18799930,NO
+5373,22,2,CABA,,Julio Ramón Domínguez,7,M,14662566,NO
+5374,22,2,CABA,,María Cristina Rainieri,8,F,10144431,NO
+5375,22,2,CABA,,Pablo César Durando,9,M,12676871,NO
+5376,22,2,CABA,,María Paula García Ferrelli,10,F,22366458,NO
+5377,22,3,,1,Amalia Concepción Aima,1,F,17063670,SI
+5378,22,3,,1,Miguel Ángel Cruz,2,M,22946864,SI
+5379,22,3,,1,Verónica Patricia Ibáñez,3,F,25519831,SI
+5380,22,3,,1,Antonio Sabino Acosta,4,M,14323658,SI
+5381,22,3,,1,Myriam Raquel Sala,5,F,20262441,SI
+5382,22,3,,1,Francisco Zelaya Imperiali,6,M,34889936,SI
+5383,22,3,,1,Sandra Claudia Zerpa,7,F,23430200,SI
+5384,22,3,,1,Martín Mascolo,1,M,33284467,NO
+5385,22,3,,1,Rosa Mónica Fernández,2,F,18115756,NO
+5386,22,3,,1,Juan Ignacio Tami Arias,3,M,34537711,NO
+5387,22,3,,1,Miguela del Pilar Azcurra,4,F,24194263,NO
+5388,22,3,,3,Norma Mirta González,1,F,17259230,SI
+5389,22,3,,3,Norberto Claudio Gómes,2,M,14014043,SI
+5390,22,3,,3,Tamara Perelmuter Youngerman,3,F,27350719,SI
+5391,22,3,,3,Martín Miguel Brunas Depaoli,4,M,24913914,SI
+5392,22,3,,3,Isabel Cecilia Faillace,5,F,10661931,SI
+5393,22,3,,3,Facundo Pablo Doval,6,M,31659558,SI
+5394,22,3,,3,Manuela Martínez de Murguía,7,F,34292628,SI
+5395,22,3,,3,Pablo Ariel Brunetto,1,M,24587708,NO
+5396,22,3,,3,Esther Carpanchay,2,F,6047290,NO
+5397,22,3,,3,Sebastián Lastra,3,M,28391052,NO
+5398,22,3,,3,Amalia Peralta,4,F,39344543,NO
+5399,22,3,,5,Pablo Adrián Cesaroni,1,M,12924856,SI
+5400,22,3,,5,Griselda Irene Sneider,2,F,10892533,SI
+5401,22,3,,5,Julián Andrés Bellomo,3,M,33248294,SI
+5402,22,3,,5,Matilde Irene Ruderman,4,F,4987405,SI
+5403,22,3,,5,Jorge Omar Valdéz,5,M,12791525,SI
+5404,22,3,,5,Clara Vázquez,6,F,34358026,SI
+5405,22,3,,5,Fernando Mario Bargas,7,M,4746463,SI
+5406,22,3,,5,Guadalupe Carnelli,1,F,32402246,NO
+5407,22,3,,5,Víctor Hugo Beltrán Méndez,2,M,18832323,NO
+5408,22,3,,5,Dora Elena Rico,3,F,12505275,NO
+5409,22,3,,5,Pablo Leandro Vensentini Movia,4,M,31344387,NO
+5410,22,3,,6,Martín Andrés Iommi,1,M,28828264,SI
+5411,22,3,,6,María Silvia Scorza,2,F,6232541,SI
+5412,22,3,,6,Bruno Giormenti Moravec,3,M,35202480,SI
+5413,22,3,,6,Claudia Alejandra Bahl,4,F,17031501,SI
+5414,22,3,,6,Manuel Campos Janeiro,5,M,4363817,SI
+5415,22,3,,6,Matilde Beatriz Villeneuve,6,F,5465292,SI
+5416,22,3,,6,Hugo Alberto Palamidessi,7,M,4255294,SI
+5417,22,3,,6,Denise Yael Brikman,1,F,33655060,NO
+5418,22,3,,6,Saúl Elías Merlín,2,M,4085826,NO
+5419,22,3,,6,Agustina Elena Balcarce,3,F,35185607,NO
+5420,22,3,,6,Gustavo Luis Campeni,4,M,18160637,NO
+5421,22,3,,7,Pilar Inés Fiuza Casais,1,F,32996193,SI
+5422,22,3,,7,Roberto Alejandro Muñoz,2,M,31937295,SI
+5423,22,3,,7,Lidia Margarita Martínez,3,F,24363173,SI
+5424,22,3,,7,Pedro Martín Vuisso,4,M,37805626,SI
+5425,22,3,,7,Zulma Adriana Soria,5,F,16334107,SI
+5426,22,3,,7,Luis Eduardo Pedreira,6,M,33779717,SI
+5427,22,3,,7,Florencia Vecchione,7,F,36687319,SI
+5428,22,3,,7,Roberto Nicolás Nardulli,1,M,10141441,NO
+5429,22,3,,7,Ana Clara Moncada,2,F,30140157,NO
+5430,22,3,,7,Federico Osvaldo Araya,3,M,27146830,NO
+5431,22,3,,10,María Balocco,1,F,33506545,SI
+5432,22,3,,10,Néstor Fernando Montaño,2,M,14140668,SI
+5433,22,3,,10,Lucía Raquel Montenegro Loewy,3,F,32577163,SI
+5434,22,3,,10,Manuel Antonio Panaia,4,M,7629902,SI
+5435,22,3,,10,Paola Soledad Laurenzo,5,F,33293799,SI
+5436,22,3,,10,Eugenio Aguirre,6,M,34705006,SI
+5437,22,3,,10,Ida María Lozano,7,F,11338768,SI
+5438,22,3,,10,Ángel Lionel Martín,1,M,28368408,NO
+5439,22,3,,11,Martín Ezequiel Genauer,1,M,30450306,SI
+5440,22,3,,11,Graciela Noemí Méndez,2,F,18056855,SI
+5441,22,3,,11,Nicolás Calcagno,3,M,34683819,SI
+5442,22,3,,11,Gabriela Andrea Krieger,4,F,31674454,SI
+5443,22,3,,11,Federico Spinelli,5,M,37170918,SI
+5444,22,3,,11,Paula Lorena Salguero,6,F,25070899,SI
+5445,22,3,,11,Matiás Eduardo Cassani Laham,7,M,29193501,SI
+5446,22,3,,11,Eugenia Riviere,1,F,34770111,NO
+5447,22,3,,11,Juan José Tercón,2,M,31703073,NO
+5448,22,3,,11,Gisela Lancieri Durán,3,F,26949645,NO
+5449,22,3,,11,Luciano Darío Fernández,4,M,39271490,NO
+5450,22,3,,12,Bacilio Sioutis,1,M,13131093,SI
+5451,22,3,,12,Laura Kniznik,2,F,23968059,SI
+5452,22,3,,12,Matías Sebastián Rojo,3,M,33950917,SI
+5453,22,3,,12,Sofía Zapettini,4,F,33534016,SI
+5454,22,3,,12,Marcelo Alberto Campos,5,M,21481473,SI
+5455,22,3,,12,Paula Mariela Graziano,6,F,34669084,SI
+5456,22,3,,12,Mariano Roberto Blumenfeld Izzo,7,M,28077412,SI
+5457,22,3,,12,María Ester Rodríguez,1,F,10823861,NO
+5458,22,3,,12,Daniel Alejandro Dveksler Pereira,2,M,32783954,NO
+5459,22,3,,12,Jorgelina Julia Gazzo,3,F,22503523,NO
+5460,22,3,,12,Oscar Mariano Cagegi,4,M,20249515,NO
+5461,22,3,,13,Lucía Inés Pedraza,1,F,36155766,SI
+5462,22,3,,13,Sebastián Reynaldo Gatti,2,M,31327407,SI
+5463,22,3,,13,María Cecilia Levati,3,F,27553236,SI
+5464,22,3,,13,Francisco Soriano,4,M,33017124,SI
+5465,22,3,,13,María Andrea Zita,5,F,32037066,SI
+5466,22,3,,13,Mariano Ercolani Rey,6,M,35364581,SI
+5467,22,3,,13,Juana María del Carmen Alercia,7,F,5431877,SI
+5468,22,3,,13,Gonzalo Ezequiel Barrios García Moar,1,M,34229319,NO
+5469,22,3,,13,Nira Dinerstein,2,F,32638862,NO
+5470,22,3,,14,Maite Ibar,1,F,35072365,SI
+5471,22,3,,14,Alejo Daniel Ibáñez,2,M,12943592,SI
+5472,22,3,,14,Luciana Hartstein Nocetti,3,F,31337034,SI
+5473,22,3,,14,Pablo Habif,4,M,28322326,SI
+5474,22,3,,14,Malena Rubinstein,5,F,35973146,SI
+5475,22,3,,14,Lisandro Reinoso,6,M,32869891,SI
+5476,22,3,,14,Magdalena Ruth Chirom,7,F,35186829,SI
+5477,22,3,,14,Carlos Gustavo López Pombo,1,M,24916201,NO
+5478,22,3,,14,Natalia Melisa Ayala Cravino,2,F,35363488,NO
+5479,22,3,,14,Martín Nicolás Gavirati,3,M,34843538,NO
+5480,22,3,,14,Sofía Corazza,4,F,35154428,NO
+5481,22,3,,15,Carlos Felipe Méndez,1,M,13730242,SI
+5482,22,3,,15,Jacqueline Andrea Flores,2,F,21024308,SI
+5483,22,3,,15,Víctor Emilio Marull,3,M,25730463,SI
+5484,22,3,,15,Susana Gladys Bustamante,4,F,22064759,SI
+5485,22,3,,15,Evaristo Vega,5,M,28252555,SI
+5486,22,3,,15,Laura Angelina González,6,F,34080973,SI
+5487,22,3,,15,Ángel Francisco Sandoni,7,M,10266664,SI
+5488,22,3,,15,Giuliana Andrea Baracetti,1,F,36276930,NO
+5489,22,3,,15,Osvaldo Héctor Rodríguez,2,M,4309184,NO
+5490,22,3,,15,Mercedes Noemí Rojas,3,F,20878431,NO
+5491,22,3,,15,Matías Ezequiel Barbeito,4,M,34353576,NO
+5492,81,2,CABA,,Fernando Pablo Vilardo,1,M,27778689,SI
+5493,81,2,CABA,,Marta Jacqueline Martínez,2,F,30366851,SI
+5494,81,1,CABA,,Sergio Adrián Sallustio,2,M,28863717,SI
+5494a,81,2,CABA,,Sergio Adrián Sallustio,3,M,28863717a,SI
+5495,81,2,CABA,,María Dolores Corujo Romero,4,F,34293913,SI
+5496,81,2,CABA,,Matías Cantilo Labanda,5,M,38069996,SI
+5497,81,2,CABA,,Mariano Nicolás Iacobacci,6,M,30888013,SI
+5498,81,2,CABA,,Camila Costas,7,F,36946108,SI
+5499,81,2,CABA,,Ramiro Kiel,8,M,38050995,SI
+5500,81,2,CABA,,Agustina Almeida,9,F,35727474,SI
+5501,81,2,CABA,,Ivana Daniela Cantarella,10,F,30923387,SI
+5502,81,2,CABA,,Luis Sebastián Blanchard,11,M,31724247,SI
+5503,81,2,CABA,,Mercedes Fernández,12,F,37120055,SI
+5504,81,2,CABA,,Daniel Alberto Lucero,13,M,32654415,SI
+5505,81,2,CABA,,Carlos Selmo,14,M,27226750,SI
+5506,81,2,CABA,,Cecilia Inés Ríos,15,F,17269167,SI
+5507,81,2,CABA,,Martín Nicolás Lansztein,16,M,34257938,SI
+5508,81,2,CABA,,Franco Luis Octavio del Fabbro,17,M,29263223,SI
+5509,81,2,CABA,,Camila Benatar,18,F,36896030,SI
+5510,81,2,CABA,,Pablo Daniel Alberto Axelirud,19,M,36401852,SI
+5511,81,2,CABA,,Matías Nahuel Brema,20,M,34617248,SI
+5512,81,2,CABA,,Susana Passano,21,F,6036988,SI
+5513,81,2,CABA,,Ignacio Mozetic,22,M,39065806,SI
+5514,81,2,CABA,,Javier Alejandro Tarifa,23,M,22234647,SI
+5515,81,2,CABA,,Julieta Basaldúa,24,F,34224975,SI
+5516,81,2,CABA,,Orlando Francisco Gómez,25,M,10125041,SI
+5517,81,2,CABA,,Adriano Andrés Parra,26,M,24941030,SI
+5518,81,2,CABA,,Tatiana Jazmín Schiel,27,F,27940959,SI
+5519,81,2,CABA,,Martín Roberto Paladino,28,M,26280208,SI
+5520,81,2,CABA,,Blanca Alicia Urretabizcaya,29,F,11735564,SI
+5521,81,2,CABA,,Luis Daniel Bustos,30,M,11735496,SI
+5522,81,2,CABA,,María de la Paz Benítez,1,F,32258285,NO
+5523,81,2,CABA,,Máximo Claudio Tosi Rivella,2,M,12548130,NO
+5524,81,2,CABA,,Mariana Mathieu,3,F,31674226,NO
+5525,81,2,CABA,,Lucas Gastón Eduardo Massenzio,4,M,29763682,NO
+5526,81,2,CABA,,María Florencia Ruiz Lezcano,5,F,36684988,NO
+5527,81,2,CABA,,Adriano Paolo Mantova,6,M,29906290,NO
+5528,81,2,CABA,,Paula Andrea Bustos,7,F,25249347,NO
+5529,81,2,CABA,,Alejandro Ordosgoiti,8,M,27288987,NO
+5530,81,2,CABA,,Marina Virginia Bustos,9,F,24445350,NO
+5531,81,2,CABA,,Jorge Manuel de la Cera,10,M,13773432,NO
+5532,16,3,,1,Santiago Eugenio Espil,1,M,34585465,SI
+5533,16,3,,1,Clori Yelicic,2,F,4536037,SI
+5534,16,3,,1,Daniel José Martini,3,M,14812573,SI
+5535,16,3,,1,Mara Lavalle,4,F,12278398,SI
+5536,16,3,,1,Leopoldo Angel Augusto Ruiz Lliteras,5,M,25969378,SI
+5537,16,3,,1,Carolina Maria Angelica Vazquez,6,F,27729248,SI
+5538,16,3,,1,Mariano Agustin Castro,7,M,35902510,SI
+5539,16,3,,1,Mariela Giselle Coletta,1,F,34512539,NO
+5540,16,3,,1,Enrique Velazquez,2,M,14365182,NO
+5541,16,3,,1,Rita María Alvarez,3,F,16968140,NO
+5542,16,3,,1,Ezequiel Esteban Fernández Vivanco,4,M,36595502,NO
+5543,16,3,,2,Lucía Noelia Romano,1,F,29801941,SI
+5544,16,3,,2,Federico Esswein,2,M,34705227,SI
+5545,16,3,,2,Carolina Alejandra Grimoldi Acosta,3,F,27387021,SI
+5546,16,3,,2,Agustín Bruno,4,M,29553387,SI
+5547,16,3,,2,Luisa Margarita Inasso,5,F,16137834,SI
+5548,16,3,,2,Leandro Guillermo Gil,6,M,25641634,SI
+5549,16,3,,2,Alejandra Marcela Acevedo Domínguez,7,F,14568270,SI
+5550,16,3,,2,Nicolás Robledo Loza,1,M,30959258,NO
+5551,16,3,,2,Andrea Fabiana Monzón,2,F,21155879,NO
+5552,16,3,,2,Diego Caimez,3,M,27150706,NO
+5553,16,3,,2,Jimena Haedo,4,F,34434716,NO
+5554,16,3,,3,Verónica Laura Bruk,1,F,18515933,SI
+5555,16,3,,3,Lucas Mauricio Núñez,2,M,29688742,SI
+5556,16,3,,3,Nélida Cura,3,F,2631980,SI
+5557,16,3,,3,Julián Angelucci,4,M,35157692,SI
+5558,16,3,,3,Julieta Elizabeth Pérez,5,F,34422439,SI
+5559,16,3,,3,Luis Omar Delgado,6,M,29911408,SI
+5560,16,3,,3,Mariana Florencia Fuentealba,7,F,37461825,SI
+5561,16,3,,3,Martín Ariel Sanchez Martínez,1,M,31763913,NO
+5562,16,3,,3,Daiana Solange Curto,2,F,34235884,NO
+5563,16,3,,3,Augusto Oscar Coda,3,M,34080326,NO
+5564,16,3,,3,Ana María Ferretti,4,F,3587439,NO
+5565,16,3,,4,Oscar Alberto Tornadore,1,M,16892712,SI
+5566,16,3,,4,Liliana Palavecino,2,F,22441490,SI
+5567,16,3,,4,Axel Cristian Kiberl,3,M,23327134,SI
+5568,16,3,,4,Graciela Beatriz Pérez,4,F,25681103,SI
+5569,16,3,,4,Juan Carlos Ibarrola,5,M,4521425,SI
+5570,16,3,,4,Sabrina Natalia Bartolo,6,F,28381016,SI
+5571,16,3,,4,Juan Ignacio Finauri,7,M,31207608,SI
+5572,16,3,,4,María Florencia Nieto,1,F,25940262,NO
+5573,16,3,,4,Domingo Enrique Suriano,2,M,11455207,NO
+5574,16,3,,4,Sofía Belén Moreira Lazaro,3,F,37607403,NO
+5575,16,3,,4,Pablo Hernán Salazar,4,M,32438519,NO
+5576,16,3,,5,Raúl Ernesto Artelino,1,M,12314942,SI
+5577,16,3,,5,María Gabriela Maratea,2,F,24564245,SI
+5578,16,3,,5,Matías Val,3,M,36728903,SI
+5579,16,3,,5,María Georgina Bressan,4,F,32327504,SI
+5580,16,3,,5,Arturo Ignacio Warnes,5,M,4138718,SI
+5581,16,3,,5,María Andrea Pignataro,6,F,13410455,SI
+5582,16,3,,5,Javier Ignacio Carrizo,7,M,35976621,SI
+5583,16,3,,5,Gabriela Florencia Gutiérrez,1,F,30391723,NO
+5584,16,3,,5,César Gonzalo Francisco,2,M,32636943,NO
+5585,16,3,,5,Claudia Susana Iglesias,3,F,20993047,NO
+5586,16,3,,5,Cristian Ricardo Torres,4,M,26837239,NO
+5587,16,3,,6,Juan Ignacio Ezequiel González Martínez,1,M,35360576,SI
+5588,16,3,,6,María Alejandra Aranda,2,F,22046293,SI
+5589,16,3,,6,Julio Armando Bustos,3,M,29119563,SI
+5590,16,3,,6,Luciana Marina Alonso,4,F,32111804,SI
+5591,16,3,,6,Fernando Adrián Núñez D'Agostino,5,M,37608686,SI
+5592,16,3,,6,Graciela María Pozzali,6,F,32592538,SI
+5593,16,3,,6,Enrique José Schiaffino,7,M,8474159,SI
+5594,16,3,,6,María Gabriela Camera,1,F,23670399,NO
+5595,16,3,,6,Ezequiel Marín Iglesias,2,M,33174720,NO
+5596,16,3,,6,Elsa Liliana Bustos,3,F,13277752,NO
+5597,16,3,,6,Alejandro Daniel Madre,4,M,14927979,NO
+5598,16,3,,7,Alejandro Jorge Caracciolo,1,M,18409056,SI
+5599,16,3,,7,Ramona Carmen Jofre,2,F,10952426,SI
+5600,16,3,,7,David Gabriel Escobar,3,M,28930578,SI
+5601,16,3,,7,Carmen Noemí Pierini,4,F,10692512,SI
+5602,16,3,,7,Federico Luis García,5,M,30746355,SI
+5603,16,3,,7,Graciela Beatriz Nuñez,6,F,13480231,SI
+5604,16,3,,7,José Antonio Aguiar,7,M,8550788,SI
+5605,16,3,,7,Rosa Mercedes Rivero,1,F,11816793,NO
+5606,16,3,,7,Hector Ariel Dalia,2,M,23455453,NO
+5607,16,3,,8,Hugo Vicente Bentivenga,1,M,18323340,SI
+5608,16,3,,8,Lorena Carla Luriaud,2,F,26405646,SI
+5609,16,3,,8,Pablo Oscar Doti,3,M,25572844,SI
+5610,16,3,,8,Silvia Beatriz Bruzzone,4,F,16558184,SI
+5611,16,3,,8,Éric Merres,5,M,22847558,SI
+5612,16,3,,8,Yamila Susana Nasta,6,F,31256312,SI
+5613,16,3,,8,Víctor Rubén Abal,7,M,14585270,SI
+5614,16,3,,8,Rocío Nataly Curia,1,F,37989859,NO
+5615,16,3,,8,Héctor Eduardo Belluccio,2,M,28814975,NO
+5616,16,3,,8,Verónica Elizabeth Ramírez,3,F,35094451,NO
+5617,16,3,,8,Mauro Daniel Luciano Benítez,4,M,28643407,NO
+5618,16,3,,9,José Roberto Braccini,1,M,18149433,SI
+5619,16,3,,9,María de la Cruz Baez,2,F,29521811,SI
+5620,16,3,,9,Hernán Pablo Poggi,3,M,17607543,SI
+5621,16,3,,9,Gisela Soledad Aulita,4,F,32651026,SI
+5622,16,3,,9,Oscar Rubén Bruno,5,M,10297036,SI
+5623,16,3,,9,Liliana Beatriz Burtin,6,F,6673087,SI
+5624,16,3,,9,Juan Francisco Sapia,7,M,14614697,SI
+5625,16,3,,9,Andrea Fabiana García,1,F,18405202,NO
+5626,16,3,,9,Ernesto Manuel García,2,M,20838298,NO
+5627,16,3,,9,María Laura Rastelli,3,F,21524895,NO
+5628,16,3,,9,Pablo Daniel Aulita,4,M,34251608,NO
+5629,16,3,,10,Daniela Beatriz Mesplede,1,F,17498967,SI
+5630,16,3,,10,Ubaldo Mascali,2,M,4317970,SI
+5631,16,3,,10,María Laura Martínez,3,F,32436721,SI
+5632,16,3,,10,Roberto Adolfo Rodríguez Taboada,4,M,12692309,SI
+5633,16,3,,10,María Dolores Guerreiro,5,F,6195581,SI
+5634,16,3,,10,Jorge Miguel Stiepcich,6,M,27710312,SI
+5635,16,3,,10,Verónica Karina Martínez Olivera,7,F,18878985,SI
+5636,16,3,,10,Horacio Ernesto Consoli,1,M,4164499,NO
+5637,16,3,,10,Samira Farah,2,F,18886611,NO
+5638,16,3,,11,Marta Susana Liotto,1,F,14152222,SI
+5639,16,3,,11,Carlos Gonzalo Aguilar,2,M,25128059,SI
+5640,16,3,,11,Carolina Antonia Maccione,3,F,31008970,SI
+5641,16,3,,11,Rogelio González,4,M,14011846,SI
+5642,16,3,,11,Azucena Brotzman,5,F,25764210,SI
+5643,16,3,,11,Salvador Eduardo Prati,6,M,8626258,SI
+5644,16,3,,11,María Fernanda Motta,7,F,26119015,SI
+5645,16,3,,11,Hugo Carlos Stern,1,M,11644020,NO
+5646,16,3,,11,Susana Noemí Bouzas,2,F,17365236,NO
+5647,16,3,,11,Guillermo Orlando David Mendieta,3,M,33878998,NO
+5648,16,3,,11,Marcela Vanesa Morales,4,F,25866124,NO
+5649,16,3,,12,Matías Alejandro Debesa,1,M,33194225,SI
+5650,16,3,,12,Patricia Verónica Saporiti,2,F,17363343,SI
+5651,16,3,,12,Pascual Eloy Rotolo,3,M,4205076,SI
+5652,16,3,,12,Adriana Mónica Salanitro,4,F,21953158,SI
+5653,16,3,,12,Javier Washington Bica Ríos,5,M,31606747,SI
+5654,16,3,,12,Eleonora Elízabeth Engel,6,F,14885174,SI
+5655,16,3,,12,Ignacio Yair Ulieldin,7,M,36950529,SI
+5656,16,3,,12,Rocío Viviana Debesa,1,F,30440922,NO
+5657,16,3,,12,Matías Luciano Maero,2,M,34739162,NO
+5658,16,3,,13,Stefano Dante Cozza Di Carlo,1,M,34534275,SI
+5659,16,3,,13,Romina Natalí Braga,2,F,32675184,SI
+5660,16,3,,13,Alejandro Agustín de Angelis,3,M,24400773,SI
+5661,16,3,,13,Agustina Reyes Gerosi,4,F,36728922,SI
+5662,16,3,,13,Patricio Daniel Mendez Montenegro,5,M,35361566,SI
+5663,16,3,,13,María Paula Biagi,6,F,28995086,SI
+5664,16,3,,13,Santiago García,7,M,34203721,SI
+5665,16,3,,13,Silvina Alicia Estrada,1,F,32616805,NO
+5666,16,3,,13,Ezequiel Jenik,2,M,35962082,NO
+5667,16,3,,13,María Victoria Álvarez,3,F,35255257,NO
+5668,16,3,,13,Lázaro Américo Cordero,4,M,4361054,NO
+5669,16,3,,14,Gastón Jorge Blanchetiere,1,M,21142670,SI
+5670,16,3,,14,Andrea Olga Zaidel,2,F,20608475,SI
+5671,16,3,,14,Tomás González Vera,3,M,31693794,SI
+5672,16,3,,14,Analía Matilde Marín,4,F,10961979,SI
+5673,16,3,,14,Facundo Khazki,5,M,37276656,SI
+5674,16,3,,14,Liliana Beatriz Veiga,6,F,13654504,SI
+5675,16,3,,14,Ignacio Agustín Torres,7,M,33611389,SI
+5676,16,3,,14,María Emilia Fernández Irungaray,1,F,37204511,NO
+5677,16,3,,14,Juan Ángel Sánchez,2,M,12549579,NO
+5678,16,3,,14,Liliana Rosa Acuña,3,F,12831637,NO
+5679,16,3,,14,Roberto Sebastián Pereyra,4,M,32855565,NO
+5680,16,3,,15,Rodrigo Guevara,1,M,29867201,SI
+5681,16,3,,15,Mora Kantor,2,F,28694098,SI
+5682,16,3,,15,Matías Adrián Ruiz,3,M,32437003,SI
+5683,16,3,,15,Victoria Laura Cirigliano,4,F,32091533,SI
+5684,16,3,,15,Leonardo Darío Perez,5,M,33669505,SI
+5685,16,3,,15,María Fernanda Giusti,6,F,18294663,SI
+5686,16,3,,15,Maximiliano Marcelo Di Ciano,7,M,34023242,SI
+5687,16,3,,15,Isabel Cecilia Clancy,1,F,17577470,NO
+5688,16,3,,15,Arturo Fernando López,2,M,31659089,NO
+5689,16,3,,15,Patricia Alejandra Suárez,3,F,21940916,NO
+5690,16,3,,15,Martín Hernán San José Mañanes,4,M,23974969,NO
+5691,17,2,CABA,,Marcelo Ramal,1,M,11266786,SI
+5692,17,2,CABA,,Patricio del Corro,2,M,30306197,SI
+5693,17,2,CABA,,Laura Marrone,3,F,10545232,SI
+5694,17,2,CABA,,Santiago Gima,4,M,24717919,SI
+5695,17,2,CABA,,Ana Laura Lastra,5,F,20497739,SI
+5696,17,2,CABA,,Nicolás Núñez Alegre,6,M,32311170,SI
+5697,17,2,CABA,,Carina López Monja,7,F,29636596,SI
+5698,17,2,CABA,,Carlos Artacho,8,M,23701062,SI
+5699,17,2,CABA,,Elías Gazpio Sales,9,M,31877329,SI
+5700,17,2,CABA,,Ileana Celotto,10,F,12558911,SI
+5701,17,2,CABA,,Cecilia Mancuso,11,F,32069348,SI
+5702,17,2,CABA,,Jorge Adaro,12,M,16941105,SI
+5703,17,2,CABA,,Julián Asiner,13,M,34496955,SI
+5704,17,2,CABA,,Bárbara Acevedo,14,F,29076646,SI
+5705,17,2,CABA,,Marcela Almeida,15,F,21093925,SI
+5706,17,2,CABA,,Rubén Schofrin,16,M,11293799,SI
+5707,17,2,CABA,,Guadalupe Oliverio,17,F,40127083,SI
+5708,17,2,CABA,,Pablo Almeida,18,M,23377078,SI
+5709,17,2,CABA,,Germán Anzoategui,19,M,23235263,SI
+5710,17,2,CABA,,Viviana Carranza,20,F,14173139,SI
+5711,17,2,CABA,,Eduardo Saab,21,M,25556237,SI
+5712,17,2,CABA,,Lilián Jara,22,F,21659049,SI
+5713,17,2,CABA,,Hernán Carrizo,23,M,31591057,SI
+5714,17,2,CABA,,Nahuel Fernández,24,M,35189831,SI
+5715,17,2,CABA,,Laura Bari,25,F,21386416,SI
+5716,17,2,CABA,,Federico Puy,26,M,30592659,SI
+5717,17,2,CABA,,Martín Mangiantini,27,M,27536578,SI
+5718,17,2,CABA,,Lía Pesaresi,28,F,21478744,SI
+5719,17,2,CABA,,Gabriel Lubo,29,M,29850201,SI
+5720,17,2,CABA,,Guillermo Rocha,30,M,17499989,SI
+5721,17,2,CABA,,Florencia Fitere,1,F,33257638,NO
+5722,17,2,CABA,,Christian Paletti,2,M,25370968,NO
+5723,17,2,CABA,,María de Las Mercedes de Mendieta,3,F,32737299,NO
+5724,17,2,CABA,,Pablo Eibuszyc,4,M,25376792,NO
+5725,17,2,CABA,,Eduardo Toro,5,M,30287647,NO
+5726,17,2,CABA,,María Selva Torriglia,6,F,34717051,NO
+5727,17,2,CABA,,Graciela Camalli,7,F,12280309,NO
+5728,17,2,CABA,,Facundo Lahitte,8,M,26520296,NO
+5729,17,2,CABA,,Natalia Rossi,9,F,27114881,NO
+5730,17,3,,1,Lucas Alberto Ivanovic,1,M,8400469,SI
+5731,17,3,,1,Mariela Pozzi,2,F,25020471,SI
+5732,17,3,,1,Nicolás Alejandro Cernadas,3,M,38894183,SI
+5733,17,3,,1,Graciela Natalia Duarte,4,F,27186267,SI
+5734,17,3,,1,Javier Felipe Suárez,5,M,29394229,SI
+5735,17,3,,1,María Silvia Merino,6,F,17253864,SI
+5736,17,3,,1,Cristian José Riveros,7,M,28672006,SI
+5737,17,3,,1,Carolina Julieta Cabrera,1,F,26692556,NO
+5738,17,3,,1,Fernando Ezequiel Kanashiro Orellana,2,M,34359135,NO
+5739,17,3,,1,Silvia Noemí Leguizamón,3,F,25359909,NO
+5740,17,3,,1,Omar Ángel Estrada,4,M,12040055,NO
+5741,17,3,,2,María Chaves,1,F,28031244,SI
+5742,17,3,,2,Ramiro Yordán,2,M,36592662,SI
+5743,17,3,,2,Guadalupe Bravo,3,F,31658692,SI
+5744,17,3,,2,Oscar María Sarobe,4,M,5065283,SI
+5745,17,3,,2,Lucía Maffey,5,F,32404282,SI
+5746,17,3,,2,Martín Gdansky Orgambide,6,M,18806145,SI
+5747,17,3,,2,Alma Constanza Castaño,7,F,36635759,SI
+5748,17,3,,2,Walter Koppmann,1,M,35359573,NO
+5749,17,3,,2,Ayelén Virdis,2,F,33369747,NO
+5750,17,3,,3,Martín Ezequiel Sánchez,1,M,31659031,SI
+5751,17,3,,3,María Laura Frecha,2,F,14133510,SI
+5752,17,3,,3,Jonathan Patricio Escalante,3,M,35238412,SI
+5753,17,3,,3,María Sol Carpilousca,4,F,28695709,SI
+5754,17,3,,3,Horacio Alberto Menchaca,5,M,4922474,SI
+5755,17,3,,3,Cristal Chechelgis,6,F,28970644,SI
+5756,17,3,,3,Nahuel Arias,7,M,31456498,SI
+5757,17,3,,3,Luz Marina Bordone,1,F,20428838,NO
+5758,17,3,,3,Luis Alberto Fernández,2,M,13348908,NO
+5759,17,3,,3,Nancy Elizabeth Carpimetti,3,F,18100163,NO
+5760,17,3,,4,Jorge Alfredo Pachamé,1,M,12082201,SI
+5761,17,3,,4,Alicia Navarro Palacios,2,F,18759082,SI
+5762,17,3,,4,Hernando Ariel Rodríguez,3,M,28078522,SI
+5763,17,3,,4,Élida Liliana Carci,4,F,10707462,SI
+5764,17,3,,4,Nicolás Pablo Caia,5,M,39268438,SI
+5765,17,3,,4,Natalia Mabel Molina,6,F,25899463,SI
+5766,17,3,,4,Gabriel Alejandro Illescas,7,M,30219843,SI
+5767,17,3,,4,Fabiana Sotelo,1,F,17180051,NO
+5768,17,3,,4,Ernesto González,2,M,22873754,NO
+5769,17,3,,5,Daniel Alberto Vázquez,1,M,27380483,SI
+5770,17,3,,5,Vanina Micello,2,F,22962662,SI
+5771,17,3,,5,Gonzalo Facundo Mammana,3,M,31751849,SI
+5772,17,3,,5,María Celeste Mac Dougall,4,F,26437904,SI
+5773,17,3,,5,Pablo Scarpitta Bas,5,M,23377475,SI
+5774,17,3,,5,Amanda Martín,6,F,28728009,SI
+5775,17,3,,5,Diego Alejandro Scibona,7,M,25284603,SI
+5776,17,3,,5,Sofía Jimena Homzi,1,F,33984005,NO
+5777,17,3,,5,Lautaro Reyes Caballero,2,M,32952547,NO
+5778,17,3,,5,Lucía Carla Romano,3,F,36319328,NO
+5779,17,3,,6,Jennifer Laila Wainberg,1,F,33534024,SI
+5780,17,3,,6,Lucas Emmanuel Robledo,2,M,27938878,SI
+5781,17,3,,6,Natalia Capano,3,F,23670270,SI
+5782,17,3,,6,Martín Brat,4,M,29371398,SI
+5783,17,3,,6,Mariana Sampaiño,5,F,29316293,SI
+5784,17,3,,6,Iván Moschner,6,M,16427788,SI
+5785,17,3,,6,Gloria Pagés,7,F,24155579,SI
+5786,17,3,,6,Esteban Mercatante,1,M,28230591,NO
+5787,17,3,,6,Juliana Bossio,2,F,34975682,NO
+5788,17,3,,7,Sergio Bertoli,1,M,18865971,SI
+5789,17,3,,7,Mariana Núñez,2,F,17453834,SI
+5790,17,3,,7,Nicolás Andrés Rapanelli,3,M,27259977,SI
+5791,17,3,,7,María Lorena Castro,4,F,25556581,SI
+5792,17,3,,7,Víctor Ernesto Reyes,5,M,24378598,SI
+5793,17,3,,7,María Celeste Cimino,6,F,34772791,SI
+5794,17,3,,7,Guillermo Schmal,7,M,23126307,SI
+5795,17,3,,7,Gabriela Inés Murua,1,F,29400975,NO
+5796,17,3,,7,Alfonso José de Villalobos,2,M,34293907,NO
+5797,17,3,,7,María de los Milagros Amerise,3,F,32267628,NO
+5798,17,3,,7,Francisco Ezequiel Perichón,4,M,37541909,NO
+5799,17,3,,8,Mauro Daniel Gonzalez Deocare,1,M,34539317,SI
+5800,17,3,,8,Nadia Gauna,2,F,30491420,SI
+5801,17,3,,8,Ezequiel Darío Cabrera,3,M,40133451,SI
+5802,17,3,,8,Claudia Alejandra Vidal,4,F,14873754,SI
+5803,17,3,,8,Jorge Ariel Rojo,5,M,22100022,SI
+5804,17,3,,8,Viviana Garcia,6,F,21815938,SI
+5805,17,3,,8,Santiago Gualco,7,M,23148159,SI
+5806,17,3,,8,Claudia Elizabeth Paliza,1,F,24409541,NO
+5807,17,3,,8,Nicolás Dimuro,2,M,30939638,NO
+5808,17,3,,8,María Alejandra Mastrolorenzo,3,F,21613519,NO
+5809,17,3,,8,Ariel Liefeldt,4,M,29041567,NO
+5810,17,3,,9,Juliana García,1,F,23782009,SI
+5811,17,3,,9,Leonardo Furman,2,M,26363337,SI
+5812,17,3,,9,Micaela Ailín Morina,3,F,33366262,SI
+5813,17,3,,9,Martín Durand,4,M,26136180,SI
+5814,17,3,,9,Marina Erusalimsky,5,F,32244096,SI
+5815,17,3,,9,Leopoldo Mario Torcal,6,M,10084209,SI
+5816,17,3,,9,Lucila Maria Akilian,7,F,31674589,SI
+5817,17,3,,9,Juan Agustín Reynoso Mujica,1,M,35976787,NO
+5818,17,3,,9,María del Pilar Barbas,2,F,38625331,NO
+5819,17,3,,10,Bárbara Villegas,1,F,28305672,SI
+5820,17,3,,10,Nicolás Antonio Rosselló,2,M,30834091,SI
+5821,17,3,,10,María Eugenia Torriglia,3,F,32890829,SI
+5822,17,3,,10,Leonel Gironella,4,M,32438596,SI
+5823,17,3,,10,Gabriela Laura González,5,F,22425002,SI
+5824,17,3,,10,Christian Romero,6,M,25797350,SI
+5825,17,3,,10,María Candelaria Mainella,7,F,37233806,SI
+5826,17,3,,10,Flavio Gabriel Pereyra,1,M,27729810,NO
+5827,17,3,,10,Cristina Mónica Passarelli,2,F,13515536,NO
+5828,17,3,,10,Martín Daniel Grifol,3,M,29191647,NO
+5829,17,3,,10,Victoria Stefanía Remesar Gundin,4,F,35317033,NO
+5830,17,3,,11,Marilina Arias,1,F,31492576,SI
+5831,17,3,,11,Alejandro Resnik,2,M,26364426,SI
+5832,17,3,,11,Natalia Soledad Fiori,3,F,30410415,SI
+5833,17,3,,11,Juan Winograd,4,M,35973094,SI
+5834,17,3,,11,Esther Mirta Grinberg,5,F,18029508,SI
+5835,17,3,,11,Diego Hernán Talice,6,M,36153043,SI
+5836,17,3,,11,Ludmila Mariel Pons,7,F,36702665,SI
+5837,17,3,,11,Eduardo Graziadei,1,M,23672159,NO
+5838,17,3,,11,Patricia Lourdes Pereyra,2,F,35972053,NO
+5839,17,3,,12,Mario Gregorio Diamonte,1,M,8708065,SI
+5840,17,3,,12,Larisa Magali Perez,2,F,33204554,SI
+5841,17,3,,12,Simón Milman,3,M,8271401,SI
+5842,17,3,,12,Valeria Edith Lobos,4,F,29726138,SI
+5843,17,3,,12,Juan Manuel Riderelli,5,M,33347883,SI
+5844,17,3,,12,Gimena Verónica Molina,6,F,31999349,SI
+5845,17,3,,12,Matías Nicolás Pennisi,7,M,32990127,SI
+5846,17,3,,12,Jésica Calcagno,1,F,31251726,NO
+5847,17,3,,12,Guido Spadavecchia,2,M,34390869,NO
+5848,17,3,,12,Romina Daniela Larraburo,3,F,26747360,NO
+5849,17,3,,13,Raúl Eduardo Espineda,1,M,8528093,SI
+5850,17,3,,13,Lucía Berra,2,F,25966802,SI
+5851,17,3,,13,Hernán Carlos de Vega,3,M,18513237,SI
+5852,17,3,,13,María del Rosario de Mendieta,4,F,36169607,SI
+5853,17,3,,13,Emilio Salgado Quintans,5,M,23675864,SI
+5854,17,3,,13,Teresita Sartor,6,F,11961780,SI
+5855,17,3,,13,Patricio Ábalos Testoni,7,M,30081287,SI
+5856,17,3,,13,Tatiana Kertesz,1,F,36948306,NO
+5857,17,3,,13,Santiago Azzati,2,M,33597137,NO
+5858,17,3,,13,María Ghitman,3,F,18443006,NO
+5859,17,3,,14,Federico Lindenboim,1,M,28907513,SI
+5860,17,3,,14,Paula Varela,2,F,23126203,SI
+5861,17,3,,14,Guido Gastón Lapajufker,3,M,34435220,SI
+5862,17,3,,14,Ivana Otero,4,F,31208103,SI
+5863,17,3,,14,Martín Rampoldi,5,M,18315370,SI
+5864,17,3,,14,Alicia Ángela Rodríguez,6,F,10128821,SI
+5865,17,3,,14,Federico Ariel Matz,7,M,33811858,SI
+5866,17,3,,14,Romina Laura Lijavetzky,1,F,34049951,NO
+5867,17,3,,14,Ezequiel Sesma,2,M,34866845,NO
+5868,17,3,,15,Federico Correa,1,M,27590938,SI
+5869,17,3,,15,Selma Saeg,2,F,39643986,SI
+5870,17,3,,15,Sergio René Bassa,3,M,12601631,SI
+5871,17,3,,15,Isabel Parada Denis,4,F,18707145,SI
+5872,17,3,,15,Facundo Gómez Giussani,5,M,36726933,SI
+5873,17,3,,15,Noelia Nahir Ale,6,F,34928399,SI
+5874,17,3,,15,Ándres Guillermo Arroyo,7,M,30220515,SI
+5875,17,3,,15,Elsa Beatriz Britez,1,F,24268216,NO
+5876,17,3,,15,Iván Federico Baigún,2,M,34390433,NO
+5877,23,2,CABA,,Carlos Alfonso Tomada,1,M,4981867,SI
+5878,23,2,CABA,,Paula Andrea Penacca,2,F,28860599,SI
+5879,23,2,CABA,,Silvia María Eva Gottero,3,F,11202891,SI
+5880,23,2,CABA,,Claudio Alejandro Heredia,4,M,22812920,SI
+5881,23,2,CABA,,Javier Andrade,5,M,20572683,SI
+5882,23,2,CABA,,María Andrea Conde,6,F,18531936,SI
+5883,23,2,CABA,,Claudio Alberto Morresi,7,M,14872455,SI
+5884,23,2,CABA,,Mara Brawer,8,F,14958057,SI
+5885,23,2,CABA,,Matías Barroetaveña,9,M,18548532,SI
+5886,23,2,CABA,,Juan Pablo O Dezaille,10,M,14769513,SI
+5887,23,2,CABA,,Celeste Agostina Viviani,11,F,34767426,SI
+5888,23,2,CABA,,Juan Manuel Valdés,12,M,33259515,SI
+5889,23,2,CABA,,José María Di Bello,13,M,20521423,SI
+5890,23,2,CABA,,Ana Liliana Maiorkevich,14,F,16071970,SI
+5891,23,2,CABA,,Horacio Orlando Mosquera,15,M,20005500,SI
+5892,23,2,CABA,,Antonio Alberto Di Girolamo,16,M,18286646,SI
+5893,23,2,CABA,,María Florencia Carril,17,F,33257699,SI
+5894,23,2,CABA,,Marcelo Gabriel D Ambrosio,18,M,22653737,SI
+5895,23,2,CABA,,Noelia Luciana Gabriel,19,F,31189955,SI
+5896,23,2,CABA,,Jaime Rodolfo Sorín,20,M,4530103,SI
+5897,23,2,CABA,,Oscar Alberto Onesimo Leguizamón,21,M,12667430,SI
+5898,23,2,CABA,,Vanesa Raquel Siley,22,F,31114069,SI
+5899,23,2,CABA,,Rodrigo Franco,23,M,34571167,SI
+5900,23,2,CABA,,Braulio Silva Echevarría,24,M,28505527,SI
+5901,23,2,CABA,,Cristina Navazo,25,F,5806227,SI
+5902,23,2,CABA,,Oscar Julio Trotta,26,M,17233770,SI
+5903,23,2,CABA,,Alejandro David Salvatierra,27,M,27898892,SI
+5904,23,2,CABA,,Ana Elisa Barrio,28,F,22049451,SI
+5905,23,2,CABA,,Fernando Iacovone,29,M,31996337,SI
+5906,23,2,CABA,,Joaquín Gastón Pérez Suárez,30,M,33545076,SI
+5907,23,2,CABA,,Berenice Lía Iañez,1,F,29393223,NO
+5908,23,2,CABA,,Hugo Osvaldo Ferreyra,2,M,11849748,NO
+5909,23,2,CABA,,Luis Alberto Abad,3,M,7377752,NO
+5910,23,2,CABA,,Luciana Marina Baddouh González,4,F,32436814,NO
+5911,23,2,CABA,,Domingo José Álvarez,5,M,13238283,NO
+5912,23,2,CABA,,Alejandro Marcos Gianni,6,M,25698040,NO
+5913,23,2,CABA,,Natalia Gabriela Rost,7,F,31477376,NO
+5914,23,2,CABA,,Julián Hofele,8,M,35062917,NO
+5915,23,2,CABA,,Eugenio Osvaldo Ferraro,9,M,22432215,NO
+5916,23,2,CABA,,María Sol Giles,10,F,32265343,NO
+5917,23,3,,1,Gabriel Antonio Sánchez,1,M,23522799,SI
+5918,23,3,,1,Edith Ramona Oviedo,2,F,5701800,SI
+5919,23,3,,1,Héctor René Guanco,3,M,18562711,SI
+5920,23,3,,1,Antonia Portaneri,4,F,22158439,SI
+5921,23,3,,1,Pablo Antonio Robles,5,M,32438366,SI
+5922,23,3,,1,Sandra Lorena Tejeda Chauqui,6,F,23376544,SI
+5923,23,3,,1,José María González,7,M,24083625,SI
+5924,23,3,,1,Georgina Sabadini,1,F,29119153,NO
+5925,23,3,,1,Héctor Daniel Roterio,2,M,11455819,NO
+5926,23,3,,1,Ana Luisa Molina,3,F,11122879,NO
+5927,23,3,,1,Ángel Raúl Giménez,4,M,33114762,NO
+5928,23,3,,2,Laureano Bielsa,1,M,36785607,SI
+5929,23,3,,2,Mónica Susana Capano,2,F,10134825,SI
+5930,23,3,,2,Manuel Antelo,3,M,21819891,SI
+5931,23,3,,2,Rosario María del Corazón de Jesús Leiras,4,F,36990582,SI
+5932,23,3,,2,Andrés Omar Atallah,5,M,27934247,SI
+5933,23,3,,2,Susana Beatriz Buscetto,6,F,6352949,SI
+5934,23,3,,2,Carlos Damián Pascual,7,M,10463572,SI
+5935,23,3,,2,Ana Paula Rodríguez,1,F,36729871,NO
+5936,23,3,,2,Leandro Javier Lachener,2,M,36530093,NO
+5937,23,3,,2,Mercedes Duhalde,3,F,26997447,NO
+5938,23,3,,3,María de los Ángeles Suárez,1,F,16225891,SI
+5939,23,3,,3,Gabriel Nicolás Zicolillo,2,M,26316425,SI
+5940,23,3,,3,Alicia Beatriz Aguerrido,3,F,10614921,SI
+5941,23,3,,3,Gustavo Pedro Vera,4,M,30394117,SI
+5942,23,3,,3,Ximena Guadalupe Merlo Avila,5,F,24872128,SI
+5943,23,3,,3,Agustín Longo Azuaga,6,M,38881137,SI
+5944,23,3,,3,María Paula Galli,7,F,24061653,SI
+5945,23,3,,3,Iván Ramón González,1,M,33625394,NO
+5946,23,3,,3,Verónica Patricia Vigna Gómez,2,F,27745804,NO
+5947,23,3,,4,María Victoria Colombo,1,F,28322982,SI
+5948,23,3,,4,Ricardo Oscar Sole,2,M,16089687,SI
+5949,23,3,,4,Luz Marina Martínez,3,F,13217515,SI
+5950,23,3,,4,Maximiliano Jorge Nenna,4,M,27026309,SI
+5951,23,3,,4,Alicia Esther Gariglio,5,F,17862303,SI
+5952,23,3,,4,Daniel Alberto Domínguez,6,M,16583536,SI
+5953,23,3,,4,Stella Maris Segui,7,F,18633462,SI
+5954,23,3,,4,Marcelo Oscar Páez,1,M,18597281,NO
+5955,23,3,,4,Adriana Karina Maldonado,2,F,28911711,NO
+5956,23,3,,4,Horacio Gabriel García Cairone,3,M,21657703,NO
+5957,23,3,,4,Julia Cofreces,4,F,34028901,NO
+5958,23,3,,5,María Laura Corvalán,1,F,32272548,SI
+5959,23,3,,5,Mario Alejandro Reina,2,M,16837649,SI
+5960,23,3,,5,María Cristina Cabrera,3,F,11409838,SI
+5961,23,3,,5,Agustín Collazo,4,M,31059393,SI
+5962,23,3,,5,Liliana Vanesa Telias,5,F,25433164,SI
+5963,23,3,,5,Mariano Francisco A Luongo,6,M,25610518,SI
+5964,23,3,,5,Alicia Inés Rotela,7,F,13214243,SI
+5965,23,3,,5,Andrés Larisgoitia,1,M,12089482,NO
+5966,23,3,,5,Ana María Orozco,2,F,17610967,NO
+5967,23,3,,5,Marcelo Alfredo Gil,3,M,16766630,NO
+5968,23,3,,5,Laura Lorena Bolaños,4,F,27943039,NO
+5969,23,3,,6,Osvaldo Balossi,1,M,31465237,SI
+5970,23,3,,6,Ondina Beatriz Fraga,2,F,20231620,SI
+5971,23,3,,6,Pedro Atilio Fernández,3,M,36398904,SI
+5972,23,3,,6,Cintia Romina Neves,4,F,26844235,SI
+5973,23,3,,6,Juan Pablo Paredes,5,M,17863553,SI
+5974,23,3,,6,Laura Cecilia Morán,6,F,28749197,SI
+5975,23,3,,6,Juan M Rodiño López,7,M,31008692,SI
+5976,23,3,,6,Camila Rocío García,1,F,31988455,NO
+5977,23,3,,6,Luis Alfredo Sánchez,2,M,11241911,NO
+5978,23,3,,6,Diana Gabriela Olguin,3,F,31675270,NO
+5979,23,3,,6,Roberto Fabio Quintero,4,M,17969457,NO
+5980,23,3,,7,Felisa Lidia Marinaro,1,F,4678153,SI
+5981,23,3,,7,Eusebio Lisandro Guanca,2,M,18274347,SI
+5982,23,3,,7,Claudia Gabriela Moncagatta,3,F,22197064,SI
+5983,23,3,,7,Guillermo Sebastián Zubowicz,4,M,25371441,SI
+5984,23,3,,7,Elisa Isolina Juárez,5,F,11725463,SI
+5985,23,3,,7,Leonardo Benedicto Militello,6,M,24820201,SI
+5986,23,3,,7,Catalina Plescia,7,F,35369942,SI
+5987,23,3,,7,Daniel Simón Quiroz,1,M,25057729,NO
+5988,23,3,,7,Julia Neville,2,F,29435405,NO
+5989,23,3,,7,Juan Manuel Medici,3,M,38072912,NO
+5990,23,3,,7,Noelia Vanesa Conte,4,F,31250269,NO
+5991,23,3,,8,Facundo Nicolás Roma,1,M,31896854,SI
+5992,23,3,,8,Ana Mabel Quiroga,2,F,14193442,SI
+5993,23,3,,8,Jónatan David Viera,3,M,33342158,SI
+5994,23,3,,8,Gabriela Noelia Vega,4,F,29906327,SI
+5995,23,3,,8,Hector Pedro Biassoni,5,M,12463702,SI
+5996,23,3,,8,Verónica Cecilia Humanes,6,F,32952185,SI
+5997,23,3,,8,Gustavo Armando Tarelli,7,M,21670163,SI
+5998,23,3,,8,Andrea Verónica Troitero,1,F,30046139,NO
+5999,23,3,,8,Maximiliano Ariel Sombra,2,M,30602292,NO
+6000,23,3,,8,Alicia Mariana Acevedo,3,F,25144693,NO
+6001,23,3,,8,Miguel Ángel Eviner,4,M,18563353,NO
+6002,23,3,,10,Cynthia Verónica Salama,1,F,23669423,SI
+6003,23,3,,10,Leonardo Gabriel Farías,2,M,25788118,SI
+6004,23,3,,10,María Cristina Retondini,3,F,13515090,SI
+6005,23,3,,10,Ariel Esteban García Gelabert,4,M,31973643,SI
+6006,23,3,,10,Karina Vanesa Guaragna,5,F,25284049,SI
+6007,23,3,,10,Roberto Andrino,6,M,23470845,SI
+6008,23,3,,10,María Adela Martínez,7,F,20070722,SI
+6009,23,3,,10,Victor Daniel Sueiro,1,M,21138384,NO
+6010,23,3,,10,Eva María Medina,2,F,23769023,NO
+6011,23,3,,10,Luca Kevin Pratti,3,M,36948216,NO
+6012,23,3,,11,Lucía Delfina Velázquez,1,F,35142204,SI
+6013,23,3,,11,Carlos María Eusebi,2,M,16584122,SI
+6014,23,3,,11,Anabella Irma Maresco,3,F,24083026,SI
+6015,23,3,,11,Martín Alejandro Johansen,4,M,33085452,SI
+6016,23,3,,11,Ylda Rosana Villalba,5,F,22674793,SI
+6017,23,3,,11,Juan Rodolfo Benítez,6,M,31119806,SI
+6018,23,3,,11,María Lelia Di Maio,7,F,27861708,SI
+6019,23,3,,11,Claudio Daniel Moriello,1,M,22133238,NO
+6020,23,3,,11,Victoria Pugliese,2,F,25687433,NO
+6021,23,3,,11,Federico José Cisternas Ferri,3,M,35805440,NO
+6022,23,3,,11,Angie Ayelén Martínez,4,F,36163063,NO
+6034,23,3,,13,María Julieta Costa Díaz,1,F,30892573,SI
+6035,23,3,,13,Diego Gonzalo Achile,2,M,22676873,SI
+6036,23,3,,13,María Laura Santello,3,F,31438234,SI
+6037,23,3,,13,Juan Carlos Molina,4,M,13591747,SI
+6038,23,3,,13,Alicia Rita Leiva,5,F,13068344,SI
+6039,23,3,,13,Juan Manuel Bruno,6,M,28987244,SI
+6040,23,3,,13,María Micaela Amor,7,F,33182059,SI
+6041,23,3,,13,Facundo Gabriel Soncini,1,M,33669600,NO
+6042,23,3,,13,Mercedes Soria,2,F,13149900,NO
+6043,23,3,,13,Marcelo Adrián Tejero,3,M,20204125,NO
+6044,23,3,,13,Mariela María Castillo,4,F,25764625,NO
+6045,23,3,,14,Diego Sokolowicz,1,M,34049673,SI
+6046,23,3,,14,Dora Isabel Villagra,2,F,10753873,SI
+6047,23,3,,14,Matías Dousdebes,3,M,18862245,SI
+6048,23,3,,14,Alicia Mabel Reynoso,4,F,13465769,SI
+6049,23,3,,14,Cristian Gabriel Milano,5,M,23605100,SI
+6050,23,3,,14,María de los Milagros Puig,6,F,28490464,SI
+6051,23,3,,14,Juan Marcelo Bogarin,7,M,23111316,SI
+6052,23,3,,14,María Paz Carreira Griot,1,F,32069468,NO
+6053,23,3,,14,Federico Vicens,2,M,33642130,NO
+6054,23,3,,14,Marta del Valle Valdez,3,F,5728009,NO
+6055,23,3,,14,Matías Federico Nielsen,4,M,29697999,NO
+6056,23,3,,15,Camila Febe Rodríguez,1,F,25678002,SI
+6057,23,3,,15,Germán Palladino,2,M,31930468,SI
+6058,23,3,,15,María del Carmen Merzario,3,F,12787719,SI
+6059,23,3,,15,Emanuel Roque Regina,4,M,29458854,SI
+6060,23,3,,15,Agostina Conte Grand,5,F,36172484,SI
+6061,23,3,,15,Sergio Rubén Pra,6,M,8450596,SI
+6062,23,3,,15,Laura Ester Herrero,7,F,18446523,SI
+6063,23,3,,15,Roy Adriel Kovensky Pascar,1,M,36896783,NO
+6064,23,3,,15,Gladys Noemí Yapura,2,F,14970379,NO
+6065,23,3,,15,Jorge Antonio Amitrano,3,M,11889971,NO
+6066,24,3,,8,Jorge Leonel Sampedro,1,M,30023229,SI
+6067,24,3,,8,Paula Alejandra Lentini,2,F,22848340,SI
+6068,24,3,,8,Diego Hernán Cavia,3,M,32615760,SI
+6069,24,3,,8,Carlina del Valle Sanchez,4,F,12639405,SI
+6070,24,3,,8,Gustavo Javier Talerico,5,M,24873079,SI
+6071,24,3,,8,Mariana Ivana Luongo,6,F,28361145,SI
+6072,24,3,,8,Luis Rolando de Dios,7,M,23782649,SI
+6073,24,3,,8,Natalia Lorena Ramos,1,F,29053530,NO
+6074,24,3,,8,Emanuel David Ávalos,2,M,32791073,NO
+6075,24,3,,8,Johanna Giselle Banega,3,F,34600735,NO
+6076,24,3,,8,Mauro Maximiliano E D Jesús,4,M,22046331,NO
+6077,18,2,CABA,,Francisco Javier Quintana,1,M,29718893,SI
+6078,18,2,CABA,,Omar Ahmed Abboud,2,M,17450843,SI
+6079,18,2,CABA,,Silvana Myriam Giudici,3,F,14540890,SI
+6080,18,2,CABA,,José Luis Acevedo,4,M,17453673,SI
+6081,18,2,CABA,,Daniel Eduardo del Sol,5,M,20061986,SI
+6082,18,2,CABA,,Carolina Estebarena,6,F,23124890,SI
+6083,18,2,CABA,,Iván Carlos Dagoberto Kerr,7,M,25597686,SI
+6084,18,2,CABA,,Claudio Omar Niño,8,M,14026089,SI
+6085,18,2,CABA,,Lía Elena Rueda,9,F,4932771,SI
+6086,18,2,CABA,,Gabriel Maximiliano Sahonero,10,M,31190222,SI
+6087,18,2,CABA,,Eduardo Antonio Santamarina,11,M,10101804,SI
+6088,18,2,CABA,,Paula Beatriz Villalba,12,F,21729726,SI
+6089,18,2,CABA,,Jian Ping Yuan,13,M,18828885,SI
+6090,18,2,CABA,,Daniel Agustín Presti,14,M,20174124,SI
+6091,18,2,CABA,,Genoveva María Ferrero,15,F,30744939,SI
+6092,18,2,CABA,,Christian Federico Bauab,16,M,22500144,SI
+6093,18,2,CABA,,Alejandro Gabriel Fernández,17,M,21104793,SI
+6094,18,2,CABA,,María Mercedes Gómez de Las Casas,18,F,25127532,SI
+6095,18,2,CABA,,Eduardo Petrini,19,M,34551939,SI
+6096,18,2,CABA,,Diego Sebastian Marías,20,M,23849335,SI
+6097,18,2,CABA,,Raquel Vivian Munt,21,F,12631318,SI
+6098,18,2,CABA,,Federico Hernán Pugliese,22,M,28323239,SI
+6099,18,2,CABA,,Octavio Calderón,23,M,22736250,SI
+6100,18,2,CABA,,Carolina Barone,24,F,32500780,SI
+6101,18,2,CABA,,Christian Oscar Guma,25,M,29718675,SI
+6102,18,2,CABA,,Agustín Marcos Ferrari,26,M,12514712,SI
+6103,18,2,CABA,,Paula Valeria Scauzillo,27,F,26262617,SI
+6104,18,2,CABA,,Ana María Urbicain,28,F,4643266,SI
+6105,18,2,CABA,,Benigno Emilio Raposo Varela,29,M,14195571,SI
+6106,18,2,CABA,,Matías Nicolás Campoamor,30,M,33272197,SI
+6107,18,2,CABA,,Maria Pía Delneri,1,F,34583522,NO
+6108,18,2,CABA,,Martín Tomás César,2,M,35729296,NO
+6109,18,2,CABA,,Germán Gonzalo de Dios Pajón,3,M,33103313,NO
+6110,18,2,CABA,,María Florencia Torrisi,4,F,33403337,NO
+6111,18,2,CABA,,Lucas Horacio Portela Lacanette,5,M,34257915,NO
+6112,18,2,CABA,,Ilya Kotov,6,M,18873267,NO
+6113,18,2,CABA,,Marisol San Román Snopkowski,7,F,38888720,NO
+6114,18,2,CABA,,Gonzalo Manuel Álvarez Varela,8,M,32480306,NO
+6115,18,2,CABA,,Florencia María Luz Cony,9,F,29038566,NO
+6116,18,2,CABA,,Isabel Vogelius,10,F,32891521,NO
+6117,18,3,,1,Roberto Oscar Salcedo,1,M,13628165,SI
+6118,18,3,,1,Gisela María Speiser,2,F,13877230,SI
+6119,18,3,,1,Carlos Eduardo Podestá,3,M,21963145,SI
+6120,18,3,,1,Mirta Susana Marcos,4,F,11551292,SI
+6121,18,3,,1,Norberto Ricardo Medrano,5,M,12438921,SI
+6122,18,3,,1,Elena Gloria Valero Narváez,6,F,5413570,SI
+6123,18,3,,1,Alejandro Manuel Antonio Ferrari Arbor,7,M,32344398,SI
+6124,18,3,,1,Ana María Poggi,1,F,10138510,NO
+6125,18,3,,1,Carlos Federico Romero,2,M,10099169,NO
+6126,18,3,,1,Elida Alcira Mauri,3,F,3670915,NO
+6127,18,3,,1,Ruben Héctor Russo,4,M,12093302,NO
+6139,18,3,,3,Carlos Omar Breyaui,1,M,12081774,SI
+6140,18,3,,3,María Nicásia Santiago,2,F,5987808,SI
+6141,18,3,,3,Nicolás Mansilla Asen,3,M,34482714,SI
+6142,18,3,,3,Lilián Isabel Sandoval,4,F,11082248,SI
+6143,18,3,,3,Rodrigo Ezequiel Márquez,5,M,35325976,SI
+6144,18,3,,3,Micaela Solange Rodríguez,6,F,37969162,SI
+6145,18,3,,3,Santiago Daniel Calise,7,M,22365067,SI
+6146,18,3,,3,Paola Noemí Batalla,1,F,27573823,NO
+6147,18,3,,3,José Fabián Kibudi,2,M,17364890,NO
+6148,18,3,,3,Viviana Andrea Sobrino,3,F,23463054,NO
+6149,18,3,,3,Jorge Eduardo Gimenez,4,M,11162388,NO
+6150,18,3,,4,Héctor Jorge Apreda,1,M,11134123,SI
+6151,18,3,,4,Gladys Carolina Romero Cristaldo,2,F,18865143,SI
+6152,18,3,,4,Diego Ariel Weck,3,M,22517516,SI
+6153,18,3,,4,Viviana Noemí de Turris,4,F,17232824,SI
+6154,18,3,,4,Roberto Daniel Gorza,5,M,11069716,SI
+6155,18,3,,4,Mónica Elida Ferreyra,6,F,11897263,SI
+6156,18,3,,4,Hugo Marcel,7,M,4426689,SI
+6157,18,3,,4,Marcela Claudia Angioi,1,F,17674435,NO
+6158,18,3,,4,Julio César Cano,2,M,14884477,NO
+6159,18,3,,4,María Flora Blanck Mendoza,3,F,33004344,NO
+6160,18,3,,4,Cristian Daniel Mealla,4,M,23205148,NO
+6161,18,3,,5,Marcelo Claudio Bouzas,1,M,14751048,SI
+6162,18,3,,5,Romina Laura Rimati,2,F,29038956,SI
+6163,18,3,,5,Rubén Daniel Otero,3,M,12463592,SI
+6164,18,3,,5,María Guadalupe San Román,4,F,28755815,SI
+6165,18,3,,5,Hugo Jorge Reyes,5,M,18272594,SI
+6166,18,3,,5,Silvina Lorena Blanco,6,F,23511767,SI
+6167,18,3,,5,Jorge Fernando Ángel Ciampoli,7,M,18410437,SI
+6168,18,3,,5,Silvia Albamonte,1,F,16062180,NO
+6169,18,3,,5,Daniel Jorge Pérez,2,M,11399214,NO
+6170,18,3,,5,Marta Rosa Villarreal,3,F,22581410,NO
+6171,18,3,,5,Jerónimo Ariel Floriani,4,M,24694797,NO
+6172,18,3,,6,Hipólito Tristán Forno,1,M,32327688,SI
+6173,18,3,,6,Susana Beatriz Espósito,2,F,10121348,SI
+6174,18,3,,6,Carlos Alberto Gamboa,3,M,16495214,SI
+6175,18,3,,6,María Fernanda Moro,4,F,25941098,SI
+6176,18,3,,6,Ivo Andrés Iambrich,5,M,36807482,SI
+6177,18,3,,6,Alicia Irma Besada,6,F,11154606,SI
+6178,18,3,,6,Gustavo Severo Rafael Caballero,7,M,17712767,SI
+6179,18,3,,6,Estela Clara Zalazar,1,F,13927629,NO
+6180,18,3,,6,Martín Gonzalo Izuel,2,M,22965767,NO
+6181,18,3,,6,Silvia Beatriz Cazabat,3,F,28843759,NO
+6182,18,3,,6,Pablo Ezequiel Pirra,4,M,24127133,NO
+6183,18,3,,7,Guillermo Martín Peña,1,M,13852780,SI
+6184,18,3,,7,Claudia Viviana Mamone,2,F,16975965,SI
+6185,18,3,,7,José Atamian,3,M,10462879,SI
+6186,18,3,,7,María Cristina Gorchs,4,F,14495665,SI
+6187,18,3,,7,Arnaldo Julio Sabatini,5,M,12081321,SI
+6188,18,3,,7,Susana Alicia Petracca,6,F,12861659,SI
+6189,18,3,,7,Walter Federico Klix,7,M,30744073,SI
+6190,18,3,,7,Adriana Enriqueta Cuccaro,1,F,14596753,NO
+6191,18,3,,7,Ale Arisi,2,M,29697304,NO
+6192,18,3,,7,Elena Gallardo,3,F,5923298,NO
+6193,18,3,,7,Leonardo Manuel Kaltakdjian,4,M,30885417,NO
+6194,18,3,,8,Rosalía Eva Ferraro,1,F,5940791,SI
+6195,18,3,,8,Raúl Ricardo Díaz,2,M,31931389,SI
+6196,18,3,,8,Andrea Viviana Fariña,3,F,29364285,SI
+6197,18,3,,8,Diego Nicolás Lombardo,4,M,34482500,SI
+6198,18,3,,8,María Angélica Hernández,5,F,4955829,SI
+6199,18,3,,8,Claudio Alejandro Ale,6,M,20891940,SI
+6200,18,3,,8,Andrea Viviana Mich,7,F,26822570,SI
+6201,18,3,,8,Vicente Horacio Russo,1,M,16893703,NO
+6202,18,3,,8,Gladys Ester Miño,2,F,14188507,NO
+6203,18,3,,8,Carlos Alberto Elvira,3,M,12315939,NO
+6204,18,3,,8,Patricia Haydee Sandri,4,F,17068105,NO
+6205,18,3,,9,Analía Beatriz Palacios,1,F,23678778,SI
+6206,18,3,,9,Mariano Andrés Sirito,2,M,17356699,SI
+6207,18,3,,9,Stella Maris Martellotta,3,F,12533110,SI
+6208,18,3,,9,Ubaldo Alejandro Páez,4,M,20498267,SI
+6209,18,3,,9,Liliana Noemí Lestanquet,5,F,22858673,SI
+6210,18,3,,9,José Luis Guidali,6,M,28752744,SI
+6211,18,3,,9,Mirta Mireya Iriozola,7,F,13262047,SI
+6212,18,3,,9,Juan Cruz Hermida López,1,M,31051334,NO
+6213,18,3,,9,Gisela Massara,2,F,27226196,NO
+6214,18,3,,9,Leonel Gustavo Gómez,3,M,26518936,NO
+6215,18,3,,9,Micaela Sol Morales,4,F,37804782,NO
+6227,18,3,,11,Carlos Alberto Guzzini,1,M,7642637,SI
+6228,18,3,,11,Graciela Elisabet Valdez,2,F,13523116,SI
+6229,18,3,,11,Maximiliano Esteban Alles,3,M,35323603,SI
+6230,18,3,,11,Patricia Karina Acevedo,4,F,24345811,SI
+6231,18,3,,11,Antonio Las Heras,5,M,10479596,SI
+6232,18,3,,11,Mariana Beatriz Testa,6,F,30649324,SI
+6233,18,3,,11,Mariano Servando Menéndez,7,M,16895228,SI
+6234,18,3,,11,Sofía Pallitto,1,F,32236744,NO
+6235,18,3,,11,Walter Gastón Benavídez,2,M,38883440,NO
+6236,18,3,,11,María Victoria Pavia,3,F,11384096,NO
+6237,18,3,,11,Carlos Alberto Buletti,4,M,12969789,NO
+6238,18,3,,12,Jorge Arturo Roca,1,M,10691028,SI
+6239,18,3,,12,Susana Beatriz Mosquera,2,F,10264728,SI
+6240,18,3,,12,Marcelo Fabián Costantino,3,M,18285176,SI
+6241,18,3,,12,Deolinda Teresa Valdez,4,F,996158,SI
+6242,18,3,,12,Walter Jorge Macri,5,M,16130467,SI
+6243,18,3,,12,Paula Sofía Vázquez Gregotti,6,F,35271049,SI
+6244,18,3,,12,Miguel Alejandro Davidziuk,7,M,13214853,SI
+6245,18,3,,12,Mónica Liliana Machín,1,F,13038368,NO
+6246,18,3,,12,Juan Bautista Lavarello,2,M,4536053,NO
+6247,18,3,,12,María Belén del Horno,3,F,38625727,NO
+6248,18,3,,12,Santiago Agustín Vorsic,4,M,34536167,NO
+6249,18,3,,13,Gustavo Javier Acevedo,1,M,20469641,SI
+6250,18,3,,13,Marcela Adriana Castillo,2,F,23133322,SI
+6251,18,3,,13,Horacio Héctor Monteira,3,M,12643083,SI
+6252,18,3,,13,Silvia Norma Mazzitelli,4,F,12081529,SI
+6253,18,3,,13,Carlos María Brun,5,M,18442903,SI
+6254,18,3,,13,María Rosa Prada,6,F,10751474,SI
+6255,18,3,,13,Roberto Nicolás Guacci,7,M,7377036,SI
+6256,18,3,,13,Graciela Elena del Valle Fescina,1,F,12889542,NO
+6257,18,3,,13,Leandro de Anta,2,M,27287469,NO
+6258,18,3,,13,Liliana del Valle Zabala,3,F,13020129,NO
+6259,18,3,,13,Diego Leandro Bulbulian,4,M,24583927,NO
+6271,18,3,,15,Jorge Arnoldo Lucchesi,1,M,8626034,SI
+6272,18,3,,15,María Eugenia Moscariello,2,F,24574149,SI
+6273,18,3,,15,Alfredo Agustín Raimundo,3,M,13368005,SI
+6274,18,3,,15,Graciela Luisa Torres,4,F,4861492,SI
+6275,18,3,,15,Maximiliano Raúl Rima,5,M,25096565,SI
+6276,18,3,,15,Rosana Karina Giarrusso,6,F,21834858,SI
+6277,18,3,,15,Pablo Martín Bustamante,7,M,23328112,SI
+6278,18,3,,15,Elena Mabel Barragán,1,F,13543779,NO
+6279,18,3,,15,Fernando Luis Soto González,2,M,17401521,NO
+6280,18,3,,15,Yanina Fernanda Lucioni,3,F,30979628,NO
+6281,18,3,,15,Raul Darío de Cunto,4,M,13071235,NO
+6282,18,3,,10,Daniel Adrián D Ippolito,1,M,18397162,SI
+6283,18,3,,10,Silvia María Alejandra Uhalde,2,F,16653591,SI
+6284,18,3,,10,Héctor Roberto Vázquez,3,M,12982076,SI
+6285,18,3,,10,Gabriela Laura Nieves,4,F,27593120,SI
+6286,18,3,,10,Gustavo Claudio Licastro,5,M,21918042,SI
+6287,18,3,,10,Micaela Belén Catania,6,F,37688342,SI
+6288,18,3,,10,Carlos Alberto Páez,7,M,4438079,SI
+6289,18,3,,10,María Teresa Poquet,1,F,14596661,NO
+6290,18,3,,10,Silvio Alfonzo Mora,2,M,21763909,NO
+6291,18,3,,10,Teresa del Carmen Fernández,3,F,380699,NO
+6292,18,3,,10,Sergio Emanuel Balestrini,4,M,31475666,NO
+6293,18,3,,2,Facundo Carrillo,1,M,29751476,SI
+6294,18,3,,2,Andrea Araya,2,F,12044864,SI
+6295,18,3,,2,Agustín Federico Fox,3,M,33241737,SI
+6296,18,3,,2,María Paula Lopardo,4,F,18038856,SI
+6297,18,3,,2,Agustín Wenceslao Giustinian,5,M,24881702,SI
+6298,18,3,,2,Marta Graciela Stornelli,6,F,4539404,SI
+6299,18,3,,2,Fernando Gabriel Ferreyra,7,M,17815093,SI
+6300,18,3,,2,María Alejandra Fuertes Vega,1,F,16137449,NO
+6301,18,3,,2,Matías Astorga Quintana,2,M,34098617,NO
+6302,18,3,,2,María Belén Silva,3,F,29906616,NO
+6303,18,3,,2,José Félix Uriburu,4,M,10963765,NO
+6326,17,1,CABA,,José Castillo,2,M,14817580,SI
+6327,18,1,CABA,,Diego César Santilli,2,M,17735449,SI
+6328,16,1,CABA,,Fernando Sánchez,2,M,23273884,SI
+6340,23,3,,9,Mariano Martín Henares López,1,M,30333079,SI
+6341,23,3,,9,Aixa Natalia Rocha Jerez,2,F,34558231,SI
+6342,23,3,,9,Juan José Chaves,3,M,25345323,SI
+6343,23,3,,9,Lucila Mara Pappalardo,4,F,32830341,SI
+6344,23,3,,9,Pablo Damián Calerame,5,M,22393736,SI
+6345,23,3,,9,María Laura Salvatierra,6,F,32403528,SI
+6346,23,3,,9,Marcos Adrián Díaz,7,M,28731614,SI
+6347,23,3,,9,Silvia Beatriz Álvarez,1,F,17856679,NO
+6348,23,3,,9,Gustavo Alberto Rebuelta,2,M,20005876,NO
+6349,23,3,,9,Paula Andrea Bernardello,3,F,24587978,NO
+6350,23,3,,9,Claudio Hernán Míguez,4,M,17809633,NO
+6351,23,3,,12,Gustavo Hugo Vaca,1,M,22656480,SI
+6352,23,3,,12,Marcela Laura Colcermiani,2,F,17636614,SI
+6353,23,3,,12,Andrés Domingo González,3,M,12713953,SI
+6354,23,3,,12,Julia Laura Dorin,4,F,29480535,SI
+6355,23,3,,12,Roberto Hugo Sonzogni,5,M,4448666,SI
+6356,23,3,,12,María Ximena Tesouro,6,F,33021800,SI
+6357,23,3,,12,Jorge Alberto Quevedo,7,M,4553614,SI
+6358,23,3,,12,Nora Irene Kristof,1,F,6523136,NO
+6359,23,3,,12,Ricardo René Figueroa,2,M,26539869,NO
+6360,23,3,,12,Julieta Florido,3,F,25385458,NO
+6361,23,3,,12,Jorge Luis Rosello,4,M,16686151,NO
+6363,23,1,CABA,,Leandro Jorge Santoro,2,M,24997995,SI
+6364,18,3,,14,Maximiliano Corach,1,M,22809111,SI
+6365,18,3,,14,Irene Leonor Picasso,2,F,6045423,SI
+6366,18,3,,14,Alejandro Pérez,3,M,21644236,SI
+6367,18,3,,14,María Alejandra Ferreyra,4,F,14526763,SI
+6368,18,3,,14,Ramón Beccar Varela,5,M,30277967,SI
+6369,18,3,,14,María Amelia Concepción Alonso,6,F,10704455,SI
+6370,18,3,,14,Martín Oscar Cantera,7,M,34811282,SI
+6371,18,3,,14,Alicia Borkowski,1,F,13127079,NO
+6372,18,3,,14,Fernando Juan Humberto Lunghi,2,M,13276568,NO
+6373,18,3,,14,Silvia Alicia Marchesi,3,F,6227437,NO
+6374,18,3,,14,José Ramón Ciancio,4,M,29129876,NO
+8000,800,4,,9,SI,1,M,,SI
+8001,800,4,,9,Apruebo que la actual Comuna 9 pase a denominarse: 'Lisandro de la Torre',2,M,,SI
+8002,801,4,,9,NO,1,M,,SI
+8003,801,4,,9,Apruebo que la actual Comuna 9 pase a denominarse: 'Lisandro de la Torre',2,M,,SI
+8004,802,4,,9,No Participo,1,M,,SI
+8005,802,4,,9,de la Consulta,2,M,,SI

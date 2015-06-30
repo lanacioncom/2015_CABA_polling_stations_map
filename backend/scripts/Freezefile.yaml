@@ -1,0 +1,19 @@
+common:
+
+  database: "postgresql://jjelosua@localhost:5432/pasocaba2015_loc2"
+  prefix: data/export
+  format: csv
+
+exports:
+
+  - query: "SELECT * FROM votos_loc order by id_agrupado, votos desc"
+    filename: "votos_establecimiento.csv"
+
+  - query: "select * FROM censo_loc order by id_agrupado, total desc"
+    filename: "votos.csv"
+
+  - query: "select * FROM totales_loc order by id_agrupado"
+    filename: "totales.csv"
+
+  - query: "select * FROM cache_votos_paso_2015_loc order by margin_victory desc"
+    filename: "cache.csv"
