@@ -114,14 +114,6 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
         helpers.close_slide();
     });
 
-    var featureOver = function(e, latlng, pos, data, layerNumber) {
-        $('#mapa_cont').css('cursor', 'pointer');
-    };
-
-    var featureOut = function(e, layer) {
-        $('#mapa_cont').css('cursor', 'auto');
-    };
-
     var d3featureOver = function(d, i) {
         $('#mapa_cont').css('cursor', 'pointer');
     };
