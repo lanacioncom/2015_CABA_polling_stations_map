@@ -26,7 +26,7 @@ Backend usage
 
 6. Run the script to process and load the DB tables
 
-        $ python scripts/process_data_psql.py  
+        $ python scripts/process_results.py  
 
 ## Implementation notes
 

@@ -1,0 +1,22 @@
+<a class="cerrar">x</a>
+<div id="x_interna">
+    <ul id="list_interna">
+        <% _.each(data, function(d) { %>
+        <li class="candidato">
+        <div class="bg_li clearfix">
+            <input hidden type="radio" name="candidato" value="<%- d.id_candidato %>" />
+            <div class="foto <%=vh.get_candidato_apellido_class(d,dict_candidatos)%>">&nbsp;</div>
+            <h5><%=vh.get_candidato_nombre(d,dict_candidatos)%></h5>
+            <div class="cant_v"><%=vh.get_formatted_num(d.votos,0)%> votos</div>
+            <div class="cont_barra">
+                <div class="barra" data-width="<%=vh.get_formatted_pct(d.votos,max.votos,1,'.')%>%" style="width:0; background: <%= vh.get_candidato_color(d,dict_candidatos)%>">
+                    <div class="porc"><%=vh.get_formatted_num(d.pct,1)%>%</div>
+                </div>
+                
+            </div>
+        </div>
+        </li>
+        <% }); %>
+    </ul>
+    <div style="margin-top: 5px" class="porc_partido"><b>Participación: </b><%=vh.get_formatted_num(e.votantes,0)%> votantes (<%= vh.get_formatted_pct(e.votantes,e.electores,1)%>% del total de electores)</div>
+</div>

@@ -1,0 +1,10 @@
+id_partido,descripcion,nro_partido,especial
+23,Frente para la Victoria,707,0
+16,Energía Ciudadana Organizada - ECO,700,0
+18,Union PRO,702,0
+81,Autodeterminación y Libertad,187,0
+17,Frente de Izq. y los Trabajadores,701,0
+BLC,Votos en BLANCO,995,1
+NUL,Votos NULOS,996,1
+REC,Votos RECURRIDOS,997,1
+IMP,Votos de Identidad Impugnada,998,1

@@ -1,0 +1,1154 @@
+html, body {
+  margin: 0; padding: 0; height: 100%;
+}
+
+.leaflet-popup * {
+  line-height: 100%;
+}
+.leaflet-popup h1 { font-size: 14px; margin: 3px 0 3px 0; padding-bottom:7px; }
+.leaflet-popup h2 { color: #999; margin-top: 2px; margin-bottom: 2px; font-size: 1em;}
+.leaflet-popup p { margin: 5px 0; }
+.spinner {
+  left: 50% !important;
+  margin-top: -20% !important;
+}
+
+/*temporales*/
+header, section {
+  max-width: 990px;
+}
+/*header, section { max-width: 645px;}*/
+#x_interna {
+  position: relative;
+  max-height: 585px;
+  overflow: hidden;
+  /*display: none;*/
+}
+
+/*//temporales*/
+
+/* Colores partidos */
+.p1, .bk_pro {
+  background: #FEDB30;
+  fill: #FEDB30;
+}
+.p2, .bk_fpv {
+  background: #1796D7;
+  fill: #1796D7;
+}
+.p3, .bk_eco {
+  background: #7CC374;
+  fill: #7CC374;
+}
+.p4, .bk_izquierda {
+  background: #F4987E;
+  fill: #F4987E;
+}
+.p5, .bk_fte_renovador {
+  background: #B185B7;
+  fill: #B185B7;
+}
+.p6, .bk_otros {
+  background: #B3B3B3;
+  fill: #B3B3B3;
+}
+
+.bk_proMichetti {
+	background:#DD9636;
+}
+
+.p1, .col_pro {
+  color: #FEDB30;
+}
+.p2, .col_fpv {
+  color: #1796D7;
+}
+.p3, .col_eco {
+  color: #7CC374;
+}
+.p4, .col_izquierda {
+  color: #F4987E;
+}
+.p5, .col_fte_renovador {
+  color: #B185B7;
+}
+.p6, .col_otros {
+  color: #B3B3B3;
+}
+
+/* instructivo herramienta area */
+
+#instructivo {
+  color:black;
+  font-weight:bolder;
+  position: absolute;
+  top: 14.5%;
+  left: 7%;
+  width: 21%;
+  padding:5px;
+  background:#999;
+  opacity:.9;
+  display:none;	
+}
+
+/* referencias mapa */
+
+.leyendasMap {
+}
+
+.leyendaCirculo {
+	width:10px;
+	height:10px;
+	float: left;
+	border-radius: 10px;
+	margin: 16px 8px 0px 0px;
+
+
+}
+
+.leyendasMap p {
+	font-size:12px;
+	float:left;
+	margin: 15px 19px 0px 0px;
+	color:black !important;
+}	
+
+
+
+#larreta, #michetti, #recalde, #lousteau {
+  font-size: 12px;
+  float: left;
+  margin: 15px 17px 0px 0px;
+  border-right: 1px solid #ccc;
+  padding-right: 16px;
+}
+
+ 
+
+/* foto candidatos */
+
+ul#list_interna li div.foto {
+  float: left;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-image: url(../img/Sprite_anexoCABA.png);
+  background-repeat: no-repeat;
+}
+
+ul#list_interna li h5 {
+  font-family: 'TheSansSemiLight';
+  display: inline-block;
+  width: 91px;
+  float: left;
+  line-height: 1;
+  font-size: 1.4em;
+  padding-right: 16px;
+}
+ul#list_interna .cont_barra {
+  float: left;
+  width: 20%;
+  width: 25%;
+  width: calc(100% - 280px);
+  margin-top: 5px
+}
+ul#list_interna .cont_barra .cant_v {
+  margin-top: 7px;
+  color: #666;
+}
+
+ul#list_interna li div.cant_v {
+  margin-top: 10px;
+    color:#808080;
+    float: left;
+}
+
+.michetti {
+  background-position: -5px -1px;
+}
+
+.larreta {
+  background-position: -5px -60px;
+}
+
+.recalde {
+  background-position: -5px -118px;
+}
+
+.cerruti {
+  background-position: -5px -176px;
+}
+
+.lopez {
+  background-position: -5px -235px;
+}
+
+.ibarra {
+  background-position: -5px -291px;
+}
+
+.heller {
+  background-position: -5px -349px;
+}
+
+.oviedo {
+  background-position: -5px -406px;
+}
+
+.ramos {
+  background-position: -5px -464px;
+}
+
+.lousteau {
+  background-position: -5px -522px;
+}
+
+.ocania {
+  background-position: -5px -580px;
+}
+
+.borthagaray {
+  background-position: -5px -640px;
+}
+
+.nielsen {
+  background-position: -5px -695px;
+}
+
+.tumini {
+  background-position: -5px -754px;
+}
+
+.abrevaya {
+  background-position: -5px -811px;
+}
+
+.bidonde {
+  background-position: -5px -869px;
+}
+
+.garcia {
+  background-position: -5px -923px;
+}
+
+.lopes {
+  background-position: -5px -983px;
+}
+
+.torres {
+  background-position: -5px -1042px;
+}
+
+.zamora {
+  background-position: -5px -1101px;
+}
+
+.lozano {
+  background-position: -5px -1157px;
+}
+
+.bregman {
+  background-position: -5px -1214px;
+}
+
+.castanieira {
+  background-position: -5px -1273px;
+}
+
+.tenaglia {
+  background-position: -5px -1331px;
+}
+
+.ferreyra {
+  background-position: -5px -1386px;
+}
+
+.vera {
+  background-position: -5px -1447px;
+}
+
+.fabre {
+  background-position: -5px -1505px;
+}
+
+.vasena {
+  background-position: -5px -1561px;
+}
+
+.piragini {
+  background-position: -5px -1619px;
+}
+
+.cutzarida {
+  background-position: -5px -1676px;
+}
+
+
+/*referencias*/
+
+.referencias {
+  position: absolute;
+  bottom: 85px;
+    left: 350px;
+    display:none;
+  
+
+}
+
+.ref span {
+  display: inline-block;
+  width:15px;
+  height:15px;
+  background-color:red;
+  margin:3px 7px 3px 3px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+  
+/*helpers*/
+[hidden] {
+  display: none !important;
+}
+.bullet {
+  display: inline-block;
+  width: 3px;
+  height: 18px;
+  border-radius: 2px;
+}
+
+.box {
+  color:#999999;
+  display: inline-block;
+  padding: 9px 14px 6px 12px;
+  border: solid 1px #dadada;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.activo{
+  background-color: #f7f7f7;
+}
+
+.arrow {
+  position: relative;
+}
+.arrow:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: -15px;
+  top: 37%;
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-left: 5px solid #BEBEBE;
+  border-bottom: 4px solid transparent;
+}
+
+.clearfix {
+  display: block;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  margin: 0px;
+  font-size: 13px;
+  color: #000;
+  font-family: arial;
+  cursor:default;
+}
+
+/*header*/
+header {
+  border-bottom: dotted 1px #dadada;
+  padding: 10px 0px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+div.titulos {
+  width: 80%;
+  font-size: 15px;
+  overflow: hidden;
+  float: left;
+}
+
+h1 {
+  font-family: 'TheSansSemi', arial, Helvetica, sans-serif;
+  font-size: 23px;
+  /*color: #29ABE2;*/
+  color:#000;
+  display: inline-block;
+  letter-spacing: -1px;
+  border-bottom: dotted 1px #ccc;
+}
+
+h1 span {
+  color: #0071BC;
+}
+
+h2 {
+  color: #000;
+  display: inline-block;
+  font-family: arial;
+  font-size: 27px;
+  padding: 6px 0px;
+  margin: 0 1px;
+  /* border: solid 1px #BBBBBB; */
+  /* border-top: dotted 1px black; */
+  border-bottom: none;
+  border-right: none;
+  text-transform: uppercase;
+}
+
+.titulo {
+	font-size: 30px;
+	border-bottom: none;
+	padding-bottom:5px;
+}
+
+.titulos p {
+	padding-bottom:5px;
+	color:#999999;
+}
+
+.titulos span {
+	font-weight: bold;
+	color:#000000;
+	
+}
+
+/*/////////////////// REFERENCIAS ///////////////////////////*/
+
+ul#ref {
+  width: 39%;
+  font-size: 14px;
+  font-family: 'TheSansSemiLight';
+  float: left;
+  margin-left: 16px;
+  display: none;
+}
+
+ul#ref li {
+  float: left;
+  width: 85px;
+  margin-bottom: 2px;
+  display: inline-block;
+  margin-right: 7px;
+  line-height: 1.5;
+}
+
+ul#ref li#refFte {
+  width: 130px;
+}
+
+
+/*//////////// COMPARTIR /////////////////*/
+
+header div.compartir{
+  width: 120px;
+  height: 28px;
+  float: right;
+}
+
+/*////////////////////////////*/
+
+
+header div.compartir a.btn{
+  width: 27px;
+  height: 27px;
+  float: right;
+  margin-left: 2px;
+  margin-top: 53px;
+  background-repeat: no-repeat;
+  background-image:url(../img/compartir.png); 
+  -webkit-transition: background-position .2s;
+  -moz-transition: background-position .2s; 
+  -o-transition: background-position .2s; 
+    transition: background-position .2s;
+}
+
+header div.compartir a#facebook{
+  background-position: 2px 0px;
+}
+
+header div.compartir a#facebook:hover{
+  background-position: 2px -28px;
+}
+
+header div.compartir a#twit{
+  background-position: -25px 0px;
+}
+
+header div.compartir a#twit:hover{
+  background-position: -25px -28px;
+}
+
+header div.compartir a#google{
+  background-position: -51px 0px;
+}
+
+header div.compartir a#google:hover{
+  background-position: -51px -28px;
+}
+
+header div.compartir a#mail{
+  background-position: -77px 0px;
+}
+
+header div.compartir a#mail:hover{
+  background-position: -77px -28px;
+}
+
+/*/////////////////// ayuda ///////////////////////////*/
+
+div.ayuda {
+  width: 94px;
+  height: 70px;
+  position: absolute;
+  top:0px;
+  right:5px;
+  font-family: 'TheSansSemi';
+  font-size: 15px;
+  padding-left: 90px;
+  background-image: url(../img/sprite3.png);
+  background-repeat: no-repeat;
+  background-position: 28px 8px;
+    background-size: 50%;
+}
+
+div.ayuda2 {
+  width: 94px;
+  height: 70px;
+  position: absolute;
+  top:15px;
+  right:5px;
+  font-family: 'TheSansSemi';
+  font-size: 15px;
+  padding-top: 90px;
+  background-image: url(../img/sprite3.png);
+  background-repeat: no-repeat;
+  background-position: -30px -55px;
+    background-size: 140%;
+    display: none;
+}
+
+div.ayuda3 {
+  width: 23%;
+  position: absolute;
+  bottom: 10px;
+  right: 50px;
+  /*top: -10px;
+  left: -4px;*/
+  color: #ccc;
+  font-family: "TheSans", arial;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 8px;
+  border-radius: 3px;
+    
+}
+
+
+section {
+  
+  padding: 0 5px;
+}
+
+/*/////////////////// TOOLTIP ///////////////////////////*/
+  
+  .tooltip {
+    top:250px;
+    left:150px;
+    background:#FFFFFF;
+    position:absolute;
+    width: 180px;
+    border: #ccc solid 1px;
+    padding: 10px 12px 5px 10px;
+    font-family:Arial, Helvetica, sans-serif;
+    display: none;
+  }
+  
+  .tooltip h4 {
+    padding-bottom: 5px;     
+  }
+
+  .tooltip p {
+    font-size: 12px;
+    color:#999999;
+    padding-bottom: 8px;
+  }
+  
+  .tooltip .fuerza {
+    height:37px;
+    border-top: 1px dotted #999999;
+    padding: 9px 12px 6px 0px;
+  }
+  
+  .tooltip .candidato {
+    width:100%;
+    font-family: "TheSansSemi", Arial, Helvetica, sans-serif;
+    font-size:16px;
+    float:left;
+    padding-bottom:5px;
+
+  }   
+  
+  .tooltip .candidatoBarra {
+    height: 11px;
+    width:0%;
+    max-width:117px;
+    float:left;
+    margin-right:10px;
+  }
+  
+  .tooltip .candidatoPorcentaje {
+    font-size:14px;
+    float:left;
+    
+  } 
+    
+    
+/*/////////////////// FILTROS ///////////////////////////*/
+
+section#filtros {
+  position: relative;
+}
+
+#filtros h3, div#selected {
+  float: left;
+  display: inline-block;
+}
+
+h3, h4 {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor:pointer;
+}
+
+h3:hover{
+  background-color: #fff;
+}
+
+
+div#selected {
+  width: 20%;
+  width: calc(73% - 300px);
+  margin-left: 25px;
+  padding: 6px 0;
+  height: 1.5em;
+  position: relative;
+}
+div#selected.arrow:after {
+  right: -10px;
+}
+div#selected hr {
+  margin-top: .75em;
+  border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+div#selected h4 {
+  color:black;
+  padding: 7px 30px 7px 9px;
+  display: flex;
+  position: absolute;
+  top: 1px;
+  left: 0;
+  background: #FFFFFF;
+  text-transform: uppercase;
+  border: solid 1px #807F7F;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-image: url(../img/fle.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: none;
+}
+
+div#selected h4:after{
+  
+    
+} 
+div#selected h4 a {
+  color: #000;
+  margin-left: 10px;
+  text-decoration: none;
+  text-transform: lowercase;
+  font-weight: bold;
+  position: relative;
+  top: -2px
+}
+
+select#opts {
+  width: 40%;
+  float: right;
+  font-size: 1.3em;
+  padding: 5px 0;
+  background: #fff;
+  border: solid 1px #dadada;
+  border-radius:3px;
+}
+
+/*mapa*/
+section#cont_data {
+  margin-top: 15px;
+  border-bottom:1px solid #dadada;
+  overflow: hidden;
+  position: relative;
+}
+
+
+div.loader{
+  width: 50px;
+  height:50px;
+  position: absolute;
+  top:45%;
+  left: 45%;
+  background-image:url(../img/ln_loader.gif);
+  background-repeat: no-repeat;
+}
+
+#mapa_cont, #results {
+  /*min-height: 450px;*/
+  position: relative;
+}
+
+#mapa_cont {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  float: left;
+  margin-bottom: 15px;
+}
+
+
+
+#results {
+  border-left: solid 1px #dadada;
+  width: 30%;
+  position: relative;
+  max-height: 585px;
+  position: absolute;
+  background: #fff;
+  top: 0;
+  right: -30%;
+  border-left: 10px solid #fff;
+}
+#results div#line {
+  width: 7px;
+  height: 100%;
+  height: calc(100% - 44px);
+  border-right: 1.5px dotted #000;
+  position: absolute;
+  top: 41px;
+  left: -1.5px;
+  background: rgba(255, 255, 255, 0.59);
+}
+
+#x_fuerza{
+  position: relative;
+  max-height: 585px;
+  overflow: hidden;
+  /*display: none;*/
+}
+
+.help_text {
+  width:80%;
+  color: #999;
+  margin-bottom: 15px;
+
+}
+
+.help_text p {
+  font-size: .85em;
+  line-height: 1.2em;
+}
+  
+.help_text span {
+  float: left;
+  display: inline-block;
+  font: 14px arial;
+  padding: 3px 5px;
+  border: 1px solid #000;
+  color: #000000;
+  margin-right: 6px;
+  background: #fff;
+  z-index: 1;
+  /*margin-left: 2%;*/
+  position: relative;
+  font-weight: bold;
+}
+.help_text span:before, .help_text span:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: -1px;
+  bottom: -9px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid #000;
+  border-bottom: 9px solid transparent;
+}
+.help_text span:after {
+  border-left: 5px solid #fff;
+  border-bottom: 10px solid transparent;
+  left: 0px;
+  bottom: -7px;
+}
+
+.porc_text{
+  width: 95%;
+  /*height: 30px;*/
+  border-bottom: 1px solid #dadada;
+  margin-left: 10px;
+}
+
+.arrow-before {
+    width:0px;
+    height:0px;
+    border-left: 10px solid transparent;  /* izquierda flecha */
+    border-right: 10px solid transparent; /* derecha flecha */
+    border-top: 10px solid #dadada; /* base flecha y color*/
+    font-size:0px;
+    line-height:0px;
+    top: 31px;
+    right: 40px;
+    position: absolute;
+}
+.arrow-after {
+    width:0px;
+    height:0px;
+    border-left: 10px solid transparent;  /* izquierda flecha */
+    border-right: 10px solid transparent; /* derecha flecha */
+    border-top: 10px solid white; /* base flecha y color*/
+    font-size:0px;
+    line-height:0px;
+    top: 29px;
+    right: 40px;
+    position: absolute;
+}
+
+
+.porc_text div.porc_partido {
+  font-size: 14px;
+    color: #000;
+   /*float: left;*/
+
+}
+
+.porc_text div.porc_partido span {
+  color:#0facdd;
+  font-weight: bold;
+}
+
+.porc_text div.cant_v {
+  font-size: 15px;
+  color: #999;
+  /*float: left;*/
+  margin:0px 4px 0px 10px;
+}
+
+#porPart  {
+  font-size: 15px;
+  color:#999;
+  margin-left:5px;
+}  
+
+
+#results ul#list {
+  display: inline-block;
+  width: 100%;
+  height: 471px;
+  overflow: auto;
+}
+
+#results ul#list_interna {
+  display: inline-block;
+  list-style-type: none;
+  width: 100%;
+  height: 471px;
+  overflow: auto;
+}
+
+#results ul li {
+  border-bottom: 1px solid #dadada;
+  padding: 13px 0;
+}
+
+#results ul li.candidato {
+  border-bottom: 1px dotted #A0A0A0;
+  padding-top: 0px;
+  margin-bottom: 3px;
+  /*cursor:pointer;*/
+}
+
+#results ul li.candidato:hover {
+  /*background-color: #f9f9f9;*/
+}
+
+
+#results ul li h5 {
+  font: 17px 'TheSans', arial;
+  padding: 8px 0 10px 15px;
+}
+#results ul li h5 span {
+  font: normal 12px arial;
+  color: #808080;
+  padding-left: 10px;
+}
+#results ul .cont_barra {
+  width: 85%;
+  width: calc(100% - 75px); /*background: rgba(200, 200, 200, .1);*/
+}
+.cont_barra .barra {
+  width: 0%;
+  height: 16px;
+  position: relative;
+}
+
+
+.cont_barra .barra .porc {
+  position: absolute;
+  top: -1px;
+  right: -60px;
+  font: 18px arial;
+  font-weight: bold;
+}
+
+#results ul li.candidato h5 span {
+  padding-left: 0px;
+  padding-top: 5px;
+  width: 110px;
+}
+
+footer{
+  width: 98.5%;
+  padding:10px;
+  max-width: 990px;
+  color:#999;
+}
+
+footer div.creditos{
+  font-size: 12px;
+  background-color: #f7f7f7;
+  border: 1px solid #dadada;
+  padding: 5px 6px;
+  float: left;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: -3px;
+}
+
+footer div.datos{
+  font-size: 12px;
+  float:right;
+  margin-left: 4px;
+    padding-left: 4px;
+  font-family: arial;
+  border-left:1px solid #dadada; 
+}
+
+footer div.datos span{
+  color:#29B5EA;
+  font-weight: bold;
+} 
+
+div.creVent{
+  width: 100%;
+  max-width: 990px;
+  height: 100%;
+  position: absolute;
+  top:52px;
+  left:0px;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 6000;
+  text-align: center;
+  display: none;
+}
+
+
+div.creVent div.titu{
+  width: 98%;
+  padding: 10px;
+  padding-bottom: 3px;
+  color:#000;
+  font-family: "TheSansBold";
+  background-color:#fff;
+  font-size: 18px;
+}
+
+div.creVent div.txts{
+  margin: 20px auto;
+  width: 95%;
+  max-width: 400px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 3px;
+  border: 1px solid #D8D8D8; 
+  position: relative;
+  display: none;
+}
+
+
+div.creVent div.txts div.cerrar, a.cerrar{
+  color:#fff;
+  padding: 8px 10px;
+  border-radius: 100px;
+  background: #000;
+  position: absolute;
+  top:-15px;
+  right:-15px;
+  cursor: pointer;
+}
+
+a.cerrar{
+  color: #000;
+  background: #fff;
+  font-weight: bold;
+  border-bottom-right-radius:0;  
+  border-top-right-radius: 0; 
+  top:0px;
+  left:-20px;
+  right: auto;
+  display: inline-block;
+  text-decoration: none;
+}
+
+div.creVent div.txts div.cate{
+  font-weight: bold;
+  padding: 8px 0px;
+  margin-top:20px;
+}
+
+div.creVent div.txts div.nombre{
+  line-height: 1.5;
+  color:#474747;
+}
+
+div.creVent div.txts div.nombre a{
+  text-decoration: none;
+  color:#474747;
+  font-weight: bold;
+}
+
+div.creVent div.txts div.nombre a:hover{
+  color:#29ABE2;
+}
+
+.atribuciones {
+  font-size: 10px;
+  padding-top: 25px;
+  padding-left: 25%;
+  float: left;
+}
+
+.atribuciones2 {
+	float:right;
+}	
+
+@media (max-width: 850px) {
+
+
+}
+
+@media (max-width: 750px) {
+
+
+}
+
+
+@media (max-width: 640px) {
+	
+header div.compartir {
+display: none;
+}
+
+div.titulos {
+	width:95%;
+}
+
+.titulo {
+	font-size:23px;
+	line-height:25px;
+	
+}
+
+.titulos p {
+	font-size: 13px;
+	
+}
+
+.leyendasMap p {
+	display: none;
+}
+
+#larreta, #michetti, #recalde, #lousteau {
+  font-size: 12px;
+  float: left;
+  margin: 15px -7px 0px 0px;
+  border-right:none;
+  padding-right: 16px;
+}  
+
+}
+
+
+.cartodb-logo{
+  display: none !important;
+}
+
+.in_line {display: inline;}
+
+
+
+
+
+/*Tooltip styles*/
+div.ttip_header {
+	width: 150px;
+	font-size:13px;
+	font-weight: bold;
+	padding-bottom: 5px;
+	line-height:14px;
+
+}
+
+div.ttip_body {
+	width: 150px;
+	font-size:13px;
+	line-height:14px;
+	color:#444444;
+}
+
+div.ttip_body span {
+	color:#000000;
+	font-weight:bold;
+	line-height:14px;
+}
+
+/*D3 points*/
+svg#d3layer {
+  position: relative;
+}
+
+svg#d3layer path {
+  fill: #000;
+  fill-opacity: .7;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+svg#d3layer path:hover {
+  fill: brown;
+  fill-opacity: 1;
+}

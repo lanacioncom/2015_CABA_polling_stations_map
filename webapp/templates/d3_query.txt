@@ -1,0 +1,3 @@
+SELECT *, st_asgeojson(the_geom) as g 
+FROM cache_votos_paso_2015_cand
+ORDER BY (margin_victory / sqrt_positivos) desc

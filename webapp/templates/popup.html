@@ -1,0 +1,3 @@
+<!--JET: Tooltip when one polling station is selected-->
+<div class="ttip_header"><%- establecimiento.nombre %></div>
+<div class="ttip_body">El candidato <%- dict_candidatos[v.rows[0].id_candidato].nombre_abreviado %> ha ganado por un margen de <span> <%= (((v.rows[0].votos - v.rows[1].votos) / establecimiento.positivos) * 100).format(1, ",", '.') %>% </span>al candidato <%- dict_candidatos[v.rows[1].id_candidato].nombre_abreviado %></div>

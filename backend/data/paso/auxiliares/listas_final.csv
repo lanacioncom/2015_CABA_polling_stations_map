@@ -1,0 +1,45 @@
+id_lista,id_partido,descripcion,nro_lista,especial
+85,23,Por la Gente,7071202,0
+109,20,Lista B,704002,0
+136,23,La Patriada,707050,0
+145,26,Lista A,710001,0
+42,82,Las Rojas,713001,0
+112,18,MMXV,702005,0
+102,21,Unidad,705101,0
+119,23,Revolución Urbana,7070326,0
+87,16,Transparencia y Gestión,700301,0
+114,23,Ciudad para Todos,7070519,0
+128,16,Sumá Trasparencia,700405,0
+30,80,Lista Común,327,0
+120,25,Ciudad Justa,709092,0
+149,24,Fortaleza,708002,0
+151,24,Trabajo y Progreso,708004,0
+84,18,Hay Equipo,702003,0
+108,20,Lista A,704001,0
+133,21,Lista 2,705003,0
+94,16,Abrimos BA,700103,0
+148,21,Lista 4,705005,0
+106,25,Vientos de Cambio,709001,0
+141,21,Lista 3,705004,0
+116,23,Movimiento Unidad Popular,7070820,0
+83,23,Justicia Social,7070901,0
+137,61,Lista Única,22001,0
+147,24,Frente Renovador,708001,0
+155,23,Podemos Vivir Mejor,7070160,0
+139,23,Lista Unidos y Organizados,7071152,0
+129,16,Sumá +,700208,0
+29,81,Caminamos Preguntando,187001,0
+144,17,Lista Unidad,701001,0
+79,23,Frente Sí,7070602,0
+127,21,Lista 1,705002,0
+125,23,La Ciudad es el Otro,7070740,0
+157,35,Compromiso Federal,63001,0
+103,23,Unidos por la Ciudad,7070213,0
+92,18,Sigamos con el Cambio,702002,0
+124,19,Lista Celeste y Blanca,703001,0
+115,23,Espacio Abierto Aluvión ,7070420,0
+107,22,Otro Camino para Gobernar,706001,0
+BLC,BLC,Votos en BLANCO,BLC,1
+NUL,NUL,Votos NULOS,NUL,1
+REC,REC,Votos RECURRIDOS,REC,1
+IMP,IMP,Votos de Identidad Impugnada,IMP,1

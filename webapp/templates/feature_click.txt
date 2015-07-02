@@ -1,0 +1,6 @@
+SELECT v.id_candidato, v.votos
+FROM votos_candidato_establecimiento_paso_caba_2015 v
+LEFT OUTER JOIN candidatos_paso_caba_2015 c ON c.id_candidato = v.id_candidato
+WHERE v.id_establecimiento = <%- establecimiento.id_establecimiento %>
+and c.titular = 1
+ORDER BY v.votos DESC
