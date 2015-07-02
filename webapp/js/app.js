@@ -48,22 +48,19 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
                             attribution: "OpenStreetMaps", 
                             token: 'pk.eyJ1Ijoib2xjcmVhdGl2YSIsImEiOiJEZWUxUmpzIn0.buFJd1-sVkgR01epcQz4Iw'}).addTo(state.map);
 
-    //JET: compile template for the description of a given polling station
+    // Template for the description of a given polling station
     var popup_tmpl = _.template(templates.popup);
+    // Template to show error in case drawing does not intersect any polling station
     var popup_error_tmpl = _.template(templates.popup_error);
-    //JET: compile template for the results of a given polling station
-    //var overlay_tmpl = Handlebars.compile(templates.overlay);
+    // Template for the results of a given polling station
     var overlay_tmpl = _.template(templates.overlay);
-    
-    //JET: Keep state
 
     config.sql = new cartodb.SQL({
         user: config.CARTODB_USER
     });
 
+    // Template that stores the query to execute once a polling station has been clicked
     var FEATURE_CLICK_SQL_TMPL = _.template(templates.feature_click_sql);
-
-    var CARTOCSS_TMPL = _.template(templates.cartocss);
 
     //JET: sharing
     $("a#google").click(function(){
@@ -81,18 +78,18 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
         return false;
     });
 
-    //JET: credits
+    // Template for the credits
     $('.creVent').html(_.template(templates.credits));
 
-    //JET: hide overlay by shifting to the left with animation
+    // Overlay hide and show with css transitions
     var hideOverlay = function() {
         $('#overlay').css('left', '100%');
     };
-    //JET: show overlay by shifting to the left with animation
     var showOverlay = function() {
         $('#overlay').css('left', '73%');
     };
 
+    // Credits hide and show
     $(".creditos").click(function(){
        $(".creVent").fadeIn(200);
        $(".creVent .txts").delay(300).fadeIn(200);
@@ -103,7 +100,7 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
        $(".creVent").delay(300).fadeOut(200);
     });
 
-    //JET: If we move the map manually and the overlay falls out of bounds hide overlay
+    // Hide overlay if dragged position is out of bounds
     state.map.on('dragend', function(e, x, y) {
         if (state.current_latlng !== null && !state.map.getBounds().contains(state.current_latlng)) {
             hideOverlay();
@@ -111,33 +108,29 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
         }
     });
 
-    //JET: Close popup and overlay
+    // Close popup and overlay
     state.map.on('popupclose', function() {
         if (state.featureClicked) state.featureClicked = false;
         helpers.close_slide();
     });
 
-    //JET: if we are over a polling station change cursor to pointer
     var featureOver = function(e, latlng, pos, data, layerNumber) {
         $('#mapa_cont').css('cursor', 'pointer');
     };
 
-    //JET: reset when we are not over a polling station
     var featureOut = function(e, layer) {
         $('#mapa_cont').css('cursor', 'auto');
     };
 
-    //JET: if we are over a polling station change cursor to pointer
     var d3featureOver = function(d, i) {
         $('#mapa_cont').css('cursor', 'pointer');
     };
 
-    //JET: reset when we are not over a polling station
     var d3featureOut = function(d, i) {
         $('#mapa_cont').css('cursor', 'auto');
     };
 
-    //JET: if we are over a polling station change cursor to pointer
+    // Get data for the clicked polling station and show popup and overlay
     var d3featureClick = function(d, i, latlng) {
         if ($('div#instructivo').is(":visible")) {
             $('div#instructivo').fadeOut(200); 
@@ -146,26 +139,23 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
         showOverlay();
         if (!latlng) {
             latlng = L.latLng(d.geometry.coordinates[1], d.geometry.coordinates[0]);
-            //latlng = state.map.mouseEventToLatLng(event);
         }
         state.current_latlng = latlng;
-        //JET: It seems that the decision was to not center the map on each click when interacting
-        // with the map itself
         state.map.panTo(latlng);
         setTimeout(function() {
             var query = FEATURE_CLICK_SQL_TMPL({
                 establecimiento: d.properties
             });
             config.sql.execute(query)
-                //JET: partially apply a function http://underscorejs.org/#partial
                 .done(_.partial(featureClickDone, latlng, d.properties, true))
                 .error(function(errors) {
                   // errors contains a list of errors
+                  console.log(errors)
                 });
         }, 200);
     };
 
-    //JET: Called when the Cartodb SQL has finished
+    //Called when the Cartodb SQL has finished
     var featureClickDone = function(latlng, establecimiento_data, unique, votos_data) {
         var popup = L.popup()
             .setLatLng(latlng)
@@ -260,7 +250,7 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
         });
     };
 
-    // D3 testing
+    // D3 layer
     var svg = d3.select(state.map.getPanes().overlayPane)
                 .append("svg").attr("id", "d3layer");
     var g = svg.append("g").attr("class", "leaflet-zoom-hide");
@@ -279,6 +269,7 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
                         .on('mouseout', d3featureOut);
 
         state.map.on("viewreset", reset);
+        // Force first call to position the d3 layer features
         reset();
 
         // Reposition the SVG to cover the features.
@@ -288,7 +279,7 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
                          topLeft = bounds[0],
                          bottomRight = bounds[1];
 
-            //We need to give some padding because of the path pointRadius
+            // We need to give some padding because of the path pointRadius
             var padding = 20;
             topLeft = [topLeft[0]-padding, topLeft[1]-padding]
 
