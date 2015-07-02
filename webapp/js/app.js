@@ -30,7 +30,7 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
         config.alto = $(window).height();
     });
 
-    //JET: Initial zoom level
+    // Set initial zoom level
     state.current_zoomLevel = 12;
 
     state.map = L.map('mapa_cont', {
@@ -142,7 +142,7 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
                 .done(_.partial(featureClickDone, latlng, d.properties, true))
                 .error(function(errors) {
                   // errors contains a list of errors
-                  console.log(errors)
+                  console.log(errors);
                 });
         }, 200);
     };
@@ -255,7 +255,7 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
         var features = g.selectAll("path")
                         .data(collection.features)
                         .enter().append("path")
-                        .attr('id', function(d) {return d.properties.id_establecimiento})
+                        .attr('id', function(d) {return d.properties.id_establecimiento;})
                         .on('click', d3featureClick)
                         .on('mouseover', d3featureOver)
                         .on('mouseout', d3featureOut);
@@ -273,7 +273,7 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
 
             // We need to give some padding because of the path pointRadius
             var padding = 20;
-            topLeft = [topLeft[0]-padding, topLeft[1]-padding]
+            topLeft = [topLeft[0]-padding, topLeft[1]-padding];
 
             svg.attr("width", bottomRight[0] - topLeft[0]+padding)
                .attr("height", bottomRight[1] - topLeft[1]+padding)
