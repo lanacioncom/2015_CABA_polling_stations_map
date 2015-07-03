@@ -15,13 +15,13 @@ define(function () {
     };
     return {
         get_candidato_apellido_class: function(d,dict) {
-            return dict[d.id_candidato] ? dict[d.id_candidato].foto.toLowerCase() : "";
+            return dict[d.id_partido] ? dict[d.id_partido].foto.toLowerCase() : "";
         },
         get_candidato_nombre: function(d,dict) {
-            return dict[d.id_candidato] ? dict[d.id_candidato].nombre_completo : "";
+            return dict[d.id_partido] ? dict[d.id_partido].nombre_completo : "";
         },
         get_candidato_color: function(d,dict) {
-            return dict[d.id_candidato] ? dict[d.id_candidato].color_candidato : "";
+            return dict[d.id_partido] ? dict[d.id_partido].color_partido : "";
         },
         get_formatted_pct: function(num,den,c,d,t) {
             return ((+num / +den)*100).format(c, d, t);

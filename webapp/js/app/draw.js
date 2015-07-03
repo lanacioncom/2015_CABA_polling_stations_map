@@ -11,6 +11,7 @@ define(['draw', 'app/config', 'app/state'], function (dummy, config, state) {
     L.drawLocal.draw.handlers.polygon.tooltip.cont = 'Haz click para ir creando puntos';
     L.drawLocal.draw.handlers.polygon.tooltip.end = 'Haz click en el primer punto para cerrar la forma';
     L.drawLocal.draw.handlers.rectangle.tooltip.start = 'Haz click y arrastra para crear el rectángulo';
+    L.drawLocal.draw.handlers.simpleshape.tooltip.end = 'Soltá el mouse para finalizar la selección';
     L.drawLocal.edit.toolbar.actions.save.title = 'Guardar cambios';
     L.drawLocal.edit.toolbar.actions.save.text = 'Guardar';
     L.drawLocal.edit.toolbar.actions.cancel.title = 'Cancelar los cambios';

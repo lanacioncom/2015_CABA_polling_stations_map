@@ -17,8 +17,8 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
     $.get("data/comunas.json", function(comunas) {
       config.distritos = comunas;
       //JET: Load parties dictionary 
-      $.get("data/diccionario_candidatos.json", function(data){
-        config.dicc_candidatos = data;
+      $.get("data/diccionario_datos.json", function(data){
+        config.diccionario_datos = data;
       });
     });
 
@@ -153,7 +153,7 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
             .setLatLng(latlng)
             .setContent(popup_tmpl({establecimiento: establecimiento_data,
                                     v: votos_data,
-                                    dict_candidatos: config.dicc_candidatos,
+                                    dict_datos: config.diccionario_datos,
                                     unique: unique}))
             .openOn(state.map);
         
@@ -165,7 +165,7 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
         $('#results').html(overlay_tmpl({
             e: establecimiento_data,
             data: d,
-            dict_candidatos: config.dicc_candidatos,
+            dict_datos: config.diccionario_datos,
             max: _.max(d, function(item){ return item.votos; }),
             vh: view_helpers
         }));
@@ -247,18 +247,20 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
                 .append("svg").attr("id", "d3layer");
     var g = svg.append("g").attr("class", "leaflet-zoom-hide");
 
-    config.sql.execute(templates.d3_sql,null,{format: 'GeoJSON'})
+    config.sql.execute(templates.d3_winner_sql,null,{format: 'GeoJSON'})
     .done(function(collection) {
         var transform = d3.geo.transform({point: projectPoint}),
-        path = d3.geo.path().projection(transform).pointRadius(radius);
+        path = d3.geo.path().projection(transform).pointRadius(winner_radius);
 
         var features = g.selectAll("path")
-                        .data(collection.features)
-                        .enter().append("path")
-                        .attr('id', function(d) {return d.properties.id_establecimiento;})
-                        .on('click', d3featureClick)
-                        .on('mouseover', d3featureOver)
-                        .on('mouseout', d3featureOut);
+                        .data(collection.features);
+
+        features.enter()
+                .append("path")
+                .attr('id', function(d) {return "id"+d.properties.id_establecimiento;})
+                .on('click', d3featureClick)
+                .on('mouseover', d3featureOver)
+                .on('mouseout', d3featureOut);
 
         state.map.on("viewreset", reset);
         // Force first call to position the d3 layer features
@@ -272,7 +274,7 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
                          bottomRight = bounds[1];
 
             // We need to give some padding because of the path pointRadius
-            var padding = 20;
+            var padding = 30;
             topLeft = [topLeft[0]-padding, topLeft[1]-padding];
 
             svg.attr("width", bottomRight[0] - topLeft[0]+padding)
@@ -282,7 +284,7 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
 
             g.attr("transform", "translate(" + (-topLeft[0]) + "," + (-topLeft[1]) + ")");
             features.attr("d", path)
-                    .style("fill", winner);
+                    .style("fill", winner_color);
         }
 
         // Use Leaflet to implement a D3 geometric transformation.
@@ -291,14 +293,14 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
             this.stream.point(point.x, point.y);
         }
 
-        function radius(d) {
+        function winner_radius(d) {
             var m = config.ZOOM_MULTIPLIERS[state.current_zoomLevel];
             var r = (2.5 + (d.properties.margin_victory / d.properties.sqrt_positivos) * m);
             return r;
         }
 
-        function winner(d) {
-            var r = config.CANDIDATOS_COLORES[d.properties.id_candidato];
+        function winner_color(d) {
+            var r = config.diccionario_datos[d.properties.id_partido].color_partido;
             return r;
         }
 
@@ -326,6 +328,26 @@ function(config, state, templates, helpers, view_helpers, draw, d3) {
         }
         // Add explanation for the drawing plugin
         $("div#instructivo").fadeIn(200);
+
+        //Test diff viz
+        $("div#pro").click(function(){
+            config.sql.execute(templates.d3_diff_sql,{id_partido: 16})
+            .done(function(collection) {
+                var path2 = d3.geo.path().pointRadius(10);
+                var rows = collection.rows;
+                //Change the color of the polling stations
+                g.selectAll("path").style("fill", "#FF0000");
+                rows.forEach(function(r) {
+                    // Change the size of each polling station
+                    var feature = g.select("path#id"+r.establecimiento)
+                                   .pointRadius(function(d) { return 10; });
+
+                    //feature.attr("d", path2);
+                    //var scale = d3.scale.sqrt().domain([minMag, maxMag]).range([2, 10]);
+                    //.pointRadius(function(d) { return scale(d.properties.mag); });
+                });
+            });
+        });
     });
   });
 });

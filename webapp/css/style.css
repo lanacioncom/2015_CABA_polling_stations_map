@@ -40,21 +40,13 @@ header, section {
   background: #7CC374;
   fill: #7CC374;
 }
-.p4, .bk_izquierda {
+.p4, .bk_fit {
   background: #F4987E;
   fill: #F4987E;
 }
-.p5, .bk_fte_renovador {
+.p5, .bk_ayl {
   background: #B185B7;
   fill: #B185B7;
-}
-.p6, .bk_otros {
-  background: #B3B3B3;
-  fill: #B3B3B3;
-}
-
-.bk_proMichetti {
-	background:#DD9636;
 }
 
 .p1, .col_pro {
@@ -66,14 +58,11 @@ header, section {
 .p3, .col_eco {
   color: #7CC374;
 }
-.p4, .col_izquierda {
+.p4, .col_fit {
   color: #F4987E;
 }
-.p5, .col_fte_renovador {
+.p5, .col_ayl {
   color: #B185B7;
-}
-.p6, .col_otros {
-  color: #B3B3B3;
 }
 
 /* instructivo herramienta area */
@@ -115,7 +104,7 @@ header, section {
 
 
 
-#larreta, #michetti, #recalde, #lousteau {
+#pro, #eco, #fpv, #fit, #ayl {
   font-size: 12px;
   float: left;
   margin: 15px 17px 0px 0px;

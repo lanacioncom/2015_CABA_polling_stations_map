@@ -1,7 +1,7 @@
-SELECT v.id_candidato, SUM(v.votos) as votos 
-FROM votos_candidato_establecimiento_paso_caba_2015 v, candidatos_paso_caba_2015 c 
+SELECT v.id_partido, SUM(v.votos) as votos 
+FROM votos_caba_2015 v, partidos_caba_2015 p
 WHERE v.id_establecimiento IN ({{ids}})
-AND c.id_candidato = v.id_candidato
-AND c.titular = 1
-GROUP BY v.id_candidato
+AND p.id_partido = v.id_partido
+AND p.especial = 0
+GROUP BY v.id_partido
 ORDER BY votos desc;

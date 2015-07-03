@@ -39,13 +39,10 @@ define({
         15: 1.35,
         16: 1.5
     },
-    carto_layers:{ '2015_caba_paso': null},
+    carto_layers:{ '2015_caba': null},
     CARTODB_USER: 'lndata',
     sql: null,
-    //JET: Cartodb SQL template
-    LAYER_SQL: "SELECT * FROM cache_votos_paso_2015_cand order by (margin_victory / sqrt_positivos) desc",
-    distritos: null,
-    dicc_candidatos: null,
+    diccionario_datos: null,
     cdn_proxy: "http://olcreativa.lanacion.com.ar/dev/get_url/img.php?img=",
     ancho: null,
     alto: null,
