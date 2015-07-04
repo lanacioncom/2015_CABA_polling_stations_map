@@ -268,7 +268,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             var bounds = path.bounds(collection),
                          topLeft = bounds[0],
                          bottomRight = bounds[1];
-            console.log(bounds);
             // We need to give some padding because of the path pointRadius
             var padding = 30;
             topLeft = [topLeft[0]-padding, topLeft[1]-padding];
@@ -304,10 +303,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             var v = ctxt.presults[pid][fid].votos / pos;
             var min = ctxt.presults[pid].extent[0] / pos;
             var max = ctxt.presults[pid].extent[1] / pos;
-            console.log("min: "+min);
-            console.log("max: "+max);
             var s = d3.scale.sqrt().domain([min,max]).range([1,12]);
-            console.log(s(v));
             return s(v);
         }
 
@@ -316,7 +312,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             if (!ctxt.selp) {
                 var fid = d.properties.id_establecimiento;
                 var pid = ctxt.presults.winner[fid].id_partido;
-                console.log(pid);
                 r = config.diccionario_datos[pid].color_partido;
             }
             else {
@@ -329,7 +324,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             if (ctxt.selp) {
                 var votos = ctxt.presults[ctxt.selp][d.properties.id_establecimiento].votos;
                 d.properties["p"+ctxt.selp] = {"votos": votos};
-                console.log(d.properties);
             }
         }
 
@@ -351,6 +345,18 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             }
             console.log("did not find data");
             return false;
+        }
+
+        function update_map_diff() {
+            g.selectAll("path").transition().duration(500)
+                 .style("display", "none");
+
+            g.selectAll("line").data([1,2]).enter().append("line")
+             .style("stroke", "black")  // colour the line
+             .attr("x1", 100)     // x position of the first end of the line
+             .attr("y1", 50)      // y position of the first end of the line
+             .attr("x2", 300)     // x position of the second end of the line
+             .attr("y2", 150);
         }
 
         function update_map() {
@@ -429,7 +435,19 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             update_map();
         });
 
+        $("div.bk_pro").click(function(){
+            ctxt.selp = 18;
+            // Better to do it with hiding
+            ctxt.map.removeControl(draw.drawControlFull);
+            update_map_diff();
+        });
+
         $("div#eco").click(function(){
+            ctxt.selp = 16;
+            update_map();
+        });
+
+        $("div.bk_eco").click(function(){
             ctxt.selp = 16;
             update_map();
         });
@@ -439,7 +457,17 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             update_map();
         });
 
+        $("div#bk_fpv").click(function(){
+            ctxt.selp = 23;
+            update_map();
+        });
+
         $("div#fit").click(function(){
+            ctxt.selp = 17;
+            update_map();
+        });
+
+        $("div#bk_fit").click(function(){
             ctxt.selp = 17;
             update_map();
         });
@@ -447,6 +475,15 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
         $("div#ayl").click(function(){
             ctxt.selp = 81;
             update_map();
+        });
+
+        $("div#bk_ayl").click(function(){
+            ctxt.selp = 81;
+            update_map();
+        });
+
+        $("div#flechas").click(function(){
+            console.log("flechas");
         });
     });
   });
