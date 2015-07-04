@@ -6,11 +6,12 @@ define(['text!templates/credits.html',
     'text!templates/permalink.txt',
     'text!templates/draw_selection1.txt',
     'text!templates/draw_selection2.txt',
+    'text!templates/d3_geom.txt',
     'text!templates/d3_winner_query.txt',
     'text!templates/d3_diff_query.txt'], 
     function(credits, overlay, popup, popup_error, 
              feature_click_sql, permalink_sql, draw1_sql, draw2_sql,
-             d3_winner_sql, d3_diff_sql) {
+             d3_geom_sql, d3_winner_sql, d3_diff_sql) {
         return {
             credits: credits,
             overlay: overlay,
@@ -20,6 +21,7 @@ define(['text!templates/credits.html',
             permalink_sql: permalink_sql,
             draw1_sql: draw1_sql,
             draw2_sql: draw2_sql,
+            d3_geom_sql: d3_geom_sql,
             d3_winner_sql: d3_winner_sql,
             d3_diff_sql: d3_diff_sql
         };

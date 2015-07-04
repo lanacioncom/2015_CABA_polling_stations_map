@@ -1,1 +1,97 @@
-{"18": {"nombre_partido": "Pro ", "color_partido": "#FEDB30", "especial": "", "id_candidato": "5296", "nombre_completo": "Horacio R. Larreta", "nombre_abreviado": "H. R. Larreta", "apellido": "Larreta", "foto": "larreta"}, "16": {"nombre_partido": "ECO ", "color_partido": "#7CC374", "especial": "", "id_candidato": "5293", "nombre_completo": "Martín Lousteau", "nombre_abreviado": "M. Lousteau", "apellido": "Lousteau", "foto": "lousteau"}, "23": {"nombre_partido": "FPV", "color_partido": "#1796D7", "especial": "", "id_candidato": "5295", "nombre_completo": "Mariano Recalde", "nombre_abreviado": "M. Recalde", "apellido": "Recalde", "foto": "recalde"}, "24": {"nombre_partido": "Fte. por Buenos Aires", "color_partido": "#D6BBEA", "especial": "", "id_candidato": "6066", "nombre_completo": "Jorge Sampedro", "nombre_abreviado": "J. Sampedro", "apellido": "Sampedro", "foto": "sampedro"}, "22": {"nombre_partido": "Camino Popular", "color_partido": "#C5C8CB", "especial": "", "id_candidato": "5337", "nombre_completo": "Itaí Hagman", "nombre_abreviado": "I. Hagman", "apellido": "Hagman", "foto": "hagman"}, "17": {"nombre_partido": "FIT", "color_partido": "#C5C8CB", "especial": "", "id_candidato": "5294", "nombre_completo": "Myriam Bregman", "nombre_abreviado": "M. Bregman", "apellido": "Bregman", "foto": "bregman"}, "81": {"nombre_partido": "AyL", "color_partido": "#C5C8CB", "especial": "", "id_candidato": "5292", "nombre_completo": "Luis Zamora", "nombre_abreviado": "L. Zamora", "apellido": "Zamora", "foto": "zamora"}, "BLC": {"nombre_partido": "En blanco", "color_partido": "#BDBB86", "especial": "true"}, "NUL": {"nombre_partido": "Nulos", "color_partido": "#BDBB86", "especial": "true"}, "REC": {"nombre_partido": "Recurridos", "color_partido": "#BDBB86", "especial": "true"}, "IMP": {"nombre_partido": "Impugnados", "color_partido": "#BDBB86", "especial": "true"}, "TEC": {"nombre_partido": "Fallo técnico", "color_partido": "#BDBB86", "especial": "true"} }
+{
+  "18": {
+    "nombre_partido": "Pro ",
+    "color_partido": "#FEDB30",
+    "especial": "",
+    "id_candidato": "5296",
+    "nombre_completo": "Horacio R. Larreta",
+    "nombre_abreviado": "H. R. Larreta",
+    "apellido": "Larreta",
+    "foto": "larreta"
+  },
+  "16": {
+    "nombre_partido": "ECO ",
+    "color_partido": "#7CC374",
+    "especial": "",
+    "id_candidato": "5293",
+    "nombre_completo": "Martín Lousteau",
+    "nombre_abreviado": "M. Lousteau",
+    "apellido": "Lousteau",
+    "foto": "lousteau"
+  },
+  "23": {
+    "nombre_partido": "FPV",
+    "color_partido": "#1796D7",
+    "especial": "",
+    "id_candidato": "5295",
+    "nombre_completo": "Mariano Recalde",
+    "nombre_abreviado": "M. Recalde",
+    "apellido": "Recalde",
+    "foto": "recalde"
+  },
+  "24": {
+    "nombre_partido": "Fte. por Buenos Aires",
+    "color_partido": "#D6BBEA",
+    "especial": "",
+    "id_candidato": "6066",
+    "nombre_completo": "Jorge Sampedro",
+    "nombre_abreviado": "J. Sampedro",
+    "apellido": "Sampedro",
+    "foto": "sampedro"
+  },
+  "22": {
+    "nombre_partido": "Camino Popular",
+    "color_partido": "#C5C8CB",
+    "especial": "",
+    "id_candidato": "5337",
+    "nombre_completo": "Itaí Hagman",
+    "nombre_abreviado": "I. Hagman",
+    "apellido": "Hagman",
+    "foto": "hagman"
+  },
+  "17": {
+    "nombre_partido": "FIT",
+    "color_partido": "#F7977A",
+    "especial": "",
+    "id_candidato": "5294",
+    "nombre_completo": "Myriam Bregman",
+    "nombre_abreviado": "M. Bregman",
+    "apellido": "Bregman",
+    "foto": "bregman"
+  },
+  "81": {
+    "nombre_partido": "AyL",
+    "color_partido": "#F7977A",
+    "especial": "",
+    "id_candidato": "5292",
+    "nombre_completo": "Luis Zamora",
+    "nombre_abreviado": "L. Zamora",
+    "apellido": "Zamora",
+    "foto": "zamora"
+  },
+  "BLC": {
+    "nombre_partido": "En blanco",
+    "color_partido": "#BDBB86",
+    "especial": "true"
+  },
+  "NUL": {
+    "nombre_partido": "Nulos",
+    "color_partido": "#BDBB86",
+    "especial": "true"
+  },
+  "REC": {
+    "nombre_partido": "Recurridos",
+    "color_partido": "#BDBB86",
+    "especial": "true"
+  },
+  "IMP": {
+    "nombre_partido": "Impugnados",
+    "color_partido": "#BDBB86",
+    "especial": "true"
+  },
+  "TEC": {
+    "nombre_partido": "Fallo técnico",
+    "color_partido": "#BDBB86",
+    "especial": "true"
+  }
+}

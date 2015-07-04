@@ -1,4 +1,4 @@
-define(['draw', 'app/config', 'app/state'], function (dummy, config, state) {
+define(['draw', 'app/config', 'app/context'], function (dummy, config, ctxt) {
 
     //Draw texts
     L.drawLocal.draw.toolbar.buttons.polygon = 'Dibujar un polígono';
@@ -78,8 +78,8 @@ define(['draw', 'app/config', 'app/state'], function (dummy, config, state) {
 
     function drawdeleted(e) {
         if (!drawnItems.getLayers().length) {
-            drawControlEditOnly.removeFrom(state.map);
-            drawControlFull.addTo(state.map);
+            drawControlEditOnly.removeFrom(ctxt.map);
+            drawControlFull.addTo(ctxt.map);
             $('svg.leaflet-zoom-animated').css('pointer-events','none');
         }
     }

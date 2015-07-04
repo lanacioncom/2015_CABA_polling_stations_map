@@ -1,3 +1,4 @@
-SELECT *, st_asgeojson(the_geom) as g 
-FROM cache_winner_caba_2015
-ORDER BY (margin_victory / sqrt_positivos) desc
+SELECT DISTINCT ON (id_establecimiento)
+    id_establecimiento, id_partido, votos, diferencia
+FROM   diff_votos_caba_2015
+ORDER  BY id_establecimiento, votos DESC;

@@ -1,4 +1,4 @@
-SELECT *, st_asgeojson(the_geom) as g 
+SELECT id_establecimiento, id_partido, votos, diferencia 
 FROM diff_votos_caba_2015
 where id_partido = {{id_partido}}
 ORDER BY votos desc

@@ -393,14 +393,15 @@ def caba_winner_cache_table():
     cache_table.insert_many(results)
 
 
-def caba_diff_cache_table():
+def caba_diff_table():
     '''get the difference for each polling station
        and party between primary and final elections'''
 
     q = '''
         SELECT vc.id_establecimiento, vc.id_partido,
         vc.votos, (vc.votos - vp.votos) as diferencia
-        FROM votos_establecimiento_caba vc, votos_establecimiento_paso vp
+        FROM votos_establecimiento_caba vc,
+        votos_establecimiento_paso vp
         WHERE vc.id_establecimiento = vp.id_establecimiento
         and vc.id_partido = vp.id_partido
         and vc.id_partido NOT IN ('BLC','IMP','REC','NUL','TEC')
@@ -408,6 +409,21 @@ def caba_diff_cache_table():
 
     results = db.query(q)
     cache_table = db['cache_diff_caba']
+    cache_table.insert_many(results)
+
+
+def caba_polling_with_totals_table():
+    '''get the denormalized totals for each polling station'''
+
+    q = '''
+        SELECT e.*, tc.positivos, tc.validos, (tc.validos + tc.invalidos) as votantes
+        FROM establecimientos e,
+        totales_establecimiento_caba tc
+        WHERE e.id_establecimiento = tc.id_establecimiento
+        '''
+
+    results = db.query(q)
+    cache_table = db['establecimientos_totales_caba']
     cache_table.insert_many(results)
 
 
@@ -421,7 +437,7 @@ def process_results():
     print "process CABA data"
     process_CABA()
     print "create cartodb cache tables"
-    process_cache()
+    process_cartodb()
 
 
 def import_common_data():
@@ -470,7 +486,7 @@ def process_CABA():
     caba_classify_votes_by_poll_station()
 
 
-def process_cache():
+def process_cartodb():
     print "create CABA winner unnormalized table for cartodb performance"
     paso_winner_cache_table()
 
@@ -478,10 +494,12 @@ def process_cache():
     caba_winner_cache_table()
 
     print "create PASO diff unnormalized table for cartodb performance"
-    caba_diff_cache_table()
+    caba_diff_table()
+
+    print "create polling stations with totals"
+    caba_polling_with_totals_table()
 
 
 if __name__ == "__main__":
     db = connect_dataset()
     process_results()
-    #paso_make_cache_table()

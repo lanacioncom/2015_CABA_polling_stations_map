@@ -41,12 +41,12 @@ header, section {
   fill: #7CC374;
 }
 .p4, .bk_fit {
-  background: #F4987E;
-  fill: #F4987E;
+  background: #F7977A;
+  fill: #F7977A;
 }
 .p5, .bk_ayl {
-  background: #B185B7;
-  fill: #B185B7;
+  background: #F7977A;
+  fill: #F7977A;
 }
 
 .p1, .col_pro {
@@ -59,10 +59,10 @@ header, section {
   color: #7CC374;
 }
 .p4, .col_fit {
-  color: #F4987E;
+  color: #F7977A;
 }
 .p5, .col_ayl {
-  color: #B185B7;
+  color: #F7977A;
 }
 
 /* instructivo herramienta area */
