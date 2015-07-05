@@ -4,5 +4,6 @@ define({
     featureClicked: false,
     map: null,
     selp: null,
-    presults:{}
+    presults:{},
+    arrows: false
 });

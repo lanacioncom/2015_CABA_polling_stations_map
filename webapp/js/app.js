@@ -117,6 +117,16 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
         $('#mapa_cont').css('cursor', 'auto');
     };
 
+    var d3ArrowOver = function(d, i) {
+        console.log("ArrowOver");
+        return false;
+    }
+
+    var d3ArrowOut = function(d, i) {
+        console.log("ArrowOut");
+        return false;
+    }
+
     // Get data for the clicked polling station and show popup and overlay
     var d3featureClick = function(d, i, latlng) {
         if ($('div#instructivo').is(":visible")) {
@@ -241,6 +251,20 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
     var svg = d3.select(ctxt.map.getPanes().overlayPane)
                 .append("svg").attr("id", "d3layer");
     var g = svg.append("g").attr("class", "leaflet-zoom-hide");
+    // Arrow tips
+    svg.append("svg:defs").selectAll("marker")
+               .data(["18", "16", "23", "81", "17"])
+               .enter().append("marker")
+               .attr("id", function(d) {return "a_"+d;})
+               .attr("viewBox", "0 -5 10 10")
+                .attr("refX", 0)
+                .attr("refY", 0)
+                .attr("markerWidth", 3)
+                .attr("markerHeight", 3)
+                .attr("orient", "auto")
+                .append("svg:path")
+                .attr("class", function(d) {return "a"+d;})
+                .attr("d", "M0,-5L10,0L0,5");
 
     config.sql.execute(templates.d3_geom_sql,null,{format: 'GeoJSON'})
     .done(function(collection) {
@@ -252,6 +276,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
 
         features.enter()
                 .append("path")
+                .attr("class", "establecimiento")
                 .attr('id', function(d) {return "id"+d.properties.id_establecimiento;})
                 .on('mouseover', d3featureOver)
                 .on('mouseout', d3featureOut)
@@ -279,7 +304,11 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
 
             g.attr("transform", "translate(" + (-topLeft[0]) + "," + (-topLeft[1]) + ")");
             if (!(_.isEmpty(ctxt.presults))) {
-                features.attr("d", path).style("fill", path_color);
+                features.attr("d", path).style("fill", set_color);
+                if (ctxt.arrows) {
+                    g.selectAll("line").remove();
+                    update_map_diff();
+                }
             }
         }
 
@@ -307,7 +336,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             return s(v);
         }
 
-        function path_color(d) {
+        function set_color(d) {
             var r = null;
             if (!ctxt.selp) {
                 var fid = d.properties.id_establecimiento;
@@ -330,7 +359,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
         function redraw_features() {
             g.selectAll("path").transition().duration(1000)
                  .attr("d",path.pointRadius(path_radius))
-                 .style("fill", path_color);
+                 .style("fill", set_color);
         }
 
         function check_available_data() {
@@ -347,16 +376,38 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             return false;
         }
 
-        function update_map_diff() {
-            g.selectAll("path").transition().duration(500)
-                 .style("display", "none");
+        function update_map_diff() {  
+            g.selectAll("path").each(draw_arrows);
+        }
 
-            g.selectAll("line").data([1,2]).enter().append("line")
-             .style("stroke", "black")  // colour the line
-             .attr("x1", 100)     // x position of the first end of the line
-             .attr("y1", 50)      // y position of the first end of the line
-             .attr("x2", 300)     // x position of the second end of the line
-             .attr("y2", 150);
+        function draw_arrows(d,i) {
+            ctxt.arrows = true;
+            var center = path.centroid(d);
+            var pid = null;
+            var fid = d.properties.id_establecimiento;
+            if (!ctxt.selp) {
+                pid = "winner";
+            }
+            else {
+                pid = ctxt.selp;
+            }
+            var v = ctxt.presults[pid][fid].diferencia;
+            var max = ctxt.presults[pid].max_diff;
+            var s = d3.scale.linear().domain([0,max]).range([1,12]);
+            var offset = parseInt(s(Math.abs(v)));
+            if (v > 0) {
+                offset = -offset;
+            }
+            g.append("line")
+             .attr("class","arrow")
+             .style("stroke", set_color)  // colour the line
+             .attr("x1", center[0])       // x position of the first end of the line
+             .attr("y1", center[1])       // y position of the first end of the line
+             .attr("x2", center[0])       // x position of the second end of the line
+             .attr("y2", center[1]+offset) // y position of the second end of the line
+             .attr("marker-end","url(#a_"+ctxt.selp+")")
+             .on("mouseover", d3ArrowOver)
+             .on("mouseout", d3ArrowOut);
         }
 
         function update_map() {
@@ -387,7 +438,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
 
                         // Get the extent of the data and store it for later use
                         ctxt.presults[ctxt.selp].extent = d3.extent(rows, function(r) {return r.votos;});
-                        ctxt.presults[ctxt.selp].extent_diff = d3.extent(rows, function(r) {return r.diferencia;});
+                        ctxt.presults[ctxt.selp].max_diff = d3.max(rows, function(r) {return Math.abs(r.diferencia);});
                         redraw_features();
                     });
                 }
@@ -426,64 +477,86 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
         //Winner data
         $("div#home").click(function(){
             ctxt.selp = null;
+            g.selectAll("line").remove();
+            g.selectAll("path.establecimiento").classed("disabled", false);
+            //g.selectAll("path").style("opacity", "1");
             update_map();
         });
 
         //Test diff viz
         $("div#pro").click(function(){
             ctxt.selp = 18;
+            g.selectAll("line").remove();
+            //g.selectAll("path").style("opacity", "1");
+            g.selectAll("path.establecimiento").classed("disabled", false);
             update_map();
         });
 
         $("div.bk_pro").click(function(){
             ctxt.selp = 18;
-            // Better to do it with hiding
-            ctxt.map.removeControl(draw.drawControlFull);
+            g.selectAll("path.establecimiento").classed("disabled", true);
+            //g.selectAll("path").style("opacity", "0");
             update_map_diff();
         });
 
         $("div#eco").click(function(){
             ctxt.selp = 16;
+            g.selectAll("line").remove();
+            g.selectAll("path.establecimiento").classed("disabled", false);
+            //g.selectAll("path").style("opacity", "1");
             update_map();
         });
 
         $("div.bk_eco").click(function(){
             ctxt.selp = 16;
-            update_map();
+            g.selectAll("path.establecimiento").classed("disabled", true);
+            //g.selectAll("path").style("opacity", "0");
+            update_map_diff();
         });
 
         $("div#fpv").click(function(){
             ctxt.selp = 23;
+            g.selectAll("line").remove();
+            g.selectAll("path.establecimiento").classed("disabled", false);
+            //g.selectAll("path").style("opacity", "1");
             update_map();
         });
 
-        $("div#bk_fpv").click(function(){
+        $("div.bk_fpv").click(function(){
             ctxt.selp = 23;
-            update_map();
+            g.selectAll("path.establecimiento").classed("disabled", true);
+            //g.selectAll("path").style("opacity", "0");
+            update_map_diff();
         });
 
         $("div#fit").click(function(){
             ctxt.selp = 17;
+            g.selectAll("line").remove();
+            g.selectAll("path.establecimiento").classed("disabled", false);
+            //g.selectAll("path").style("opacity", "1");
             update_map();
         });
 
-        $("div#bk_fit").click(function(){
+        $("div.bk_fit").click(function(){
             ctxt.selp = 17;
-            update_map();
+            g.selectAll("path.establecimiento").classed("disabled", true);
+            //g.selectAll("path").style("opacity", "0");
+            update_map_diff();
         });
 
         $("div#ayl").click(function(){
             ctxt.selp = 81;
+            g.selectAll("line").remove();
+            g.selectAll("path.establecimiento").classed("disabled", false);
+            //g.selectAll("path").style("opacity", "1");
             update_map();
         });
 
-        $("div#bk_ayl").click(function(){
+        $("div.bk_ayl").click(function(){
             ctxt.selp = 81;
-            update_map();
-        });
-
-        $("div#flechas").click(function(){
-            console.log("flechas");
+            g.selectAll("path.establecimiento").classed("disabled", true);
+            //g.selectAll("path").style("opacity", "0");
+            update_map_diff();
         });
     });
   });

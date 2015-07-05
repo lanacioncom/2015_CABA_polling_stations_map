@@ -1124,20 +1124,3 @@ div.ttip_body span {
 	font-weight:bold;
 	line-height:14px;
 }
-
-/*D3 points*/
-svg#d3layer {
-  position: relative;
-}
-
-svg#d3layer path {
-  fill: #000;
-  fill-opacity: .7;
-  stroke: #fff;
-  stroke-width: 1.5px;
-}
-
-svg#d3layer path:hover {
-  fill: brown;
-  fill-opacity: 1;
-}

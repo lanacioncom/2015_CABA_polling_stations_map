@@ -1,0 +1,45 @@
+/*D3 points*/
+svg#d3layer {
+  position: relative;
+}
+
+svg#d3layer path {
+  fill: #000;
+  fill-opacity: .7;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+svg#d3layer path:hover {
+  fill: brown;
+  fill-opacity: 1;
+}
+
+svg#d3layer line.arrow {
+    stroke-width: 2;
+}
+
+svg#d3layer path.a18 {
+    fill:#FEDB30; 
+}
+
+svg#d3layer path.a16{
+    fill:#7CC374; 
+}
+
+svg#d3layer path.a23{
+    fill:#1796D7; 
+}
+
+svg#d3layer path.a81{
+    fill:#F7977A; 
+}
+
+svg#d3layer path.a17 {
+    fill:#F7977A; 
+}
+
+svg#d3layer .disabled {
+  display: none;
+}
+
