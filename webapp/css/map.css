@@ -39,6 +39,10 @@ svg#d3layer path.a17 {
     fill:#F7977A; 
 }
 
+svg#d3layer path.a00 {
+    fill:#000000; 
+}
+
 svg#d3layer .disabled {
   display: none;
 }

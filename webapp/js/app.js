@@ -120,12 +120,12 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
     var d3ArrowOver = function(d, i) {
         console.log("ArrowOver");
         return false;
-    }
+    };
 
     var d3ArrowOut = function(d, i) {
         console.log("ArrowOut");
         return false;
-    }
+    };
 
     // Get data for the clicked polling station and show popup and overlay
     var d3featureClick = function(d, i, latlng) {
@@ -253,7 +253,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
     var g = svg.append("g").attr("class", "leaflet-zoom-hide");
     // Arrow tips
     svg.append("svg:defs").selectAll("marker")
-               .data(["18", "16", "23", "81", "17"])
+               .data(["18", "16", "23", "81", "17", "00"])
                .enter().append("marker")
                .attr("id", function(d) {return "a_"+d;})
                .attr("viewBox", "0 -5 10 10")
@@ -271,16 +271,31 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
         var transform = d3.geo.transform({point: projectPoint}),
         path = d3.geo.path().projection(transform).pointRadius(path_radius);
 
-        var features = g.selectAll("path")
+        var features = g.selectAll("path.establecimiento")
                         .data(collection.features, function(d) {return d.properties.id_establecimiento;});
 
+        //Create the polling tables circles
         features.enter()
                 .append("path")
-                .attr("class", "establecimiento")
+                .attr("class", "establecimiento disabled")
                 .attr('id', function(d) {return "id"+d.properties.id_establecimiento;})
                 .on('mouseover', d3featureOver)
                 .on('mouseout', d3featureOut)
                 .on('click', d3featureClick);
+
+        //Create the polling stations arrows
+        var arrows = g.selectAll("line.arrow")
+                        .data(collection.features, function(d) {return d.properties.id_establecimiento;});
+        
+        arrows.enter()
+             .append("line")
+             .attr("class","arrow disabled")
+             .attr("x1", function (d) {return path.centroid(d)[0];})
+             .attr("y1", function (d) {return path.centroid(d)[1];})
+             .attr("x2", function (d) {return path.centroid(d)[0];})
+             .attr("y2", function (d) {return path.centroid(d)[1];})
+             .on("mouseover", d3ArrowOver)
+             .on("mouseout", d3ArrowOut);
 
         ctxt.map.on("viewreset", reset);
         reset();
@@ -305,15 +320,18 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             g.attr("transform", "translate(" + (-topLeft[0]) + "," + (-topLeft[1]) + ")");
             if (!(_.isEmpty(ctxt.presults))) {
                 features.attr("d", path).style("fill", set_color);
-                if (ctxt.arrows) {
-                    g.selectAll("line").remove();
-                    update_map_diff();
-                }
+                reposition_arrows();
+                //arrows.call(reposition_arrows);
+                
+                // if (ctxt.arrows) {
+                //     update_arrows();
+                // }
             }
         }
 
         // Use Leaflet to implement a D3 geometric transformation.
         function projectPoint(x, y) {
+            /*jshint validthis: true */
             var point = ctxt.map.latLngToLayerPoint(new L.LatLng(y, x));
             this.stream.point(point.x, point.y);
         }
@@ -332,7 +350,20 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             var v = ctxt.presults[pid][fid].votos / pos;
             var min = ctxt.presults[pid].extent[0] / pos;
             var max = ctxt.presults[pid].extent[1] / pos;
-            var s = d3.scale.sqrt().domain([min,max]).range([1,12]);
+            // Quadratic Party extent
+            //var s = d3.scale.sqrt().domain([min,max]).range([2,12]);
+            // Linear Party extent
+            //var s = d3.scale.linear().domain([min,max]).range([2,12]);
+            // Quadratic Party max
+            //var s = d3.scale.sqrt().domain([0,max]).range([2,12]);
+            // Linear Party max
+            //var s = d3.scale.linear().domain([0,max]).range([2,12]);
+            // Quadratic Total percentage
+            var s = d3.scale.sqrt().domain([0,1]).range([2,12]);
+            // Linear Total percentage
+            //var s = d3.scale.linear().domain([0,1]).range([2,12]);
+            console.log("v: "+v);
+            console.log("scaled: "+s(v));
             return s(v);
         }
 
@@ -362,6 +393,22 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
                  .style("fill", set_color);
         }
 
+        // function reposition_arrows(d,i) {
+        //      d3.select(this)
+        //      .attr("x1", function (d) {return path.centroid(d)[0];})
+        //      .attr("y1", function (d) {return path.centroid(d)[1];})
+        //      .attr("x2", function (d) {return path.centroid(d)[0];})
+        //      .attr("y2", function (d) {return path.centroid(d)[1];});
+        // }
+
+        function reposition_arrows(d,i) {
+            g.selectAll("line.arrow")
+                .attr("x1", function (d) {return path.centroid(d)[0];})
+                .attr("y1", function (d) {return path.centroid(d)[1];})
+                .attr("x2", function (d) {return path.centroid(d)[0];})
+                .attr("y2", set_arrow_length);
+        }
+
         function check_available_data() {
             console.log(ctxt.presults);
             var p = ctxt.selp;
@@ -376,12 +423,94 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             return false;
         }
 
-        function update_map_diff() {  
-            g.selectAll("path").each(draw_arrows);
+        function update_arrows() {  
+            ctxt.arrows = true;
+            redraw_arrows();
+        }
+
+        function redraw_arrows() {
+            g.selectAll("line.arrow")
+                .attr("x1", function (d) {return path.centroid(d)[0];})
+                .attr("y1", function (d) {return path.centroid(d)[1];})
+                .attr("x2", function (d) {return path.centroid(d)[0];})
+                .attr("marker-end",set_arrow_marker_end)
+                .style("stroke", set_arrow_color)
+                .transition()
+                .duration(2000)
+                .attr("y2", set_arrow_length);
+        }
+
+        function set_arrow_marker_end(d) {
+            var r = null;
+            var pid = null;
+            var fid = d.properties.id_establecimiento;
+            if (!ctxt.selp) {
+                pid = "winner";
+            }
+            else {
+                pid = ctxt.selp;
+            }
+            var v = ctxt.presults[pid][fid].diferencia;
+            if (v > 0) {
+                r = "url(#a_"+ctxt.selp+")"
+            }
+            else {
+                r = "url(#a_00)"
+            }
+            return r;
+        }
+        "url(#a_"+ctxt.selp+")"
+
+        function set_arrow_length(d,i) {
+            var r = null;
+            var center = path.centroid(d);
+            var pid = null;
+            var fid = d.properties.id_establecimiento;
+            if (!ctxt.selp) {
+                pid = "winner";
+            }
+            else {
+                pid = ctxt.selp;
+            }
+            var v = ctxt.presults[pid][fid].diferencia;
+            var max = ctxt.presults[pid].max_diff;
+            var s = d3.scale.linear().domain([0,max]).range([5,20]);
+            var offset = parseInt(s(Math.abs(v)));
+            if (v > 0) {
+                offset = -offset;
+            }
+            r = center[1]+offset;
+            return r;
+        }
+
+        function set_arrow_color(d) {
+            var r = null;
+            var pid = null;
+            var fid = d.properties.id_establecimiento;
+            if (!ctxt.selp) {
+                pid = "winner";
+            }
+            else {
+                pid = ctxt.selp;
+            }
+            var v = ctxt.presults[pid][fid].diferencia;
+            if (v > 0) {
+                r = config.diccionario_datos[ctxt.selp].color_partido;
+            } 
+            else {
+                r = "#000000";
+            }
+            return r;
+        }
+
+        function reset_arrow_length(d,i) {
+            var r = null;
+            var center = path.centroid(d);
+            return center[1];
         }
 
         function draw_arrows(d,i) {
-            ctxt.arrows = true;
+            
             var center = path.centroid(d);
             var pid = null;
             var fid = d.properties.id_establecimiento;
@@ -411,6 +540,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
         }
 
         function update_map() {
+            ctxt.arrows = false;
             if (!check_available_data()) {
                 if (!ctxt.selp) {
                     // from here http://stackoverflow.com/questions/3800551/select-first-row-in-each-group-by-group
@@ -477,87 +607,113 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
         //Winner data
         $("div#home").click(function(){
             ctxt.selp = null;
-            g.selectAll("line").remove();
+            g.selectAll("line.arrow")
+                .classed("disabled", true)
+                .attr("marker-end","url(#a_"+ctxt.selp+")")
+                .attr("y2", reset_arrow_length);
             g.selectAll("path.establecimiento").classed("disabled", false);
-            //g.selectAll("path").style("opacity", "1");
             update_map();
         });
 
         //Test diff viz
         $("div#pro").click(function(){
             ctxt.selp = 18;
-            g.selectAll("line").remove();
-            //g.selectAll("path").style("opacity", "1");
+            g.selectAll("line.arrow")
+                .classed("disabled", true)
+                .attr("marker-end","none")
+                .attr("y2", reset_arrow_length);
             g.selectAll("path.establecimiento").classed("disabled", false);
             update_map();
         });
 
         $("div.bk_pro").click(function(){
             ctxt.selp = 18;
-            g.selectAll("path.establecimiento").classed("disabled", true);
-            //g.selectAll("path").style("opacity", "0");
-            update_map_diff();
+            g.selectAll("path.establecimiento")
+                .classed("disabled", true)
+                .attr("d",path.pointRadius(0));
+            g.selectAll("line.arrow").classed("disabled", false);
+            update_arrows();
         });
 
         $("div#eco").click(function(){
             ctxt.selp = 16;
-            g.selectAll("line").remove();
+            g.selectAll("line.arrow")
+                .classed("disabled", true)
+                .attr("marker-end","none")
+                .attr("y2", reset_arrow_length);
             g.selectAll("path.establecimiento").classed("disabled", false);
-            //g.selectAll("path").style("opacity", "1");
             update_map();
         });
 
         $("div.bk_eco").click(function(){
             ctxt.selp = 16;
-            g.selectAll("path.establecimiento").classed("disabled", true);
-            //g.selectAll("path").style("opacity", "0");
-            update_map_diff();
+            g.selectAll("path.establecimiento")
+                .classed("disabled", true)
+                .attr("d",path.pointRadius(0));
+            g.selectAll("line.arrow").classed("disabled", false);
+            update_arrows();
         });
 
         $("div#fpv").click(function(){
             ctxt.selp = 23;
-            g.selectAll("line").remove();
+            g.selectAll("line.arrow")
+                .classed("disabled", true)
+                .attr("marker-end","none")
+                .attr("y2", reset_arrow_length);
             g.selectAll("path.establecimiento").classed("disabled", false);
-            //g.selectAll("path").style("opacity", "1");
             update_map();
         });
 
         $("div.bk_fpv").click(function(){
             ctxt.selp = 23;
-            g.selectAll("path.establecimiento").classed("disabled", true);
-            //g.selectAll("path").style("opacity", "0");
-            update_map_diff();
+            g.selectAll("path.establecimiento")
+                .classed("disabled", true)
+                .attr("d",path.pointRadius(0));
+            g.selectAll("line.arrow").classed("disabled", false);
+            update_arrows();
         });
 
         $("div#fit").click(function(){
             ctxt.selp = 17;
-            g.selectAll("line").remove();
+            g.selectAll("line.arrow")
+                .classed("disabled", true)
+                .attr("marker-end","none")
+                .attr("y2", reset_arrow_length);
             g.selectAll("path.establecimiento").classed("disabled", false);
-            //g.selectAll("path").style("opacity", "1");
             update_map();
         });
 
         $("div.bk_fit").click(function(){
             ctxt.selp = 17;
-            g.selectAll("path.establecimiento").classed("disabled", true);
-            //g.selectAll("path").style("opacity", "0");
-            update_map_diff();
+            g.selectAll("path.establecimiento")
+                .classed("disabled", true)
+                .attr("d",path.pointRadius(0));
+            g.selectAll("line.arrow").classed("disabled", false);
+            update_arrows();
         });
 
         $("div#ayl").click(function(){
             ctxt.selp = 81;
-            g.selectAll("line").remove();
+            g.selectAll("line.arrow")
+                .classed("disabled", true)
+                .attr("marker-end","none")
+                .attr("y2", reset_arrow_length);
             g.selectAll("path.establecimiento").classed("disabled", false);
-            //g.selectAll("path").style("opacity", "1");
             update_map();
         });
 
         $("div.bk_ayl").click(function(){
             ctxt.selp = 81;
-            g.selectAll("path.establecimiento").classed("disabled", true);
-            //g.selectAll("path").style("opacity", "0");
-            update_map_diff();
+            g.selectAll("path.establecimiento")
+                .classed("disabled", true)
+                .attr("d",path.pointRadius(0));
+            g.selectAll("line.arrow").classed("disabled", false);
+            update_arrows();
         });
+
+        //Launch initial data
+        g.selectAll("path.establecimiento").classed("disabled", false);
+        update_map();
     });
   });
 });
