@@ -362,8 +362,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             var s = d3.scale.sqrt().domain([0,1]).range([2,12]);
             // Linear Total percentage
             //var s = d3.scale.linear().domain([0,1]).range([2,12]);
-            console.log("v: "+v);
-            console.log("scaled: "+s(v));
+            //console.log("v: "+v);
+            //console.log("scaled: "+s(v));
             return s(v);
         }
 
@@ -410,16 +410,13 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
         }
 
         function check_available_data() {
-            console.log(ctxt.presults);
             var p = ctxt.selp;
             if (!ctxt.selp) {
                 p = "winner";
             }
             if(p in ctxt.presults) {
-                console.log("found data");
                 return true;
             }
-            console.log("did not find data");
             return false;
         }
 
@@ -602,11 +599,13 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             });
         }
         // Add explanation for the drawing plugin
-        $("div#instructivo").fadeIn(200);
+        d3.select("div#instructivo").transition().style("opacity","1");
 
         //Winner data
         $("div#home").click(function(){
             ctxt.selp = null;
+            d3.select("div.leaflet-draw").classed("disabled", false);
+            d3.select("div#instructivo").classed("disabled", false);
             g.selectAll("line.arrow")
                 .classed("disabled", true)
                 .attr("marker-end","url(#a_"+ctxt.selp+")")
@@ -617,6 +616,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
 
         //Test diff viz
         $("div#pro").click(function(){
+            d3.select("div.leaflet-draw").classed("disabled", true);
+            d3.select("div#instructivo").classed("disabled", true);
             ctxt.selp = 18;
             g.selectAll("line.arrow")
                 .classed("disabled", true)

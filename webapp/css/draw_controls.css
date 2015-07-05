@@ -1,0 +1,7 @@
+div#instructivo.disabled {
+  display: none;
+}
+
+div.leaflet-draw.disabled {
+  display: none;
+}

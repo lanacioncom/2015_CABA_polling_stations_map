@@ -76,8 +76,8 @@ header, section {
   width: 21%;
   padding:5px;
   background:#999;
-  opacity:.9;
-  display:none;	
+  opacity:0;
+  /*display:none;*/
 }
 
 /* referencias mapa */
