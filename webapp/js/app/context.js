@@ -1,9 +1,5 @@
 define({
-    current_latlng: null,
-    current_zoomLevel: null,
-    featureClicked: false,
-    map: null,
-    selp: null,
-    presults:{},
-    arrows: false
+    selected_party: null,
+    selected_polling: null,
+    show_diff: false
 });
