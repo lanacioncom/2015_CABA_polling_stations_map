@@ -1,8 +1,32 @@
+
+
+
 <a class="cerrar">x</a>
 <div id="x_interna">
     <ul id="list_interna">
         <% _.each(data, function(d) { console.log(d);%>
         <li class="candidato">
+            <div class="clearfix bg_li">
+                <!--<input type="radio" name="candidato" value="<%= d.id%>" />-->
+                <div class="radioBtn"></div>
+                <div class="foto <%=vh.get_candidato_apellido_class(d,dict_datos)%>">&nbsp;</div>
+                <h5 class=""><span><%= vh.get_partido(d,dict_datos) %></span><%= vh.get_candidato_nombre(d,dict_datos) %></h5>
+                <div class="cant_v" style="color:<%= vh.get_candidato_color(d,dict_datos) %>;">
+                    <span class="votos"><%= vh.get_formatted_num(d.votos,0) %> <span class="mb_hidde_640">votos</span></span>
+                    <span class="porc"><%= vh.get_formatted_num(d.pct,1) %>%</span>
+                </div>
+                <div class="cont_barra clearfix" style="color:<%= vh.get_candidato_color(d,dict_datos) %>;">
+                    <div class="barra" data-width="<%=vh.get_formatted_pct(d.votos,max.votos,1,'.')%>%" style="background: <%= vh.get_candidato_color(d,dict_datos) %>;">
+                        <div class="porc"><%= vh.get_formatted_num(d.pct,1) %>%</div>
+                    </div>
+                <!-- 
+                    <div class="barra barra_paso">
+                        <div class="porc">nn% <span>PASO</span></div>
+                    </div>
+                 -->
+                </div>
+            </div>
+    <!-- 
         <div class="bg_li clearfix">
             <input hidden type="radio" name="candidato" value="<%- d.id_partido %>" />
             <div class="foto <%=vh.get_candidato_apellido_class(d,dict_datos)%>">&nbsp;</div>
@@ -15,6 +39,7 @@
                 
             </div>
         </div>
+     -->
         </li>
         <% }); %>
     </ul>

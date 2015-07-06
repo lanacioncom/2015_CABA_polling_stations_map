@@ -28,6 +28,9 @@ define(function () {
         },
         get_formatted_num: function(num,c,d,t) {
             return (+num).format(c, d, t);
+        },
+        get_partido: function(d,dict) {
+            return dict[d.id_partido] ? dict[d.id_partido].nombre_partido : "";
         }
     };
 });
