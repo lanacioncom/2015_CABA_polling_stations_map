@@ -1,3 +1,9 @@
 <!--JET: Tooltip when one polling station is selected-->
+<% console.log(arrow) %>
 <div class="ttip_header"><%- establecimiento.descripcion %></div>
-<div class="ttip_body">El partido <%- dict_datos[v.rows[0].id_partido].nombre_partido %> ha ganado por un margen de <span> <%= (((v.rows[0].votos - v.rows[1].votos) / establecimiento.positivos) * 100).format(1, ",", '.') %>% </span>al partido <%- dict_datos[v.rows[1].id_partido].nombre_partido %></div>
+<div class="ttip_body">El partido <%- dict_datos[v.rows[0].id_partido].nombre_partido %>
+    <% if (arrow) { console.log("arrow detected");%> 
+    ha <% if (v.rows[0].diff_total > 0) { %>ganado<% }else {%>perdido<%}%> un total de <%= Math.abs(v.rows[0].diff_total) %> votos respecto a las PASO (Votos totales: <%= v.rows[0].votos %>)</div>
+    <% }else {%>
+    ha ganado por un margen de <span> <%= (((v.rows[0].votos - v.rows[1].votos) / establecimiento.positivos) * 100).format(1, ",", '.') %>% </span>al partido <%- dict_datos[v.rows[1].id_partido].nombre_partido %></div>
+    <%}%>

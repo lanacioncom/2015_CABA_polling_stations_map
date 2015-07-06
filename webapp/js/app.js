@@ -47,7 +47,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
     // Template for the description of a given polling station
     var popup_tmpl = _.template(templates.popup);
     // Template to show error in case drawing does not intersect any polling station
-    var popup_error_tmpl = _.template(templates.popup_error);
+    var popup_simple_tmpl = _.template(templates.popup_simple);
     // Template for the results of a given polling station
     var overlay_tmpl = _.template(templates.overlay);
 
@@ -155,14 +155,29 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
 
     //Called when the Cartodb SQL has finished
     var featureClickDone = function(latlng, establecimiento_data, unique, votos_data) {
-        var popup = L.popup()
+        var popup = null;
+
+        /** If we are viewing differences ignore overlay */
+        if (ctxt.arrows) {
+            popup = L.popup()
+                .setLatLng(latlng)
+                .setContent(popup_tmpl({establecimiento: establecimiento_data,
+                                        arrow: ctxt.arrows,
+                                        v: votos_data,
+                                        dict_datos: config.diccionario_datos,
+                                        unique: unique}))
+                .openOn(ctxt.map);
+            return false;
+        }
+
+        popup = L.popup()
             .setLatLng(latlng)
             .setContent(popup_tmpl({establecimiento: establecimiento_data,
+                                    arrow: ctxt.arrows,
                                     v: votos_data,
                                     dict_datos: config.diccionario_datos,
                                     unique: unique}))
             .openOn(ctxt.map);
-        
         var d = votos_data.rows;
         d.forEach(function(d) {
             d.pct = (d.votos / establecimiento_data.positivos) * 100;
@@ -217,10 +232,11 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
         sql_poly.push("CDB_LatLng("+poly[0].lat+","+poly[0].lng+")");
         //Center and zoom the map
         ctxt.map.panTo(latlng);
+        console.log(templates.draw1_sql);
         config.sql.execute(templates.draw1_sql,{bounds: sql_poly.join()})
         .done(function(data) {
             // Check to see if there's any intersection
-            if (data.total_rows) {
+            if (data.total_rows) { 
                 var establecimiento_data = {nombre: "SELECCIÓN"};
                 var ids = [];
                 var d = data.rows;
@@ -230,18 +246,25 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
                 establecimiento_data.electores = _.reduce(d, function(m,e) { return m + e.electores; }, 0);
                 establecimiento_data.votantes = _.reduce(d, function(m,e) { return m + e.votantes; }, 0);
                 establecimiento_data.positivos = _.reduce(d, function(m,e) { return m + e.positivos; }, 0);
-                config.sql.execute(templates.draw2_sql,{ids: ids.join()})
-                .done(_.partial(featureClickDone, latlng, establecimiento_data, false))
-                .error(function(errors) {
-                    console.log(errors);
-                });
+                if (ctxt.arrows && ctxt.selp) {
+                    config.sql.execute(templates.draw2_a_sql,{ids: ids.join(), 
+                                                                  id_partido: ctxt.selp})
+                    .done(_.partial(featureClickDone, latlng, establecimiento_data, false));
+                }
+                else {
+                    config.sql.execute(templates.draw2_w_sql,{ids: ids.join()})
+                    .done(_.partial(featureClickDone, latlng, establecimiento_data, false))
+                    .error(function(errors) {
+                        console.log(errors);
+                    });
+                }
             }
             else {
                 var msg_header = "Error";
                 var msg_body = "No se ha encontrado ningún establecimiento con la selección actual";
                 var popup = L.popup()
                     .setLatLng(latlng)
-                    .setContent(popup_error_tmpl({message_header: msg_header,
+                    .setContent(popup_simple_tmpl({message_header: msg_header,
                                     message_body: msg_body}))
                     .openOn(ctxt.map);
             }
@@ -450,14 +473,13 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             }
             var v = ctxt.presults[pid][fid].diferencia;
             if (v > 0) {
-                r = "url(#a_"+ctxt.selp+")"
+                r = "url(#a_"+ctxt.selp+")";
             }
             else {
-                r = "url(#a_00)"
+                r = "url(#a_00)";
             }
             return r;
         }
-        "url(#a_"+ctxt.selp+")"
 
         function set_arrow_length(d,i) {
             var r = null;
@@ -493,10 +515,11 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             }
             var v = ctxt.presults[pid][fid].diferencia;
             if (v > 0) {
-                r = config.diccionario_datos[ctxt.selp].color_partido;
+                //r = config.diccionario_datos[ctxt.selp].color_partido;
+                r = "#000000";
             } 
             else {
-                r = "#000000";
+                r = "#FF0000";
             }
             return r;
         }
@@ -520,7 +543,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             }
             var v = ctxt.presults[pid][fid].diferencia;
             var max = ctxt.presults[pid].max_diff;
-            var s = d3.scale.linear().domain([0,max]).range([1,12]);
+            var s = d3.scale.linear().domain([0,max]).range([1,20]);
             var offset = parseInt(s(Math.abs(v)));
             if (v > 0) {
                 offset = -offset;
@@ -630,6 +653,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
 
         $("div.bk_pro").click(function(){
             ctxt.selp = 18;
+            d3.select("div.leaflet-draw").classed("disabled", false);
             g.selectAll("path.establecimiento")
                 .classed("disabled", true)
                 .attr("d",path.pointRadius(0));
@@ -639,6 +663,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
 
         $("div#eco").click(function(){
             ctxt.selp = 16;
+            d3.select("div.leaflet-draw").classed("disabled", true);
+            d3.select("div#instructivo").classed("disabled", true);
             g.selectAll("line.arrow")
                 .classed("disabled", true)
                 .attr("marker-end","none")
@@ -649,6 +675,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
 
         $("div.bk_eco").click(function(){
             ctxt.selp = 16;
+            d3.select("div.leaflet-draw").classed("disabled", false);
             g.selectAll("path.establecimiento")
                 .classed("disabled", true)
                 .attr("d",path.pointRadius(0));
@@ -658,6 +685,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
 
         $("div#fpv").click(function(){
             ctxt.selp = 23;
+            d3.select("div.leaflet-draw").classed("disabled", true);
+            d3.select("div#instructivo").classed("disabled", true);
             g.selectAll("line.arrow")
                 .classed("disabled", true)
                 .attr("marker-end","none")
@@ -668,6 +697,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
 
         $("div.bk_fpv").click(function(){
             ctxt.selp = 23;
+            d3.select("div.leaflet-draw").classed("disabled", false);
             g.selectAll("path.establecimiento")
                 .classed("disabled", true)
                 .attr("d",path.pointRadius(0));
@@ -677,6 +707,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
 
         $("div#fit").click(function(){
             ctxt.selp = 17;
+            d3.select("div.leaflet-draw").classed("disabled", true);
+            d3.select("div#instructivo").classed("disabled", true);
             g.selectAll("line.arrow")
                 .classed("disabled", true)
                 .attr("marker-end","none")
@@ -687,6 +719,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
 
         $("div.bk_fit").click(function(){
             ctxt.selp = 17;
+            d3.select("div.leaflet-draw").classed("disabled", false);
             g.selectAll("path.establecimiento")
                 .classed("disabled", true)
                 .attr("d",path.pointRadius(0));
@@ -696,6 +729,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
 
         $("div#ayl").click(function(){
             ctxt.selp = 81;
+            d3.select("div.leaflet-draw").classed("disabled", true);
+            d3.select("div#instructivo").classed("disabled", true);
             g.selectAll("line.arrow")
                 .classed("disabled", true)
                 .attr("marker-end","none")
@@ -706,6 +741,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
 
         $("div.bk_ayl").click(function(){
             ctxt.selp = 81;
+            d3.select("div.leaflet-draw").classed("disabled", false);
             g.selectAll("path.establecimiento")
                 .classed("disabled", true)
                 .attr("d",path.pointRadius(0));

@@ -1,0 +1,7 @@
+SELECT v.id_partido, SUM(v.votos) as votos 
+FROM votos_caba_2015 v, partidos_caba_2015 p
+WHERE v.id_establecimiento IN ({{ids}})
+AND p.id_partido = v.id_partido
+AND p.especial = 0
+GROUP BY v.id_partido
+ORDER BY votos desc;
