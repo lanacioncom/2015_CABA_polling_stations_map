@@ -88,7 +88,7 @@ width: 0;
   border-right: 8px solid rgba(0, 0, 0, 0.6);
   position: absolute;
   left: -8px;
-  top: 25px;
+  top: 24px;
 }
 
 
@@ -176,7 +176,7 @@ ul#list_interna li div.foto {
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  background-image: url(../img/Sprite_anexoCABA.png);
+  background-image: url(../img/Sprite_anexoCABA3.png);
   background-repeat: no-repeat;
 }
 
