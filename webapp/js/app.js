@@ -626,7 +626,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
         d3.select("div#instructivo").transition().style("opacity","1");
 
         //Winner data
-        $("div#home").click(function(){
+        $("#home").click(function(){
             ctxt.selp = null;
             d3.select("div.leaflet-draw").classed("disabled", false);
             d3.select("div#instructivo").classed("disabled", false);
@@ -636,28 +636,49 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
                 .attr("y2", reset_arrow_length);
             g.selectAll("path.establecimiento").classed("disabled", false);
             update_map();
+            return false;
         });
 
         //Test diff viz
+        d3.selectAll(".set_status_app").on('click', set_status_app);
+        function set_status_app(){
+            var is_paso = this.classList.contains("paso");
+            var partido_id = this.dataset.partido;
+
+            ctxt.selp = partido_id;
+            if(is_paso){
+
+                d3.select("div.leaflet-draw").classed("disabled", false);
+                g.selectAll("path.establecimiento")
+                    .classed("disabled", true)
+                    .attr("d",path.pointRadius(0));
+                g.selectAll("line.arrow").classed("disabled", false);
+                
+                update_arrows();
+            
+            }else{
+                
+                d3.select("div.leaflet-draw").classed("disabled", true);
+                g.selectAll("line.arrow")
+                    .classed("disabled", true)
+                    .attr("marker-end","none")
+                    .attr("y2", reset_arrow_length);
+                g.selectAll("path.establecimiento").classed("disabled", false);
+            
+                update_map();
+            }
+            
+
+            d3.select("div#instructivo").remove();
+            return false;
+            
+        }
+/*
+        //Test diff viz
         $("div#pro").click(function(){
-            d3.select("div.leaflet-draw").classed("disabled", true);
-            d3.select("div#instructivo").classed("disabled", true);
-            ctxt.selp = 18;
-            g.selectAll("line.arrow")
-                .classed("disabled", true)
-                .attr("marker-end","none")
-                .attr("y2", reset_arrow_length);
-            g.selectAll("path.establecimiento").classed("disabled", false);
-            update_map();
         });
 
         $("div.bk_pro").click(function(){
-            ctxt.selp = 18;
-            d3.select("div.leaflet-draw").classed("disabled", false);
-            g.selectAll("path.establecimiento")
-                .classed("disabled", true)
-                .attr("d",path.pointRadius(0));
-            g.selectAll("line.arrow").classed("disabled", false);
             update_arrows();
         });
 
@@ -680,7 +701,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
                 .classed("disabled", true)
                 .attr("d",path.pointRadius(0));
             g.selectAll("line.arrow").classed("disabled", false);
-            update_arrows();
         });
 
         $("div#fpv").click(function(){
@@ -748,7 +768,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             g.selectAll("line.arrow").classed("disabled", false);
             update_arrows();
         });
-
+*/
         //Launch initial data
         g.selectAll("path.establecimiento").classed("disabled", false);
         update_map();
