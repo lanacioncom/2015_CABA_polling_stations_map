@@ -56,6 +56,16 @@ SCHEMA_RESULTS_NUMERIC = {
     "COM": "votos_com"
 }
 
+SCHEMA_RESULTS_CABA_NUMERIC = {
+    "id_mesa": "id_mesa",
+    "ciudadanos_habilitados": "electores",
+    "id_establecimiento": "id_establecimiento",
+    "id_comuna": "id_comuna",
+    "VotosJef": "votos",
+    "VotosLeg": "votos_leg",
+    "VotosCom": "votos_com"
+}
+
 SPECIAL_PARTIES = {
     "BLC": 0,
     "NUL": 1,
@@ -294,7 +304,7 @@ def caba_import_lists(fname):
     t.insert_many(results)
 
 
-def caba_import_randomized_results(fname):
+def caba_import_results(fname):
     ''' import caba results by polling table CSV '''
     t = db['resultados_caba']
     f = open(fname, 'r')
@@ -304,14 +314,14 @@ def caba_import_randomized_results(fname):
     for row in c:
         t_results = {}
         for k, v in row.iteritems():
-            if k in SCHEMA_RESULTS_NUMERIC.keys():
-                kt = SCHEMA_RESULTS_NUMERIC[k]
+            if k in SCHEMA_RESULTS_CABA_NUMERIC.keys():
+                kt = SCHEMA_RESULTS_CABA_NUMERIC[k]
                 t_results[kt] = int(v) if v else None
-            if k not in SCHEMA_RESULTS_NUMERIC.keys():
+            if k not in SCHEMA_RESULTS_CABA_NUMERIC.keys():
                 t_results[k] = v.decode('utf-8')
-            # Randomize votes
-        votos = t_results["votos"]
-        t_results["votos"] = randomized_int_by_perc(votos, 10)
+        # Randomize votes
+        #votos = t_results["votos"]
+        #t_results["votos"] = randomized_int_by_perc(votos, 10)
         results.append(t_results)
     t.insert_many(results, chunk_size=50000)
 
@@ -476,7 +486,7 @@ def process_CABA():
                       % (CABA_DATADICT_PATH, LISTS_DATA_FILE))
 
     print "import caba results"
-    caba_import_randomized_results('%s/%s'
+    caba_import_results('%s/%s'
                                    % (CABA_RESULTS_PATH, RESULTS_DATA_FILE))
 
     print "aggregate results by polling station and party"
