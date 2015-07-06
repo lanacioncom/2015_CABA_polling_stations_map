@@ -1,10 +1,10 @@
 requirejs.config({
     baseUrl: 'js',
     paths: {
-        'draw': '../libs/leaflet.draw',
+        'draw': '../libs/leaflet.draw/dist/leaflet.draw',
         'templates': '../templates', 
-        'text': '../libs/plugins/text',
-        'd3': '../libs/d3.min',
+        'text': '../libs/requirejs-text/text',
+        'd3': '../libs/d3/d3.min',
     }
 });
 
@@ -39,7 +39,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
 
     var mapboxUrl = config.cdn_proxy+'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
     L.tileLayer(mapboxUrl, {
-                            id: 'olcreativa.c409ba3f', 
+                            //id: 'olcreativa.c409ba3f',
+                            id: 'olcreativa.bd1c1a65',  
                             attribution: "OpenStreetMaps", 
                             token: 'pk.eyJ1Ijoib2xjcmVhdGl2YSIsImEiOiJEZWUxUmpzIn0.buFJd1-sVkgR01epcQz4Iw'}).addTo(ctxt.map);
 
@@ -359,9 +360,9 @@ function(config, ctxt, templates, helpers, view_helpers, draw, d3) {
             // Linear Party max
             //var s = d3.scale.linear().domain([0,max]).range([2,12]);
             // Quadratic Total percentage
-            var s = d3.scale.sqrt().domain([0,1]).range([2,12]);
+            //var s = d3.scale.sqrt().domain([0,1]).range([2,12]);
             // Linear Total percentage
-            //var s = d3.scale.linear().domain([0,1]).range([2,12]);
+            var s = d3.scale.linear().domain([0,1]).range([2,12]);
             //console.log("v: "+v);
             //console.log("scaled: "+s(v));
             return s(v);
