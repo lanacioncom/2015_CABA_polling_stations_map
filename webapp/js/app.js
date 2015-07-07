@@ -33,10 +33,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             config.diccionario_datos = data;
         });
 
-        // Set initial zoom level
-        var w = $("body").width();
-        console.log(w);
-        if (w < 650) {
+        // Set initial zoom level for responsiveness
+        if ($("body").width() < 650) {
             config.current_zoomLevel = 11;
         }
         else {
@@ -248,10 +246,12 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         }
 
         function redraw_map() {
+            map.scrollWheelZoom.disable();
             switch_base_layers();
             if (ctxt.show_diff) {
                 g.selectAll("path.establecimiento")
-                    .attr("d",path.pointRadius(3));
+                    .attr("d",path.pointRadius(3))
+                    .style("fill", set_circle_color);
                 g.selectAll("line.arrow").classed("disabled", false);
                 g.selectAll("line.arrow")
                 .attr("x1", function (d) {return path.centroid(d)[0];})
@@ -259,8 +259,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 .attr("x2", function (d) {return path.centroid(d)[0];})
                 .attr("marker-end",set_arrow_marker_end)
                 .style("stroke", set_arrow_color)
-                .transition()
-                .duration(2000)
+                .transition().ease("quad-in-out")
+                .duration(1000)
                 .attr("y2", set_arrow_length);
             }else {
                 g.selectAll("line.arrow")
@@ -268,7 +268,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                     .attr("marker-end","none")
                     .attr("y2", reset_arrow_length);
                 //g.selectAll("path.establecimiento").classed("disabled", false);
-                g.selectAll("path").transition().duration(1000)
+                g.selectAll("path").transition().ease("quad-in-out").duration(1000)
                  .attr("d",path.pointRadius(set_circle_radius))
                  .style("fill", set_circle_color);
 
@@ -420,7 +420,9 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         map.on('draw:edited', draw_filter);
 
         //Winner data
-        $("#home").click(function(){
+        d3.select("div#home").on('click', function(){
+            // To hide filters if we are on mobile
+            d3.select("nav").classed("muestra", true);
             ctxt.selected_party = "00";
             ctxt.selected_polling = null;
             ctxt.show_diff = false;
@@ -433,6 +435,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         d3.selectAll(".set_status_app").on('click', set_status_app);
         function set_status_app(){
         /*jshint validthis: true */
+            // To hide filters if we are on mobile
             if (!this.classList.contains("active")) {
                 d3.select("button.active").classed("active", false);
                 d3.select(this).classed("active", true);
@@ -605,5 +608,11 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             //Finally update permalink
             permalink.set(); 
         }
+
+        //Hide filter buttons for mobile
+        d3.select("div#hamburguesa").click(function(){
+            d3.select("nav").classed("muestra", true);
+            return false;
+        });
     });
 });
