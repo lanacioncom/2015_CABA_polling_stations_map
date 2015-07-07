@@ -111,16 +111,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             $('#mapa_cont').css('cursor', 'auto');
         };
 
-        var d3ArrowOver = function(d, i) {
-            console.log("ArrowOver");
-            return false;
-        };
-
-        var d3ArrowOut = function(d, i) {
-            console.log("ArrowOut");
-            return false;
-        };
-
         // Get data for the clicked polling station and show popup and overlay
         var d3featureClick = function(d, i, latlng) {
             if ($('div#instructivo').is(":visible")) {
@@ -151,7 +141,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             var popup = null;
 
             /** If we are viewing differences ignore overlay */
-            if (ctxt.arrows) {
+            if (ctxt.show_diff) {
                 popup = L.popup()
                     .setLatLng(latlng)
                     .setContent(popup_tmpl({establecimiento: establecimiento_data,
@@ -310,9 +300,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                  .attr("x1", function (d) {return path.centroid(d)[0];})
                  .attr("y1", function (d) {return path.centroid(d)[1];})
                  .attr("x2", function (d) {return path.centroid(d)[0];})
-                 .attr("y2", function (d) {return path.centroid(d)[1];})
-                 .on("mouseover", d3ArrowOver)
-                 .on("mouseout", d3ArrowOut);
+                 .attr("y2", function (d) {return path.centroid(d)[1];});
 
             map.on("viewreset", reset);
             reset();
@@ -340,7 +328,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
             g.attr("transform", "translate(" + (-topLeft[0]) + "," + (-topLeft[1]) + ")");
             if (!(_.isEmpty(presults))) {
-                features.attr("d", path).style("fill", set_color);
+                features.attr("d", path).style("fill", set_circle_color);
                 reposition_arrows();
             }
         }
@@ -352,7 +340,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             this.stream.point(point.x, point.y);
         }
 
-        function path_radius(d) {
+        function set_circle_radius(d) {
             var r = null;
             var pid = null;
             var fid = d.properties.id_establecimiento;
@@ -383,7 +371,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             return s(v);
         }
 
-        function set_color(d) {
+        function set_circle_color(d) {
             var r = null;
             if (ctxt.selected_party == "00") {
                 var fid = d.properties.id_establecimiento;
@@ -425,8 +413,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                     .attr("y2", reset_arrow_length);
                 g.selectAll("path.establecimiento").classed("disabled", false);
                 g.selectAll("path").transition().duration(1000)
-                 .attr("d",path.pointRadius(path_radius))
-                 .style("fill", set_color);
+                 .attr("d",path.pointRadius(set_circle_radius))
+                 .style("fill", set_circle_color);
 
                 if (ctxt.selected_polling) {
                     var id_establecimiento = ctxt.selected_polling;
@@ -532,36 +520,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             return center[1];
         }
 
-        function draw_arrows(d,i) {
-            
-            var center = path.centroid(d);
-            var pid = null;
-            var fid = d.properties.id_establecimiento;
-            if (!ctxt.selected_party) {
-                pid = "winner";
-            }
-            else {
-                pid = ctxt.selected_party;
-            }
-            var v = presults[pid][fid].diferencia;
-            var max = presults[pid].max_diff;
-            var s = d3.scale.linear().domain([0,max]).range([1,20]);
-            var offset = parseInt(s(Math.abs(v)));
-            if (v > 0) {
-                offset = -offset;
-            }
-            g.append("line")
-             .attr("class","arrow")
-             .style("stroke", set_color)  // colour the line
-             .attr("x1", center[0])       // x position of the first end of the line
-             .attr("y1", center[1])       // y position of the first end of the line
-             .attr("x2", center[0])       // x position of the second end of the line
-             .attr("y2", center[1]+offset) // y position of the second end of the line
-             .attr("marker-end","url(#a_"+ctxt.selected_party+")")
-             .on("mouseover", d3ArrowOver)
-             .on("mouseout", d3ArrowOut);
-        }
-
         function update_map() {
             if (!check_available_data()) {
                 // from here http://stackoverflow.com/questions/3800551/select-first-row-in-each-group-by-group
@@ -618,6 +576,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         //Test diff viz
         d3.selectAll(".set_status_app").on('click', set_status_app);
         function set_status_app(){
+        /*jshint validthis: true */
             ctxt.show_diff = this.classList.contains("paso");
             ctxt.selected_party = this.dataset.partido;
             update_map();

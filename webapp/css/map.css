@@ -3,16 +3,16 @@ svg#d3layer {
   position: relative;
 }
 
-svg#d3layer path {
-  fill: #000;
-  fill-opacity: .7;
+svg#d3layer path.establecimiento {
+  fill: #ccc;
   stroke: #fff;
-  stroke-width: 1.5px;
+  stroke-width: 1px;
+  fill-opacity: 0.9;
 }
 
 svg#d3layer path:hover {
-  fill: brown;
   fill-opacity: 1;
+  cursor: pointer;
 }
 
 svg#d3layer line.arrow {
