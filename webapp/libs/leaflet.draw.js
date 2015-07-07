@@ -2585,6 +2585,7 @@ L.EditToolbar = L.Toolbar.extend({
         // JET: Not sure why do we need this hack but we do need it
         // Probably due to the switching of drawcontrols in 
         // draw:deleted 
+        //this._activeMode.handler.disable();
         if (this._activeMode) {
             this._activeMode.handler.disable();
         }

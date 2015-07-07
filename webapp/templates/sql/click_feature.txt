@@ -1,0 +1,4 @@
+SELECT d.id_partido, d.votos as votos, d.diferencia
+FROM diff_votos_caba_2015 d
+WHERE d.id_partido = {{id_partido}}
+AND d.id_establecimiento = {{id_establecimiento}};

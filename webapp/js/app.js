@@ -51,7 +51,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         });
 
         // Template that stores the query to execute once a polling station has been clicked
-        var FEATURE_CLICK_SQL_TMPL = _.template(templates.feature_click_sql);
+        var click_feature_tpl = _.template(templates.click_feature_sql);
+        var click_feature_winner_tpl = _.template(templates.click_feature_winner_sql);
 
         // Template for the credits
         $('.creVent').html(_.template(templates.credits));
@@ -92,149 +93,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             helpers.close_slide();
         });
 
-        // Get data for the clicked polling station and show popup and overlay
-        var d3featureClick = function(d, i, latlng) {
-            if ($('div#instructivo').is(":visible")) {
-                $('div#instructivo').fadeOut(200); 
-            }
-            $('#overlay *').fadeOut(200, function() { $(this).remove();});
-            showOverlay();
-            if (!latlng) {
-                latlng = L.latLng(d.geometry.coordinates[1], d.geometry.coordinates[0]);
-            }
-            config.current_latlng = latlng;
-            map.panTo(latlng);
-            setTimeout(function() {
-                var query = FEATURE_CLICK_SQL_TMPL({
-                    establecimiento: d.properties
-                });
-                config.sql.execute(query)
-                    .done(_.partial(featureClickDone, latlng, d.properties))
-                    .error(function(errors) {
-                        // errors contains a list of errors
-                        console.log(errors);
-                    });
-            }, 200);
-        };
-
-        //Called when the Cartodb SQL has finished
-        var featureClickDone = function(latlng, establecimiento_data, votos_data) {
-            var popup = null;
-
-            /** If we are viewing differences ignore overlay */
-            if (ctxt.show_diff) {
-                popup = L.popup()
-                    .setLatLng(latlng)
-                    .setContent(popup_tmpl({establecimiento: establecimiento_data,
-                                            arrow: ctxt.show_diff,
-                                            v: votos_data,
-                                            dict_datos: config.diccionario_datos}))
-                    .openOn(map);
-                return false;
-            }
-
-            popup = L.popup()
-                .setLatLng(latlng)
-                .setContent(popup_tmpl({establecimiento: establecimiento_data,
-                                        arrow: ctxt.show_diff,
-                                        v: votos_data,
-                                        dict_datos: config.diccionario_datos}))
-                .openOn(map);
-            var d = votos_data.rows;
-            d.forEach(function(d) {
-                d.pct = (d.votos / establecimiento_data.positivos) * 100;
-            });
-
-            $('#results').html(overlay_tmpl({
-                e: establecimiento_data,
-                data: d,
-                dict_datos: config.diccionario_datos,
-                max: _.max(d, function(item){ return item.votos; }),
-                vh: view_helpers
-            }));
-
-            $("#results a.cerrar").click(function(){
-                helpers.close_slide();
-            });
-
-            
-            $('#results').animate({right:'0%'}, 'fast', function(){
-                helpers.animate_barras();
-            });
-
-            if (ctxt.selected_polling != establecimiento_data.id_establecimiento) {
-                ctxt.selected_polling = establecimiento_data.id_establecimiento;
-            }
-
-            //Finally update permalink
-            permalink.set(); 
-        };
-
-        var filter_draw = function(e) {
-            var draw_layer, latlng = null;
-            if (e.type === "draw:created") {
-                draw_layer = e.layer;
-                latlng = draw_layer.getBounds().getCenter(); 
-                draw.drawnItems.addLayer(draw_layer);
-                draw.drawControlFull.removeFrom(map);
-                draw.drawControlEditOnly.addTo(map);
-                //Hack around the issue with two svgs inside leaflet-overlay-pane
-                //Allow pointer events only when a shape is drawn
-                $('svg.leaflet-zoom-animated').css('pointer-events','auto');
-            }
-            else {
-                draw_layer = e.layers.getLayers()[0];
-                latlng = draw_layer.getBounds().getCenter();
-            }
-            // Get the coordinates of the polygon we just drew
-            var poly = draw_layer.getLatLngs();
-            var sql_poly = [];
-            for (var i in poly){
-                sql_poly.push("CDB_LatLng("+poly[i].lat+","+poly[i].lng+")");
-            }
-            //SQL polygon must be a CLOSED loop
-            sql_poly.push("CDB_LatLng("+poly[0].lat+","+poly[0].lng+")");
-            //Center and zoom the map
-            map.panTo(latlng);
-            console.log(templates.draw1_sql);
-            config.sql.execute(templates.draw1_sql,{bounds: sql_poly.join()})
-            .done(function(data) {
-                // Check to see if there's any intersection
-                if (data.total_rows) { 
-                    var establecimiento_data = {nombre: "SELECCIÓN"};
-                    var ids = [];
-                    var d = data.rows;
-                    d.forEach(function(d) {
-                        ids.push(d.id_establecimiento);
-                    });
-                    establecimiento_data.electores = _.reduce(d, function(m,e) { return m + e.electores; }, 0);
-                    establecimiento_data.votantes = _.reduce(d, function(m,e) { return m + e.votantes; }, 0);
-                    establecimiento_data.positivos = _.reduce(d, function(m,e) { return m + e.positivos; }, 0);
-                    if (ctxt.arrows && ctxt.selected_party) {
-                        config.sql.execute(templates.draw2_a_sql,{ids: ids.join(), 
-                                                                      id_partido: ctxt.selected_party})
-                        .done(_.partial(featureClickDone, latlng, establecimiento_data, false));
-                    }
-                    else {
-                        config.sql.execute(templates.draw2_w_sql,{ids: ids.join()})
-                        .done(_.partial(featureClickDone, latlng, establecimiento_data, false))
-                        .error(function(errors) {
-                            console.log(errors);
-                        });
-                    }
-                }
-                else {
-                    var msg_header = "Error";
-                    var msg_body = "No se ha encontrado ningún establecimiento con la selección actual";
-                    var popup = L.popup()
-                        .setLatLng(latlng)
-                        .setContent(popup_simple_tmpl({message_header: msg_header,
-                                        message_body: msg_body}))
-                        .openOn(map);
-                }
-            });
-        };
-
         // D3 layer
         var svg = d3.select(map.getPanes().overlayPane)
                     .append("svg").attr("id", "d3layer");
@@ -251,7 +109,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                     .attr("markerHeight", 3)
                     .attr("orient", "auto")
                     .append("svg:path")
-                    .attr("class", function(d) {return "a"+d;})
+                    .attr("class", function(d) {return "arrow a"+d;})
                     .attr("d", "M0,-5L10,0L0,5");
 
         config.sql.execute(templates.d3_geom_sql,null,{format: 'GeoJSON'})
@@ -265,7 +123,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             //Create the polling tables circles
             features.enter()
                     .append("path")
-                    .attr("class", "establecimiento disabled")
+                    .attr("class", "establecimiento")
                     .attr('id', function(d) {return "id"+d.properties.id_establecimiento;})
                     .on('click', d3featureClick);
 
@@ -308,7 +166,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             g.attr("transform", "translate(" + (-topLeft[0]) + "," + (-topLeft[1]) + ")");
             if (!(_.isEmpty(presults))) {
                 features.attr("d", path).style("fill", set_circle_color);
-                //reposition_arrows();
+                reposition_arrows();
             }
         }
 
@@ -363,13 +221,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             return r;
         }
 
-        function update_data(d,i) {
-            if (ctxt.selected_party) {
-                var votos = presults[ctxt.selected_party][d.properties.id_establecimiento].votos;
-                d.properties["p"+ctxt.selected_party] = {"votos": votos};
-            }
-        }
-
         function switch_base_layers() {
             if (ctxt.selected_party == "00") {
                 if (map.hasLayer(config.party_base_layer)) {
@@ -393,8 +244,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             switch_base_layers();
             if (ctxt.show_diff) {
                 g.selectAll("path.establecimiento")
-                    .classed("disabled", false)
-                    .attr("d",path.pointRadius(2));
+                    .attr("d",path.pointRadius(3));
                 g.selectAll("line.arrow").classed("disabled", false);
                 g.selectAll("line.arrow")
                 .attr("x1", function (d) {return path.centroid(d)[0];})
@@ -410,7 +260,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                     .classed("disabled", true)
                     .attr("marker-end","none")
                     .attr("y2", reset_arrow_length);
-                g.selectAll("path.establecimiento").classed("disabled", false);
+                //g.selectAll("path.establecimiento").classed("disabled", false);
                 g.selectAll("path").transition().duration(1000)
                  .attr("d",path.pointRadius(set_circle_radius))
                  .style("fill", set_circle_color);
@@ -558,9 +408,9 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         map.on('draw:drawstart', draw.drawstart);
         map.on('draw:drawstop', draw.drawstop);
-        map.on('draw:deleted', draw.drawdeleted);
-        map.on('draw:created', filter_draw);
-        map.on('draw:edited', filter_draw);
+        map.on('draw:deleted', draw_deleted);
+        map.on('draw:created', draw_filter);
+        map.on('draw:edited', draw_filter);
 
         //Winner data
         $("#home").click(function(){
@@ -585,6 +435,168 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 d3.select("div#instructivo").remove();
             }
             return false;
+        }
+
+        /** DRAW FUNCTIONALITY */
+
+        function draw_deleted(e) {
+            if (!draw.drawnItems.getLayers().length) {
+                draw.drawControlEditOnly.removeFrom(map);
+                draw.drawControlFull.addTo(map);
+                $('svg.leaflet-zoom-animated').css('pointer-events','none');
+            }
+        }
+
+        function draw_filter(e) {
+            var draw_layer, latlng = null;
+            if (e.type === "draw:created") {
+                draw_layer = e.layer;
+                latlng = draw_layer.getBounds().getCenter(); 
+                draw.drawnItems.addLayer(draw_layer);
+                draw.drawControlFull.removeFrom(map);
+                draw.drawControlEditOnly.addTo(map);
+                //Hack around the issue with two svgs inside leaflet-overlay-pane
+                //Allow pointer events only when a shape is drawn
+                $('svg.leaflet-zoom-animated').css('pointer-events','auto');
+            }
+            else {
+                draw_layer = e.layers.getLayers()[0];
+                latlng = draw_layer.getBounds().getCenter();
+            }
+            // Get the coordinates of the polygon we just drew
+            var poly = draw_layer.getLatLngs();
+            var sql_poly = [];
+            for (var i in poly){
+                sql_poly.push("CDB_LatLng("+poly[i].lat+","+poly[i].lng+")");
+            }
+            //SQL polygon must be a CLOSED loop
+            sql_poly.push("CDB_LatLng("+poly[0].lat+","+poly[0].lng+")");
+            //Center and zoom the map
+            map.panTo(latlng);
+            config.sql.execute(templates.draw1_sql,{bounds: sql_poly.join()})
+            .done(function(data) {
+                // Check to see if there's any intersection
+                if (data.total_rows) { 
+                    var establecimiento_data = {descripcion: "SELECCIÓN"};
+                    var ids = [];
+                    var d = data.rows;
+                    d.forEach(function(d) {
+                        ids.push(d.id_establecimiento);
+                    });
+                    establecimiento_data.electores = _.reduce(d, function(m,e) { return m + e.electores; }, 0);
+                    establecimiento_data.votantes = _.reduce(d, function(m,e) { return m + e.votantes; }, 0);
+                    establecimiento_data.positivos = _.reduce(d, function(m,e) { return m + e.positivos; }, 0);
+                    if (ctxt.selected_party != "00") {
+                        config.sql.execute(templates.draw2_sql,{ids: ids.join(), 
+                                                                id_partido: ctxt.selected_party})
+                        .done(_.partial(featureClickDone, latlng, establecimiento_data));
+                    }
+                    else {
+                        config.sql.execute(templates.draw2_winner_sql,{ids: ids.join()})
+                        .done(_.partial(featureClickDone, latlng, establecimiento_data))
+                        .error(function(errors) {
+                            console.log(errors);
+                        });
+                    }
+                }
+                else {
+                    var msg_header = "Error";
+                    var msg_body = "No se ha encontrado ningún establecimiento con la selección actual";
+                    var popup = L.popup()
+                        .setLatLng(latlng)
+                        .setContent(popup_simple_tmpl({message_header: msg_header,
+                                        message_body: msg_body}))
+                        .openOn(map);
+                }
+            });
+        }
+
+        /** FEATURE CLICK FUNCTIONALITY */
+
+        // Get data for the clicked polling station and show popup and overlay
+        function d3featureClick(d, i, latlng) {
+            if ($('div#instructivo').is(":visible")) {
+                $('div#instructivo').fadeOut(200); 
+            }
+            $('#overlay *').fadeOut(200, function() { $(this).remove();});
+            showOverlay();
+            if (!latlng) {
+                latlng = L.latLng(d.geometry.coordinates[1], d.geometry.coordinates[0]);
+            }
+            config.current_latlng = latlng;
+            map.panTo(latlng);
+            setTimeout(function() {
+                var fid = d.properties.id_establecimiento;
+                var query;
+                var data;
+                if (ctxt.selected_party == "00") {
+                    query = templates.click_feature_winner_sql;
+                    data = {id_establecimiento: fid};
+                }else {
+                    query = templates.click_feature_sql;
+                    data = {id_establecimiento: fid,
+                            id_partido: ctxt.selected_party}
+                }
+                config.sql.execute(query, data)
+                    .done(_.partial(featureClickDone, latlng, d.properties))
+                    .error(function(errors) {
+                        // errors contains a list of errors
+                        console.log(errors);
+                    });
+            }, 200);
+        }
+
+        //Called when the Cartodb SQL has finished
+        function featureClickDone(latlng, establecimiento_data, votos_data) {
+            var popup = null;
+
+            /** If we are viewing differences ignore overlay */
+            if (ctxt.selected_party != "00") {
+                popup = L.popup()
+                    .setLatLng(latlng)
+                    .setContent(popup_tmpl({establecimiento: establecimiento_data,
+                                            winner: false,
+                                            v: votos_data,
+                                            dict_datos: config.diccionario_datos,
+                                            vh: view_helpers}))
+                    .openOn(map);
+                return false;
+            }
+
+            var d = votos_data.rows;
+            d.forEach(function(d) {
+                d.pct = (d.votos / establecimiento_data.positivos) * 100;
+            });
+            popup = L.popup()
+                .setLatLng(latlng)
+                .setContent(popup_tmpl({establecimiento: establecimiento_data,
+                                        winner: true,
+                                        v: votos_data,
+                                        dict_datos: config.diccionario_datos}))
+                .openOn(map); 
+            $('#results').html(overlay_tmpl({
+                e: establecimiento_data,
+                data: d,
+                dict_datos: config.diccionario_datos,
+                max: _.max(d, function(item){ return item.votos; }),
+                vh: view_helpers
+            }));
+
+            $("#results a.cerrar").click(function(){
+                helpers.close_slide();
+            });
+
+            
+            $('#results').animate({right:'0%'}, 'fast', function(){
+                helpers.animate_barras();
+            });
+
+            if (ctxt.selected_polling != establecimiento_data.id_establecimiento) {
+                ctxt.selected_polling = establecimiento_data.id_establecimiento;
+            }
+
+            //Finally update permalink
+            permalink.set(); 
         }
     });
 });

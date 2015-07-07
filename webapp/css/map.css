@@ -17,6 +17,11 @@ svg#d3layer path.establecimiento:hover {
 
 svg#d3layer line.arrow {
     stroke-width: 2;
+    pointer-events: none;
+}
+
+svg#d3layer path.arrow {
+    pointer-events: none; 
 }
 
 svg#d3layer path.a18 {

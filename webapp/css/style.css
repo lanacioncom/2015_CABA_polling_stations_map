@@ -1056,32 +1056,6 @@ div.titulos {
 .in_line {display: inline;}
 
 
-
-
-
-/*Tooltip styles*/
-div.ttip_header {
-	width: 150px;
-	font-size:13px;
-	font-weight: bold;
-	padding-bottom: 5px;
-	line-height:14px;
-
-}
-
-div.ttip_body {
-	width: 150px;
-	font-size:13px;
-	line-height:17px;
-	color:#444444;
-}
-
-div.ttip_body span {
-	color:#000000;
-	font-weight:bold;
-	line-height:14px;
-}
-
 .fil h2 { display: block;}
 .fil button.set_status_app { display: inline-block; width: 45%; background: #fff; float: left; cursor: pointer; }
 .fil button.set_status_app.paso {float: right; }
