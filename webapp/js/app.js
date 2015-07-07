@@ -34,8 +34,15 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         });
 
         // Set initial zoom level
-        config.current_zoomLevel = 12;
-
+        var w = $("body").width();
+        console.log(w);
+        if (w < 650) {
+            config.current_zoomLevel = 11;
+        }
+        else {
+            config.current_zoomLevel = 12;
+        }
+        
         map = L.map('mapa_cont', {
             center: [-34.61597432902992, -58.442115783691406],
             zoom: config.current_zoomLevel,
