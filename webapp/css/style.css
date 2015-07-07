@@ -13,6 +13,74 @@ html, body {
   margin-top: -20% !important;
 }
 
+.clearfix {
+  display: block;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  margin: 0px;
+  font-size: 13px;
+  color: #000;
+  font-family: arial;
+  cursor:default;
+}
+
+/*header*/
+header {
+  border-bottom: dotted 1px #dadada;
+  padding: 10px 0px;
+  position: relative;
+}
+
+div.titulos {
+  width: 100%;
+  font-size: 15px;
+  overflow: hidden;
+  float: left;
+}
+
+h1 {
+  font-family: 'TheSansSemi', arial, Helvetica, sans-serif;
+  font-size: 23px;
+  /*color: #29ABE2;*/
+  color:#000;
+  display: inline-block;
+  letter-spacing: -1px;
+  border-bottom: dotted 1px #ccc;
+  padding-left: 10px;
+}
+
+h2 {
+  color: #000;
+  display: inline-block;
+  font-family: arial;
+  font-size: 27px;
+  padding: 6px 0px;
+  margin: 0 1px;
+  /* border: solid 1px #BBBBBB; */
+  /* border-top: dotted 1px black; */
+  border-bottom: none;
+  border-right: none;
+  text-transform: uppercase;
+}
+
+.titulo {
+  font-size: 30px;
+  border-bottom: none;
+}
+
+.titulos p {
+  width: 98%;
+  padding:5px 10px;
+  color:#999999;
+}
+
+
 /*temporales*/
 header, section {
   max-width: 990px;
@@ -25,7 +93,10 @@ header, section {
   /*display: none;*/
 }
 
-/*//temporales*/
+section {
+  padding: 0 5px;
+}
+
 
 /* Colores partidos */
 .p1, .bk_pro {
@@ -65,6 +136,141 @@ header, section {
   color: #F7977A;
 }
 
+
+#pro, #eco, #fpv, #fit, #ayl {
+  font-size: 12px;
+  float: left;
+  margin: 15px 17px 0px 0px;
+  border-right: 1px solid #ccc;
+  padding-right: 16px;
+}
+
+
+/* NAV */
+/*///////*/
+
+nav {
+  width: 99.5%;
+  max-width: 990px;
+  height: 75px;
+  font-size: 12px;
+  text-align: center;
+  padding: 0px 10px;
+  position: relative;
+}
+
+nav div.flecha {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #f00;
+}
+
+nav div.tit-filtros{
+  width: 100%;
+  font-size: 14px;
+  font-weight: 100;
+  float: left;
+  text-align: left;
+  color:#000;
+  margin: 10px 0px;
+  margin-bottom: 0px;
+  font-family: "TheSansBold", Arial, Helvetica, sans-serif;
+}
+
+nav div.fil{
+    width: 16%;
+  text-align: left;
+  text-decoration: none;
+  color: #808080;
+  padding: 6px 0px;
+  padding-right: 0.6%;
+  background: #fff;
+  float: left;
+}
+
+nav div.fil h2 { 
+  display: block;
+  font-size: 14px;
+  padding: 5px 5px;
+  border-bottom: 5px solid #999;
+  margin: 0px;
+  color:#999;
+  font-weight: normal;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+nav div.fil button.set_status_app {
+  display: inline-block;
+  width: 50%;
+  background: #f7f7f7;
+  float: left;
+  cursor: pointer;
+  border: 0px;
+  text-align: center;
+  padding: 8px 2%;
+  padding-left: 15%;
+  border-right:2px solid #fff; 
+  text-transform: uppercase;
+  font-size: 12px;
+  color:#000;
+  font-family: "TheSans", Arial, Helvetica, sans-serif;
+  background-image:url("../img/sprite.svg"); 
+  background-repeat: no-repeat;
+  background-position: -2px -27px;
+  border-top: 1px solid #fff;
+  transition: all 0.5s;
+}
+
+nav div.fil button.set_status_app:hover {
+  background-color: #E7E7E7;
+}
+
+nav div.fil button.paso{
+  background-position: 2px 0px;
+  border-right:0px; 
+}
+
+nav div.fil button#home{
+  background-position: 0px -57px;
+}
+
+nav div.fil button#home {
+  width: 100%;
+  text-indent: -35px;
+}
+
+nav div.sel{
+  background-color: #f7f7f7;
+  font-weight: bold;
+  cursor: default;
+  height: 18px;
+  color:#000;
+}
+
+nav div.bk_pro button.active {
+  background-color: #fedb31 !important;
+} 
+
+nav div.bk_eco button.active {
+  background-color: #7cc374 !important;
+} 
+
+nav div.bk_fpv button.active {
+  background-color: #1896d7 !important;
+} 
+
+nav div.bk_fit button.active, nav div.bk_ayl button.active {
+  background-color: #f4967c !important;
+} 
+
 /* instructivo herramienta area */
 
 #instructivo {
@@ -89,80 +295,6 @@ width: 0;
   position: absolute;
   left: -8px;
   top: 24px;
-}
-
-
-/* referencias mapa */
-
-.leyendasMap {
-  width: 100%;
-  height: 75px;
-  font-size: 12px;
-  text-align: center
-}
-
-.leyendasMap div.tit-filtros{
-  width: 100%;
-  font-size: 14px;
-  font-weight: 100;
-  float: left;
-  text-align: left;
-  color:#000;
-  margin: 10px 0px;
-  font-weight: bold;
-}
-
-.leyendasMap div.fil{
-    width: 15.7%;
-  text-align: left;
-  text-decoration: none;
-  border-bottom: 5px solid #000;
-  border-left: 1px solid #dadada;
-  color:#808080;
-  padding: 6px 0px;
-  padding-left: 5px;
-  background:#fff;
-  margin: 0px 0.15%;
-  float: left;
-}
-
-.leyendasMap div.fil:hover{
-  background-color: #f7f7f7;
-}
-
-.leyendasMap div.sel{
-  background-color: #f7f7f7;
-  font-weight: bold;
-  cursor: default;
-  height: 18px;
-  color:#000;
-}
-
-.leyendaCirculo {
-	width:10px;
-	height:10px;
-	float: left;
-	border-radius: 10px;
-	margin: 16px 8px 0px 0px;
-
-
-}
-
-.leyendasMap p {
-	font-size:12px;
-	float:left;
-	margin: 15px 19px 0px 0px;
-	color:black !important;
-}	
-
-
-
-#pro, #eco, #fpv, #fit, #ayl {
-  font-size: 12px;
-  float: left;
-  margin: 15px 17px 0px 0px;
-  border-right: 1px solid #ccc;
-  padding-right: 16px;
 }
 
 
@@ -234,7 +366,6 @@ ul#list_interna li div.cant_v {
     left: 350px;
     display:none;
   
-
 }
 
 .ref span {
@@ -269,9 +400,9 @@ ul#list_interna li div.cant_v {
   border-radius: 3px;
 }
 
-.activo{
+/*activo{
   background-color: #f7f7f7;
-}
+}*/
 
 .arrow {
   position: relative;
@@ -289,83 +420,6 @@ ul#list_interna li div.cant_v {
   border-bottom: 4px solid transparent;
 }
 
-.clearfix {
-  display: block;
-}
-.clearfix:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-body {
-  margin: 0px;
-  font-size: 13px;
-  color: #000;
-  font-family: arial;
-  cursor:default;
-}
-
-/*header*/
-header {
-  border-bottom: dotted 1px #dadada;
-  padding: 10px 0px;
-  margin-bottom: 15px;
-  position: relative;
-}
-
-div.titulos {
-  width: 100%;
-  font-size: 15px;
-  overflow: hidden;
-  float: left;
-}
-
-h1 {
-  font-family: 'TheSansSemi', arial, Helvetica, sans-serif;
-  font-size: 23px;
-  /*color: #29ABE2;*/
-  color:#000;
-  display: inline-block;
-  letter-spacing: -1px;
-  border-bottom: dotted 1px #ccc;
-}
-
-h1 span {
-  color: #0071BC;
-}
-
-h2 {
-  color: #000;
-  display: inline-block;
-  font-family: arial;
-  font-size: 27px;
-  padding: 6px 0px;
-  margin: 0 1px;
-  /* border: solid 1px #BBBBBB; */
-  /* border-top: dotted 1px black; */
-  border-bottom: none;
-  border-right: none;
-  text-transform: uppercase;
-}
-
-.titulo {
-	font-size: 30px;
-	border-bottom: none;
-	padding-bottom:5px;
-}
-
-.titulos p {
-  width: 80%;
-	padding-bottom:10px;
-	color:#999999;
-}
-
-.titulos span {
-	font-weight: bold;
-	color:#000000;
-	
-}
 
 /*/////////////////// REFERENCIAS ///////////////////////////*/
 
@@ -391,120 +445,6 @@ ul#ref li#refFte {
   width: 130px;
 }
 
-
-/*//////////// COMPARTIR /////////////////*/
-
-header div.compartir{
-  width: 120px;
-  height: 28px;
-  /* float: right; */
-  position: absolute;
-  top: -40px;
-  right: 10px;
-}
-
-/*////////////////////////////*/
-
-
-header div.compartir a.btn{
-  width: 27px;
-  height: 27px;
-  float: right;
-  margin-left: 2px;
-  margin-top: 53px;
-  background-repeat: no-repeat;
-  background-image:url(../img/compartir.png); 
-  -webkit-transition: background-position .2s;
-  -moz-transition: background-position .2s; 
-  -o-transition: background-position .2s; 
-    transition: background-position .2s;
-}
-
-header div.compartir a#facebook{
-  background-position: 2px 0px;
-}
-
-header div.compartir a#facebook:hover{
-  background-position: 2px -28px;
-}
-
-header div.compartir a#twit{
-  background-position: -25px 0px;
-}
-
-header div.compartir a#twit:hover{
-  background-position: -25px -28px;
-}
-
-header div.compartir a#google{
-  background-position: -51px 0px;
-}
-
-header div.compartir a#google:hover{
-  background-position: -51px -28px;
-}
-
-header div.compartir a#mail{
-  background-position: -77px 0px;
-}
-
-header div.compartir a#mail:hover{
-  background-position: -77px -28px;
-}
-
-/*/////////////////// ayuda ///////////////////////////*/
-
-div.ayuda {
-  width: 94px;
-  height: 70px;
-  position: absolute;
-  top:0px;
-  right:5px;
-  font-family: 'TheSansSemi';
-  font-size: 15px;
-  padding-left: 90px;
-  background-image: url(../img/sprite3.png);
-  background-repeat: no-repeat;
-  background-position: 28px 8px;
-    background-size: 50%;
-}
-
-div.ayuda2 {
-  width: 94px;
-  height: 70px;
-  position: absolute;
-  top:15px;
-  right:5px;
-  font-family: 'TheSansSemi';
-  font-size: 15px;
-  padding-top: 90px;
-  background-image: url(../img/sprite3.png);
-  background-repeat: no-repeat;
-  background-position: -30px -55px;
-    background-size: 140%;
-    display: none;
-}
-
-div.ayuda3 {
-  width: 23%;
-  position: absolute;
-  bottom: 10px;
-  right: 50px;
-  /*top: -10px;
-  left: -4px;*/
-  color: #ccc;
-  font-family: "TheSans", arial;
-  background-color: rgba(255, 255, 255, 0);
-  padding: 8px;
-  border-radius: 3px;
-    
-}
-
-
-section {
-  
-  padding: 0 5px;
-}
 
 /*/////////////////// TOOLTIP ///////////////////////////*/
   
@@ -558,6 +498,31 @@ section {
     float:left;
     
   } 
+
+
+/*//////// TOOLTIP 2 //////*/
+
+div.ttip_header {
+  width: 150px;
+  font-size:13px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  line-height:14px;
+
+}
+
+div.ttip_body {
+  width: 150px;
+  font-size:13px;
+  line-height:17px;
+  color:#444444;
+}
+
+div.ttip_body span {
+  color:#000000;
+  font-weight:bold;
+  line-height:14px;
+}
     
     
 /*/////////////////// FILTROS ///////////////////////////*/
@@ -622,9 +587,8 @@ div#selected h4 {
 }
 
 div#selected h4:after{
-  
-    
 } 
+
 div#selected h4 a {
   color: #000;
   margin-left: 10px;
@@ -676,8 +640,6 @@ div.loader{
   float: left;
   margin-bottom: 15px;
 }
-
-
 
 #results {
   border-left: solid 1px #dadada;
@@ -842,7 +804,6 @@ div.loader{
   /*background-color: #f9f9f9;*/
 }
 
-
 #results ul li h5 {
   font: 17px 'TheSans', arial;
   padding: 8px 0 10px 15px;
@@ -862,7 +823,6 @@ div.loader{
   position: relative;
 }
 
-
 .cont_barra .barra .porc {
   position: absolute;
   top: -1px;
@@ -877,37 +837,29 @@ div.loader{
   width: 110px;
 }
 
-footer{
-  width: 98.5%;
-  padding:10px;
-  max-width: 990px;
-  color:#999;
-}
-
-footer div.creditos{
-  font-size: 12px;
-  background-color: #f7f7f7;
-  border: 1px solid #dadada;
-  padding: 5px 6px;
+.atribuciones {
+  font-size: 10px;
+  padding-top: 25px;
+  padding-left: 25%;
   float: left;
-  border-radius: 3px;
-  cursor: pointer;
-  margin: -3px;
 }
 
-footer div.datos{
-  font-size: 12px;
+.atribuciones2 {
   float:right;
-  margin-left: 4px;
-    padding-left: 4px;
-  font-family: arial;
-  border-left:1px solid #dadada; 
+} 
+
+.cartodb-logo{
+  display: none !important;
 }
 
-footer div.datos span{
-  color:#29B5EA;
-  font-weight: bold;
-} 
+.in_line {
+  display: inline;
+}
+
+
+
+/*///////// POPUP DE CREDITOS ///////////*/
+
 
 div.creVent{
   width: 100%;
@@ -991,97 +943,151 @@ div.creVent div.txts div.nombre a:hover{
   color:#29ABE2;
 }
 
-.atribuciones {
-  font-size: 10px;
-  padding-top: 25px;
-  padding-left: 25%;
-  float: left;
+/*///// FOOTER ////*/
+
+footer{
+  width: 98.5%;
+  padding:10px;
+  max-width: 990px;
+  color:#999;
 }
 
-.atribuciones2 {
-	float:right;
-}	
+footer div.creditos{
+  font-size: 12px;
+  background-color: #f7f7f7;
+  border: 1px solid #dadada;
+  padding: 5px 6px;
+  float: left;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: -3px;
+}
+
+footer div.datos{
+  font-size: 12px;
+  float:right;
+  margin-left: 4px;
+    padding-left: 4px;
+  font-family: arial;
+  border-left:1px solid #dadada; 
+}
+
+footer div.datos span{
+  color:#29B5EA;
+  font-weight: bold;
+} 
+
+
+/*/////////////////media queries ///////////////////*/
+/*/////////////////media queries ///////////////////*/
+
 
 @media (max-width: 850px) {
+  .titulos p {
+    width: 98%;
+  }
 
+  nav div.fil button.set_status_app {
+    background-image:none; 
+    padding-left: 0px;
+  }
+
+  nav div.fil button#home {
+    background-image: url("../img/sprite.svg");
+      text-indent: 15px;
+  }
 
 }
 
-@media (max-width: 750px) {
 
-
-}
-
-
-@media (max-width: 640px) {
+@media (max-width: 650px) {
 	
-header div.compartir {
-display: none;
-}
+  .titulo {
+    font-size: 26px;
+    padding-bottom: 0px;
+  }
 
-div.titulos {
-	width:95%;
-}
+   nav div.fil button.set_status_app {
+    padding: 8px 0px;
+    font-size: 11px;
+  }
 
-.titulo {
-	font-size:23px;
-	line-height:25px;
-	
-}
+  nav div.fil button#home {
+    text-indent: 25px;
+    background-position: -4px -57px;
+  }
 
-.titulos p {
-	font-size: 13px;
-	
-}
-
-.leyendasMap p {
-	display: none;
-}
-
-#larreta, #michetti, #recalde, #lousteau {
-  font-size: 12px;
-  float: left;
-  margin: 15px -7px 0px 0px;
-  border-right:none;
-  padding-right: 16px;
-}  
+  
 
 }
 
+@media (max-width: 540px) {
 
-.cartodb-logo{
-  display: none !important;
+  header {
+    padding: 5px 0px;
+    margin-bottom: 5px;
+  }
+
+  .titulo {
+    font-size: 22px;
+    padding-bottom: 0px;
+  }
+
+  .titulos p {
+    /*width: 95%;
+    font-size: 12px;
+    line-height: 1.5;*/
+    display: none;
+  }
+
+  nav{
+    margin-bottom: 5px;
+  }
+
+  nav div.fil{
+    width: 100%;
+    font-size: 12px;
+    border-bottom:1px solid #dadada;
+    padding: 1px 0px;
+  }
+
+  nav div.fil h2{
+    width: 60px;
+    float: left;
+    border-bottom:0px !important;
+    border-left: 5px solid #ddd; 
+    font-size: 12px;
+  }
+
+  nav div.fil button.set_status_app {
+    background-image: url("../img/sprite.svg");
+  }
+
+  nav div.fil button.set_status_app {
+    width: 36%;
+    background-color: #fff;
+    border-left:1px solid #dadada;
+  }
+
+  nav div.fil button#home {
+    width: calc(100% - 85px);
+    background-position: 25% -60px;
+      text-indent: 0px;
+  }
+
+  nav div.fil button.set_status_app {
+    padding: 5px 0px;
+    font-size: 12px;
+    background-position: 7% -30px;
+  }
+
+  nav div.fil button.paso{
+    background-position: 7% -3px;
+  }
+
+  #mapa_cont {
+    height: 280px;
+  }
+
+
 }
-
-.in_line {display: inline;}
-
-
-
-
-
-/*Tooltip styles*/
-div.ttip_header {
-	width: 150px;
-	font-size:13px;
-	font-weight: bold;
-	padding-bottom: 5px;
-	line-height:14px;
-
-}
-
-div.ttip_body {
-	width: 150px;
-	font-size:13px;
-	line-height:17px;
-	color:#444444;
-}
-
-div.ttip_body span {
-	color:#000000;
-	font-weight:bold;
-	line-height:14px;
-}
-
-.fil h2 { display: block;}
-.fil button.set_status_app { display: inline-block; width: 45%; background: #fff; float: left; cursor: pointer; }
-.fil button.set_status_app.paso {float: right; }
