@@ -33,14 +33,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             config.diccionario_datos = data;
         });
 
-        config.ancho = $(window).width();
-        config.alto = $(window).height();
-
-        $(window).resize(function() {
-            config.ancho = $(window).width();
-            config.alto = $(window).height();
-        });
-
         // Set initial zoom level
         config.current_zoomLevel = 12;
 
