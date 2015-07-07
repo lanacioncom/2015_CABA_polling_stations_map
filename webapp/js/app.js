@@ -545,7 +545,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 }else {
                     query = templates.click_feature_sql;
                     data = {id_establecimiento: fid,
-                            id_partido: ctxt.selected_party}
+                            id_partido: ctxt.selected_party};
                 }
                 config.sql.execute(query, data)
                     .done(_.partial(featureClickDone, latlng, d.properties))
