@@ -52,8 +52,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             attributionControl: false,
         });
 
-        //var mapboxUrl = config.cdn_proxy+'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
-        var mapboxUrl = 'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
+        var mapboxUrl = config.cdn_proxy+'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
+        //var mapboxUrl = 'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
         L.tileLayer(mapboxUrl, {
                                 //id: 'olcreativa.c409ba3f',
                                 id: 'olcreativa.bd1c1a65',  
