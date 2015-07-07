@@ -1,7 +1,7 @@
 requirejs.config({
     baseUrl: 'js',
     paths: {
-        'draw': '../libs/leaflet.draw/dist/leaflet.draw',
+        'draw': '../libs/leaflet.draw',
         'templates': '../templates', 
         'text': '../libs/requirejs-text/text',
         'd3': '../libs/d3/d3.min',
