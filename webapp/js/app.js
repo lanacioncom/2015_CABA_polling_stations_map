@@ -576,10 +576,14 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         d3.selectAll(".set_status_app").on('click', set_status_app);
         function set_status_app(){
         /*jshint validthis: true */
-            ctxt.show_diff = this.classList.contains("paso");
-            ctxt.selected_party = this.dataset.partido;
-            update_map();
-            d3.select("div#instructivo").remove();
+            if (!this.classList.contains("active")) {
+                d3.select("button.active").classed("active", false);
+                d3.select(this).classed("active", true);
+                ctxt.show_diff = this.classList.contains("paso");
+                ctxt.selected_party = this.dataset.partido;
+                update_map();
+                d3.select("div#instructivo").remove();
+            }
             return false;
         }
     });
