@@ -92,14 +92,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             helpers.close_slide();
         });
 
-        var d3featureOver = function(d, i) {
-            $('#mapa_cont').css('cursor', 'pointer');
-        };
-
-        var d3featureOut = function(d, i) {
-            $('#mapa_cont').css('cursor', 'auto');
-        };
-
         // Get data for the clicked polling station and show popup and overlay
         var d3featureClick = function(d, i, latlng) {
             if ($('div#instructivo').is(":visible")) {
@@ -275,8 +267,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                     .append("path")
                     .attr("class", "establecimiento disabled")
                     .attr('id', function(d) {return "id"+d.properties.id_establecimiento;})
-                    .on('mouseover', d3featureOver)
-                    .on('mouseout', d3featureOut)
                     .on('click', d3featureClick);
 
             //Create the polling stations arrows
@@ -318,7 +308,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             g.attr("transform", "translate(" + (-topLeft[0]) + "," + (-topLeft[1]) + ")");
             if (!(_.isEmpty(presults))) {
                 features.attr("d", path).style("fill", set_circle_color);
-                reposition_arrows();
+                //reposition_arrows();
             }
         }
 
@@ -432,7 +422,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                         var position = JSON.parse(data.rows[0].g).coordinates;
                         var latlng = L.latLng(position[1], position[0]);
                         var d = data.rows[0];
-                        map.setView(latlng, 14);
+                        map.panTo(latlng);
                         d3featureClick({properties: d},null,latlng);
                     });
                 }

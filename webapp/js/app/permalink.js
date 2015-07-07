@@ -1,7 +1,6 @@
 define(['app/context'], function(context){
 
     function set(){
-        console.log(context);
         var ctxt = JSON.stringify(context);
         ctxt = ctxt.replace(/\"|\{|\}/g, '').replace(/,/g, "&").replace(/:/g, "=")
         location.hash = ctxt;
