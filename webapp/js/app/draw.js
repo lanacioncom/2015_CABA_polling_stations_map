@@ -76,20 +76,11 @@ define(['draw', 'app/config', 'app/context'], function (dummy, config, ctxt) {
         }
     }
 
-    function drawdeleted(e) {
-        if (!drawnItems.getLayers().length) {
-            drawControlEditOnly.removeFrom(ctxt.map);
-            drawControlFull.addTo(ctxt.map);
-            $('svg.leaflet-zoom-animated').css('pointer-events','none');
-        }
-    }
-
     return {
         drawnItems: drawnItems,
         drawControlFull: drawControlFull,
         drawControlEditOnly: drawControlEditOnly,
         drawstart: drawstart,
-        drawstop: drawstop,
-        drawdeleted: drawdeleted
+        drawstop: drawstop
     };
 });
