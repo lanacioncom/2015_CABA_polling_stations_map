@@ -122,10 +122,8 @@ width: 0;
   padding: 6px 0px;
   padding-left: 5px;
   background:#fff;
-  cursor: pointer;
   margin: 0px 0.15%;
   float: left;
-
 }
 
 .leyendasMap div.fil:hover{
@@ -167,7 +165,6 @@ width: 0;
   padding-right: 16px;
 }
 
- 
 
 /* foto candidatos */
 
@@ -207,126 +204,27 @@ ul#list_interna li div.cant_v {
     float: left;
 }
 
-.michetti {
-  background-position: -5px -1px;
-}
+/* foto candidatos */
 
 .larreta {
-  background-position: -5px -60px;
+    background-position: -1px 2px;
 }
 
 .recalde {
-  background-position: -5px -118px;
-}
-
-.cerruti {
-  background-position: -5px -176px;
-}
-
-.lopez {
-  background-position: -5px -235px;
-}
-
-.ibarra {
-  background-position: -5px -291px;
-}
-
-.heller {
-  background-position: -5px -349px;
-}
-
-.oviedo {
-  background-position: -5px -406px;
-}
-
-.ramos {
-  background-position: -5px -464px;
+    background-position: -1px -131px;
 }
 
 .lousteau {
-  background-position: -5px -522px;
-}
-
-.ocania {
-  background-position: -5px -580px;
-}
-
-.borthagaray {
-  background-position: -5px -640px;
-}
-
-.nielsen {
-  background-position: -5px -695px;
-}
-
-.tumini {
-  background-position: -5px -754px;
-}
-
-.abrevaya {
-  background-position: -5px -811px;
-}
-
-.bidonde {
-  background-position: -5px -869px;
-}
-
-.garcia {
-  background-position: -5px -923px;
-}
-
-.lopes {
-  background-position: -5px -983px;
-}
-
-.torres {
-  background-position: -5px -1042px;
+    background-position: -1px -67px;
 }
 
 .zamora {
-  background-position: -5px -1101px;
-}
-
-.lozano {
-  background-position: -5px -1157px;
+    background-position: -1px -267px;
 }
 
 .bregman {
-  background-position: -5px -1214px;
+    background-position: -1px -198px;
 }
-
-.castanieira {
-  background-position: -5px -1273px;
-}
-
-.tenaglia {
-  background-position: -5px -1331px;
-}
-
-.ferreyra {
-  background-position: -5px -1386px;
-}
-
-.vera {
-  background-position: -5px -1447px;
-}
-
-.fabre {
-  background-position: -5px -1505px;
-}
-
-.vasena {
-  background-position: -5px -1561px;
-}
-
-.piragini {
-  background-position: -5px -1619px;
-}
-
-.cutzarida {
-  background-position: -5px -1676px;
-}
-
 
 /*referencias*/
 
@@ -1183,3 +1081,7 @@ div.ttip_body span {
 	font-weight:bold;
 	line-height:14px;
 }
+
+.fil h2 { display: block;}
+.fil button.set_status_app { display: inline-block; width: 45%; background: #fff; float: left; cursor: pointer; }
+.fil button.set_status_app.paso {float: right; }

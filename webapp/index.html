@@ -52,12 +52,34 @@
 
         <div class="leyendasMap">
             <div class="tit-filtros">FILTRAR</div>
-            <div class="fil" style="border-color:#000000">TODOS</div>
-            <div class="fil bk_pro" style="border-color:#fedb31">PRO</div>
-            <div class="fil bk_eco" style="border-color:#7cc374">ECO</div>
-            <div class="fil bk_fpv" style="border-color:#1896d7">FPV</div>
-            <div class="fil bk_fit" style="border-color:#f4967c">Frente de Izquierda</div>
-            <div class="fil bk_ayl" style="border-color:#f4967c; margin-right:0px">Autodet. y Libertad</div>
+            <div class="fil" style="border-color:#000000">
+                <h2 id="home">TODOS</h2>  
+            </div>
+            <div class="fil bk_pro" style="border-color:#fedb31">
+                <h2>PRO</h2>  
+                <button class="set_status_app" data-partido="18">% Voto</button>
+                <button class="set_status_app paso" data-partido="18">Paso</button>
+            </div>
+            <div class="fil bk_eco" style="border-color:#7cc374">
+                <h2>ECO</h2>  
+                <button class="set_status_app" data-partido="16">% Voto</button>
+                <button class="set_status_app paso" data-partido="16">Paso</button>
+            </div>
+            <div class="fil bk_fpv" style="border-color:#1896d7">
+                <h2>FPV</h2>  
+                <button class="set_status_app" data-partido="23">% Voto</button>
+                <button class="set_status_app paso" data-partido="23">Paso</button>
+            </div>
+            <div class="fil bk_fit" style="border-color:#f4967c">
+                <h2>FIT</h2>  
+                <button class="set_status_app" data-partido="17">% Voto</button>
+                <button class="set_status_app paso" data-partido="17">Paso</button>
+            </div>
+            <div class="fil bk_ayl" style="border-color:#f4967c; margin-right:0px">
+                <h2>AIL</h2>
+                <button class="set_status_app" data-partido="81">% Voto</button>
+                <button class="set_status_app paso" data-partido="81">Paso</button>
+            </div>
         </div>
 
         <!--<div class="leyendasMap">
@@ -107,6 +129,7 @@
 <script type="text/javascript" src="libs/cartodb.min.js"></script>
 <!-- build:js -->
 <script data-main="js/app" src="libs/requirejs/require.js"></script>
+
 <!-- endbuild -->
 </body>
 </html>
