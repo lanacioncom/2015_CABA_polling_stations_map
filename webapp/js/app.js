@@ -52,13 +52,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             attributionControl: false,
         });
 
-        var mapboxUrl = config.cdn_proxy+'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
-        //var mapboxUrl = 'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
-        L.tileLayer(mapboxUrl, {
-                                //id: 'olcreativa.c409ba3f',
-                                id: 'olcreativa.bd1c1a65',  
-                                attribution: "OpenStreetMaps", 
-                                token: 'pk.eyJ1Ijoib2xjcmVhdGl2YSIsImEiOiJEZWUxUmpzIn0.buFJd1-sVkgR01epcQz4Iw'}).addTo(map);
+        //map.addLayer(config.street_base_layer);
 
         config.sql = new cartodb.SQL({
             user: config.CARTODB_USER
@@ -96,6 +90,9 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 map.closePopup();
             }
         });
+
+        //config.street_base_layer.on("load",function() { console.log("all visible tiles of street have been loaded") });
+        //config.street_base_layer.on("loading",function() { console.log("all visible tiles of party are loading") });
 
         // Close popup and overlay
         map.on('popupclose', function() {
@@ -391,7 +388,27 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             }
         }
 
+        function switch_base_layers() {
+            if (ctxt.selected_party == "00") {
+                if (map.hasLayer(config.party_base_layer)) {
+                    map.removeLayer(config.party_base_layer);
+                } 
+                if (!map.hasLayer(config.street_base_layer)) {
+                    map.addLayer(config.street_base_layer);
+                }
+            }
+            else {
+                if (map.hasLayer(config.street_base_layer)) {
+                    map.removeLayer(config.street_base_layer);
+                }
+                if (!map.hasLayer(config.party_base_layer)) {
+                    map.addLayer(config.party_base_layer);
+                }
+            }
+        }
+
         function redraw_map() {
+            switch_base_layers();
             if (ctxt.show_diff) {
                 g.selectAll("path.establecimiento")
                     .classed("disabled", false)
