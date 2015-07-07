@@ -10,7 +10,7 @@ svg#d3layer path.establecimiento {
   fill-opacity: 0.9;
 }
 
-svg#d3layer path:hover {
+svg#d3layer path.establecimiento:hover {
   fill-opacity: 1;
   cursor: pointer;
 }

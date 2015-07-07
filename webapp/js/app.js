@@ -1,7 +1,7 @@
 requirejs.config({
     baseUrl: 'js',
     paths: {
-        'draw': '../libs/leaflet.draw/dist/leaflet.draw',
+        'draw': '../libs/leaflet.draw',
         'templates': '../templates', 
         'text': '../libs/requirejs-text/text',
         'd3': '../libs/d3/d3.min',
@@ -33,14 +33,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             config.diccionario_datos = data;
         });
 
-        config.ancho = $(window).width();
-        config.alto = $(window).height();
-
-        $(window).resize(function() {
-            config.ancho = $(window).width();
-            config.alto = $(window).height();
-        });
-
         // Set initial zoom level
         config.current_zoomLevel = 12;
 
@@ -52,13 +44,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             attributionControl: false,
         });
 
-        var mapboxUrl = config.cdn_proxy+'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
-        //var mapboxUrl = 'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
-        L.tileLayer(mapboxUrl, {
-                                //id: 'olcreativa.c409ba3f',
-                                id: 'olcreativa.bd1c1a65',  
-                                attribution: "OpenStreetMaps", 
-                                token: 'pk.eyJ1Ijoib2xjcmVhdGl2YSIsImEiOiJEZWUxUmpzIn0.buFJd1-sVkgR01epcQz4Iw'}).addTo(map);
+        //map.addLayer(config.street_base_layer);
 
         config.sql = new cartodb.SQL({
             user: config.CARTODB_USER
@@ -97,19 +83,14 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             }
         });
 
+        //config.street_base_layer.on("load",function() { console.log("all visible tiles of street have been loaded") });
+        //config.street_base_layer.on("loading",function() { console.log("all visible tiles of party are loading") });
+
         // Close popup and overlay
         map.on('popupclose', function() {
             if (ctxt.featureClicked) ctxt.featureClicked = false;
             helpers.close_slide();
         });
-
-        var d3featureOver = function(d, i) {
-            $('#mapa_cont').css('cursor', 'pointer');
-        };
-
-        var d3featureOut = function(d, i) {
-            $('#mapa_cont').css('cursor', 'auto');
-        };
 
         // Get data for the clicked polling station and show popup and overlay
         var d3featureClick = function(d, i, latlng) {
@@ -286,8 +267,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                     .append("path")
                     .attr("class", "establecimiento disabled")
                     .attr('id', function(d) {return "id"+d.properties.id_establecimiento;})
-                    .on('mouseover', d3featureOver)
-                    .on('mouseout', d3featureOut)
                     .on('click', d3featureClick);
 
             //Create the polling stations arrows
@@ -329,7 +308,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             g.attr("transform", "translate(" + (-topLeft[0]) + "," + (-topLeft[1]) + ")");
             if (!(_.isEmpty(presults))) {
                 features.attr("d", path).style("fill", set_circle_color);
-                reposition_arrows();
+                //reposition_arrows();
             }
         }
 
@@ -391,7 +370,27 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             }
         }
 
+        function switch_base_layers() {
+            if (ctxt.selected_party == "00") {
+                if (map.hasLayer(config.party_base_layer)) {
+                    map.removeLayer(config.party_base_layer);
+                } 
+                if (!map.hasLayer(config.street_base_layer)) {
+                    map.addLayer(config.street_base_layer);
+                }
+            }
+            else {
+                if (map.hasLayer(config.street_base_layer)) {
+                    map.removeLayer(config.street_base_layer);
+                }
+                if (!map.hasLayer(config.party_base_layer)) {
+                    map.addLayer(config.party_base_layer);
+                }
+            }
+        }
+
         function redraw_map() {
+            switch_base_layers();
             if (ctxt.show_diff) {
                 g.selectAll("path.establecimiento")
                     .classed("disabled", false)
@@ -423,7 +422,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                         var position = JSON.parse(data.rows[0].g).coordinates;
                         var latlng = L.latLng(position[1], position[0]);
                         var d = data.rows[0];
-                        map.setView(latlng, 14);
+                        map.panTo(latlng);
                         d3featureClick({properties: d},null,latlng);
                     });
                 }
@@ -577,10 +576,14 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         d3.selectAll(".set_status_app").on('click', set_status_app);
         function set_status_app(){
         /*jshint validthis: true */
-            ctxt.show_diff = this.classList.contains("paso");
-            ctxt.selected_party = this.dataset.partido;
-            update_map();
-            d3.select("div#instructivo").remove();
+            if (!this.classList.contains("active")) {
+                d3.select("button.active").classed("active", false);
+                d3.select(this).classed("active", true);
+                ctxt.show_diff = this.classList.contains("paso");
+                ctxt.selected_party = this.dataset.partido;
+                update_map();
+                d3.select("div#instructivo").remove();
+            }
             return false;
         }
     });
