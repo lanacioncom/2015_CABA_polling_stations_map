@@ -39,7 +39,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         map = L.map('mapa_cont', {
             center: [-34.61597432902992, -58.442115783691406],
             zoom: config.current_zoomLevel,
-            minZoom: config.current_zoomLevel,
+            minZoom: 11,
             maxZoom: 16,
             attributionControl: false,
         });
