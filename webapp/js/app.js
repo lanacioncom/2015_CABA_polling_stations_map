@@ -15,14 +15,14 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
     $(function() {
     "use strict";
         var map;
-        // Template for the description of a given polling station
-        var popup_tmpl = _.template(templates.popup);
-        // Template for the tooltip when showing differences
-        var popup_arrow_tmpl = _.template(templates.popup_arrow);
+        // Template for percentage tooltip
+        var popup_tpl = _.template(templates.popup);
+        // Template for the differences in votes tooltip
+        var popup_arrow_tpl = _.template(templates.popup_arrow);
         // Template to show error in case drawing does not intersect any polling station
-        var popup_simple_tmpl = _.template(templates.popup_simple);
+        var popup_simple_tpl = _.template(templates.popup_simple);
         // Template for the results of a given polling station
-        var overlay_tmpl = _.template(templates.overlay);
+        var overlay_tpl = _.template(templates.overlay);
 
         var transform = d3.geo.transform({point: projectPoint});
         var path = d3.geo.path().projection(transform).pointRadius(0);
