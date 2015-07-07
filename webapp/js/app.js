@@ -52,8 +52,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             attributionControl: false,
         });
 
-        var mapboxUrl = config.cdn_proxy+'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
-        //var mapboxUrl = 'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
+        //var mapboxUrl = config.cdn_proxy+'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
+        var mapboxUrl = 'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
         L.tileLayer(mapboxUrl, {
                                 //id: 'olcreativa.c409ba3f',
                                 id: 'olcreativa.bd1c1a65',  
@@ -405,6 +405,9 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         function redraw_map() {
             if (ctxt.show_diff) {
+                g.selectAll("path.establecimiento")
+                    .classed("disabled", false)
+                    .attr("d",path.pointRadius(2));
                 g.selectAll("line.arrow").classed("disabled", false);
                 g.selectAll("line.arrow")
                 .attr("x1", function (d) {return path.centroid(d)[0];})
@@ -416,9 +419,10 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 .duration(2000)
                 .attr("y2", set_arrow_length);
             }else {
-                // Add explanation for the drawing plugin
-                d3.select("div#instructivo").transition().style("opacity","1");
-
+                g.selectAll("line.arrow")
+                    .classed("disabled", true)
+                    .attr("marker-end","none")
+                    .attr("y2", reset_arrow_length);
                 g.selectAll("path.establecimiento").classed("disabled", false);
                 g.selectAll("path").transition().duration(1000)
                  .attr("d",path.pointRadius(path_radius))
@@ -491,7 +495,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             }
             var v = presults[pid][fid].diferencia;
             var max = presults[pid].max_diff;
-            var s = d3.scale.linear().domain([0,max]).range([5,20]);
+            //var s = d3.scale.linear().domain([0,max]).range([5,20]);
+            var s = d3.scale.linear().domain([0,673]).range([1,40]);
             var offset = parseInt(s(Math.abs(v)));
             if (v > 0) {
                 offset = -offset;
@@ -512,11 +517,11 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             }
             var v = presults[pid][fid].diferencia;
             if (v > 0) {
-                //r = config.diccionario_datos[ctxt.selected_party].color_partido;
-                r = "#000000";
+                r = config.diccionario_datos[ctxt.selected_party].color_partido;
+                //r = "#000000";
             } 
             else {
-                r = "#FF0000";
+                r = "#000000";
             }
             return r;
         }
@@ -602,14 +607,10 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         //Winner data
         $("#home").click(function(){
-            ctxt.selp = null;
-            d3.select("div.leaflet-draw").classed("disabled", false);
-            d3.select("div#instructivo").classed("disabled", false);
-            g.selectAll("line.arrow")
-                .classed("disabled", true)
-                .attr("marker-end","url(#a_"+ctxt.selected_party+")")
-                .attr("y2", reset_arrow_length);
-            g.selectAll("path.establecimiento").classed("disabled", false);
+            ctxt.selected_party = "00";
+            ctxt.selected_polling = null;
+            ctxt.show_diff = false;
+            permalink.set();
             update_map();
             return false;
         });
@@ -617,36 +618,11 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         //Test diff viz
         d3.selectAll(".set_status_app").on('click', set_status_app);
         function set_status_app(){
-            var is_paso = this.classList.contains("paso");
-            var partido_id = this.dataset.partido;
-
-            ctxt.selp = partido_id;
-            if(is_paso){
-
-                d3.select("div.leaflet-draw").classed("disabled", false);
-                g.selectAll("path.establecimiento")
-                    .classed("disabled", true)
-                    .attr("d",path.pointRadius(0));
-                g.selectAll("line.arrow").classed("disabled", false);
-                
-                update_arrows();
-            
-            }else{
-                
-                d3.select("div.leaflet-draw").classed("disabled", true);
-                g.selectAll("line.arrow")
-                    .classed("disabled", true)
-                    .attr("marker-end","none")
-                    .attr("y2", reset_arrow_length);
-                g.selectAll("path.establecimiento").classed("disabled", false);
-            
-                update_map();
-            }
-            
-
+            ctxt.show_diff = this.classList.contains("paso");
+            ctxt.selected_party = this.dataset.partido;
+            update_map();
             d3.select("div#instructivo").remove();
             return false;
-            
         }
     });
 });
