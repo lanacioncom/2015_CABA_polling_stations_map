@@ -35,7 +35,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         // Set initial zoom level
         var w = $("body").width();
-        console.log(w);
+        // console.log(w);
         if (w < 650) {
             config.current_zoomLevel = 11;
         }
@@ -426,6 +426,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             ctxt.show_diff = false;
             permalink.set();
             update_map();
+            _gaq.push(['_trackEvent','HOME', ("Party_"+ctxt.selected_party) , (ctxt.show_diff+"_show_diff")]);
             return false;
         });
 
@@ -441,6 +442,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 update_map();
                 d3.select("div#instructivo").remove();
             }
+            _gaq.push(['_trackEvent','set_status_app', ("Party_"+ctxt.selected_party) , (ctxt.show_diff+"_show_diff")]);
             return false;
         }
 
