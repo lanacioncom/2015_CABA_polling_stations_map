@@ -1,0 +1,104 @@
+
+@media (max-width: 550px) {
+
+  header {
+    padding: 5px 0px;
+    margin-bottom: 5px;
+  }
+
+  .titulo {
+    font-size: 22px;
+    padding-bottom: 0px;
+  }
+
+  .titulos p {
+    /*width: 95%;
+    font-size: 12px;
+    line-height: 1.5;*/
+    display: none;
+  }
+
+  nav{
+    width: 97%;
+    margin-bottom: 5px;
+    position: absolute;
+    top:40px;
+    left:-10px;
+    z-index: 2000;
+    background-color: #fff;
+    overflow: hidden;
+    height: 32px;
+    transition: all 0.5s;
+    box-shadow:0px 0px 0px #CACACA;
+  }
+
+  nav div.hamburguesa{
+    display:block;
+  }
+
+  nav div.fil{
+    width: 100%;
+    font-size: 12px;
+    border-bottom:1px solid #dadada;
+    padding: 1px 0px;
+  }
+
+  nav div.fil h2{
+    width: 60px;
+    float: left;
+    border-bottom:0px !important;
+    border-left: 5px solid #ddd; 
+    font-size: 12px;
+    padding-left: 5px;
+  }
+
+  nav div.fil button.set_status_app {
+    background-image: url("../img/sprite.svg");
+  }
+
+  nav div.fil button.set_status_app {
+    width: 36%;
+    background-color: #fff;
+    border-left:1px solid #dadada;
+  }
+
+  nav div.fil button#home {
+    width: calc(100% - 85px);
+    background-position: 25% -60px;
+      text-indent: 0px;
+  }
+
+  nav div.fil button.set_status_app {
+    padding: 5px 0px;
+    font-size: 12px;
+    background-position: 7% -30px;
+  }
+
+  nav div.fil button.paso{
+    background-position: 7% -3px;
+  }
+
+  #mapa_cont {
+      height: 380px;
+     margin-top: 18px;
+  }
+
+  div.creVent {
+      top: 40px;
+  }
+
+  div.creVent div.txts {
+    width: 78%;
+  }
+
+  div.creVent div.txts {
+    margin: 0px auto;
+      height: 320px;
+  overflow: auto;
+  }
+
+  div.creVent div.txts div.cate {
+    padding: 2px 0px;
+  }
+}
+

@@ -1,0 +1,22 @@
+
+@media (max-width: 650px) {
+	
+  .titulo {
+    font-size: 26px;
+    padding-bottom: 0px;
+  }
+
+   nav div.fil button.set_status_app {
+    background-image:none; 
+    padding: 8px 0px;
+    font-size: 11px;
+  }
+
+  nav div.fil button#home {
+    text-indent: 25px;
+    background-position: -4px -57px;
+  }
+
+  
+
+}
