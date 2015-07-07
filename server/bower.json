@@ -19,7 +19,6 @@
     "d3": "~3.5.5",
     "requirejs": "jrburke/requirejs#~2.1.18",
     "queue-async": "~1.0.7",
-    "requirejs-text": "~2.0.14",
-    "leaflet.draw": "~0.2.4"
+    "requirejs-text": "~2.0.14"
   }
 }
