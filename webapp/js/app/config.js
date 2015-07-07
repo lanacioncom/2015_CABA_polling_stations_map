@@ -5,12 +5,21 @@ define([], function() {
     //var mapboxUrl = 'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
 
     return {
-    ZOOM_MULTIPLIERS: {
-        12: .35,
-        13: 0.7,
-        14: 1.2,
-        15: 1.35,
-        16: 1.5
+    zoom_arrow_multipliers: {
+        11: 1,
+        12: 1,
+        13: 1,
+        14: 2,
+        15: 4,
+        16: 8
+    },
+    zoom_radius: {
+        11: 2,
+        12: 2.5,
+        13: 3,
+        14: 3.5,
+        15: 4,
+        16: 5
     },
     carto_layers:{ '2015_caba': null},
     CARTODB_USER: 'lndata',
@@ -21,7 +30,8 @@ define([], function() {
     featureClicked: false,
     map: null,
     street_base_layer: L.tileLayer(mapboxUrl, {
-                                                id: 'olcreativa.c409ba3f',
+                                                //id: 'olcreativa.c409ba3f',
+                                                id: 'olcreativa.bd1c1a65',
                                                 attribution: "OpenStreetMaps", 
                                                 token: 'pk.eyJ1Ijoib2xjcmVhdGl2YSIsImEiOiJEZWUxUmpzIn0.buFJd1-sVkgR01epcQz4Iw'}),
     party_base_layer: L.tileLayer(mapboxUrl, {

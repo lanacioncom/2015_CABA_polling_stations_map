@@ -10,6 +10,12 @@ svg#d3layer path.establecimiento {
   fill-opacity: 0.9;
 }
 
+svg#d3layer path.establecimiento.arrow {
+  fill: #ccc;
+  stroke: none;
+  fill-opacity: 0.9;
+}
+
 svg#d3layer path.establecimiento:hover {
   fill-opacity: 1;
   cursor: pointer;
