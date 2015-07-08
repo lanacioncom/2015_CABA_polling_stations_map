@@ -32,9 +32,13 @@ body {
 
 /*header*/
 header {
+  width: 200px;
   border-bottom: dotted 1px #dadada;
-  padding: 10px 0px;
+  border-right: 1px solid #dadada;
+  padding: 10px;
   position: relative;
+  float: left;
+  overflow: hidden;
 }
 
 div.titulos {
@@ -46,13 +50,12 @@ div.titulos {
 
 h1 {
   font-family: 'TheSansSemi', arial, Helvetica, sans-serif;
-  font-size: 23px;
-  /*color: #29ABE2;*/
+  font-size: 25px;
   color:#000;
-  display: inline-block;
   letter-spacing: -1px;
   border-bottom: dotted 1px #ccc;
-  padding-left: 10px;
+  line-height: 1;
+  display: inline-block;
 }
 
 h2 {
@@ -60,23 +63,22 @@ h2 {
   display: inline-block;
   font-family: arial;
   font-size: 27px;
-  padding: 6px 0px;
-  margin: 0 1px;
+  padding: 10px 0px;
   /* border: solid 1px #BBBBBB; */
   /* border-top: dotted 1px black; */
   border-bottom: none;
   border-right: none;
-  text-transform: uppercase;
+  color:#999999;
 }
 
 .titulo {
-  font-size: 23px;
+  font-size: 25px;
   border-bottom: none;
 }
 
 .titulos p {
   width: 98%;
-  padding:5px 10px;
+  padding:15px 0px;
   color:#999999;
 }
 
@@ -144,12 +146,12 @@ section {
 /*///////*/
 
 nav {
-  width: 100%;
-  height: 75px;
+  width: 200px;
+  height: 475px;
   font-size: 12px;
   text-align: center;
-  padding: 0px 10px;
   position: relative;
+  float: left;
 }
 
 nav div.hamburguesa{
@@ -184,24 +186,40 @@ nav div.flecha {
 
 
 nav div.fil{
-  width: 16%;
+  width: 100%;
   text-align: left;
   text-decoration: none;
   color: #808080;
-  padding: 6px 0px;
+  padding: 0px;
   padding-right: 0.6%;
   background: #fff;
   float: left;
+  border-bottom: 5px solid #999;
+}
+
+nav div.cate{
+  font-family: "TheSans", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  margin-top: 15px;
+  border-bottom: 1px solid #dadada;
+}
+
+nav div.cate div.cat{
+  width: 32%;
+  display: inline-block;
+  text-align: center;
+  border-right:1px solid #dadada;
+  padding: 5px 0px; 
 }
 
 nav div.fil h2 { 
-  display: block;
+  width: 33.2%;
+  float: left;
   font-size: 14px;
-  padding: 5px 0px;
-  border-bottom: 5px solid #999;
-  margin: 0px;
+  padding: 8px 0px;
   color:#999;
   font-weight: normal;
+  border-right:1px solid #dadada; 
 }
 
 input:focus,
@@ -211,44 +229,44 @@ button:focus {
     outline: none;
 }
 
-nav div.fil button.set_status_app {
+nav div.fil button.set_status_app,  nav div.fil button#home{
   display: inline-block;
-  width: 50%;
+  width: 33.1%;
+  height: 35px;
   background: #f7f7f7;
   float: left;
   cursor: pointer;
   border: 0px;
   text-align: center;
-  padding: 8px 2%;
-  padding-left: 15%;
-  border-right:2px solid #fff; 
-  text-transform: uppercase;
+  padding: 10px 0px;
+  border-right:1px solid #dadada; 
   font-size: 12px;
   color:#000;
-  font-family: "TheSans", Arial, Helvetica, sans-serif;
   background-image:url("../img/sprite.svg"); 
   background-repeat: no-repeat;
-  background-position: -2px -27px;
+  background-position: 16px -27px;
   border-top: 1px solid #fff;
   transition: all 0.5s;
 }
+
 
 nav div.fil button.set_status_app:hover {
   background-color: #E7E7E7;
 }
 
 nav div.fil button.paso{
-  background-position: -3px 0px;
+  background-position: 17px 1px;
   border-right:0px; 
 }
 
-nav div.fil button#home{
-  background-position: 0px -57px;
+nav div.filHome {
+  width: 100%;
 }
 
 nav div.fil button#home {
   width: 100%;
-  text-indent: -35px;
+  background-position: 0px -57px;
+  border-right:0px; 
 }
 
 nav div.sel{
@@ -620,10 +638,10 @@ select#opts {
 
 /*mapa*/
 section#cont_data {
-  margin-top: 15px;
-  border-bottom:1px solid #dadada;
+  width: calc(100% - 233px);
   overflow: hidden;
   position: relative;
+  float: right;
 }
 
 
@@ -647,7 +665,7 @@ div.loader{
   height: 620px;
   overflow: hidden;
   float: left;
-  margin-bottom: 15px;
+  margin-bottom:5px;
 }
 
 #results {
@@ -857,7 +875,7 @@ div.loader{
 .atribuciones {
   font-size: 10px;
   padding-top: 25px;
-  padding-left: 25%;
+  padding-left: 21%;
   float: left;
 }
 
@@ -881,10 +899,10 @@ div.loader{
 div.creVent{
   width: 100%;
   max-width: 990px;
-  height: 110%;
+  height: 100%;
   position: absolute;
-  top:80px;
-  left:0px;
+  top: 0px;
+  left: 0px;
   background-color: rgba(255, 255, 255, 0.9);
   z-index: 6000;
   text-align: center;
@@ -965,10 +983,12 @@ div.creVent div.txts div.nombre a:hover{
 /*///// FOOTER ////*/
 
 footer{
-  width: 97%;
+  width: 100%;
   padding:10px 0px;
   max-width: 990px;
   color:#999;
+  border-top:1px solid #dadada;
+  float: left;
 }
 
 footer div.creditos{
