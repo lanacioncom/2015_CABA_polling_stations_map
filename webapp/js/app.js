@@ -194,7 +194,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             //When showing differences adjust radius with zoom
             if (ctxt.show_diff) {
                 r = config.zoom_radius[current_zoom_level];
-                return r
+                return r;
             }
 
             var pid = null;
@@ -227,19 +227,19 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         }
 
         function set_circle_color(d) {
-            var r = null;
+            var r, fid, pid = null;
 
             //Winner
             if (ctxt.selected_party == "00") {
-                var fid = d.properties.id_establecimiento;
-                var pid = presults[ctxt.selected_party][fid].id_partido;
+                fid = d.properties.id_establecimiento;
+                pid = presults[ctxt.selected_party][fid].id_partido;
                 r = config.diccionario_datos[pid].color_partido;
             }
             else {
-                var pid = ctxt.selected_party;
+                pid = ctxt.selected_party;
                 if (ctxt.show_diff) {
                     // color of circle for arrows
-                    var fid = d.properties.id_establecimiento;
+                    fid = d.properties.id_establecimiento;
                     var v = presults[pid][fid].diferencia;
                     if (v > 0) {
                         r = config.diccionario_datos[ctxt.selected_party].color_partido;
@@ -409,7 +409,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 features.transition().ease("quad-in-out").duration(1000)
                         .attr("d",path.pointRadius(set_circle_radius))
                         .style("fill", set_circle_color)
-                        .call(d3endall, restore_zoom_capabilities);;
+                        .call(d3endall, restore_zoom_capabilities);
 
                 // If we have a selected polling station simulate click
                 if (ctxt.selected_polling) {
@@ -644,7 +644,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         //Helper counting function to wait to all elements of a transition to end
         function d3endall(transition, callback) { 
-            if (transition.size() === 0) { callback() }
+            if (transition.size() === 0) { callback(); }
             var n = 0; 
             transition 
                 .each(function() { ++n; }) 
