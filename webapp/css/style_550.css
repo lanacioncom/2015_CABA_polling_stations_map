@@ -2,11 +2,20 @@
 @media (max-width: 550px) {
 
   header {
-    padding: 5px 0px;
+    width: 100%;
+    height: 51px;
+    padding: 10px 0px;
     margin-bottom: 5px;
   }
 
-  .titulo {
+  .titulos h1{
+    width: 100%;
+    border-bottom: 1px solid #dadada;
+    padding: 8px 5px;
+    padding-top: 0px;
+  }
+
+  .titulos {
     font-size: 22px;
     padding-bottom: 0px;
   }
@@ -19,11 +28,11 @@
   }
 
   nav{
-    width: 97%;
+    width: 100%;
     margin-bottom: 5px;
     position: absolute;
     top:40px;
-    left:-10px;
+    left:0px;
     z-index: 2000;
     background-color: #fff;
     overflow: hidden;
@@ -78,9 +87,12 @@
     background-position: 7% -3px;
   }
 
+  section#cont_data {
+    width: 100%;
+  }
+
   #mapa_cont {
-      height: 380px;
-     margin-top: 18px;
+    height: 380px;
   }
 
   div.creVent {
@@ -91,14 +103,27 @@
     width: 78%;
   }
 
+  ul#list_interna li div.foto {
+    display: none;
+  }
+
+  #results ul li.candidato h5 span {
+    display: none;
+  }
+
   div.creVent div.txts {
     margin: 0px auto;
-      height: 320px;
-  overflow: auto;
+    height: 320px;
+    overflow: auto;
   }
 
   div.creVent div.txts div.cate {
     padding: 2px 0px;
+  }
+
+  footer {
+    width: 96%;
+    padding: 10px 2%;
   }
 }
 

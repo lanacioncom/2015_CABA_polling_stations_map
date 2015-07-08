@@ -1,22 +1,64 @@
 
 @media (max-width: 650px) {
-	
-  .titulo {
-    font-size: 26px;
-    padding-bottom: 0px;
+	header{
+    width: 150px;
   }
 
-   nav div.fil button.set_status_app {
-    background-image:none; 
-    padding: 8px 0px;
-    font-size: 11px;
+  div.titulos h1{
+    font-size: 20px;
+  }
+
+  div.titulos p{
+    font-size: 13px;
+  }
+
+  nav {
+    width: 150px;
+    height: 404px;
   }
 
   nav div.fil button#home {
-    text-indent: 25px;
-    background-position: -4px -57px;
+    width: 100%;
+    text-align: left;
+    padding-left: 25%;
+    padding-bottom: 31px;
+    text-indent: 0px;
+    background-position: 1px -52px;
   }
 
-  
+  nav div.fil h2 {
+    width: 15%;
+    font-size: 12px;
+  }
+
+  nav div.cate div.cat {
+    width: 33%;
+    padding: 5px 2px;
+  }
+
+  .flecha {
+      right: 25px;
+  }
+
+  .flecha#f2 {
+    right: 73px;
+  }
+
+  nav div.fil button.set_status_app {
+    width: 32%;
+    background-position: 7px -27px;
+  }
+
+  nav div.fil button.paso {
+    background-position: 6px 1px;
+  }
+
+  section#cont_data {
+    width: calc(100% - 182px);
+  }
+
+  #mapa_cont {
+    height: 550px;
+  }
 
 }
