@@ -402,7 +402,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         function redraw_map() {
             map.scrollWheelZoom.disable();
             switch_base_layers();
-            features.classed("arrow", ctxt.show_diff);
+            features.classed("aux", ctxt.show_diff);
             if (ctxt.show_diff) {
                 //circles
                 features.attr("d",path.pointRadius(set_circle_radius))
@@ -563,9 +563,15 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         // Get data for the clicked polling station and show popup and overlay
         function d3featureClick(d, i, latlng) {
+            //Update context
+            if (ctxt.selected_polling != d.properties.id_establecimiento) {
+                ctxt.selected_polling = d.properties.id_establecimiento;
+            }
+            // Ger rid of helper texts
             if ($('div#instructivo').is(":visible")) {
                 $('div#instructivo').fadeOut(200); 
             }
+
             $('#overlay *').fadeOut(200, function() { $(this).remove();});
             showOverlay();
             if (!latlng) {
@@ -592,37 +598,48 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                         console.log(errors);
                     });
             }, 200);
+            return false;
         }
 
         //Called when the Cartodb SQL has finished
         function featureClickDone(latlng, establecimiento_data, votos_data) {
             var popup = null;
-
+            var ttip_data = {establecimiento: establecimiento_data,
+                         winner: false,
+                         v: votos_data,
+                         dict_datos: config.diccionario_datos,
+                         vh: view_helpers};
             /** If we are viewing differences ignore overlay */
             if (ctxt.selected_party != "00") {
-                popup = L.popup()
-                    .setLatLng(latlng)
-                    .setContent(popup_tmpl({establecimiento: establecimiento_data,
-                                            winner: false,
-                                            v: votos_data,
-                                            dict_datos: config.diccionario_datos,
-                                            vh: view_helpers}))
-                    .openOn(map);
+                if (ctxt.show_diff) {
+                    //Tooltip
+                    popup = L.popup().setLatLng(latlng)
+                                     .setContent(popup_arrow_tpl(ttip_data))
+                                     .openOn(map);
+                }
+                else {
+                    //Tooltip
+                    popup = L.popup().setLatLng(latlng)
+                                     .setContent(popup_tpl(ttip_data))
+                                     .openOn(map);
+                }
                 return false;
             }
 
+            //Tooltip
+            ttip_data.winner = true;
+            console.log(ttip_data);
+            popup = L.popup().setLatLng(latlng)
+                             .setContent(popup_tpl(ttip_data))
+                             .openOn(map);
+            //Overlay calculation
             var d = votos_data.rows;
             d.forEach(function(d) {
                 d.pct = (d.votos / establecimiento_data.positivos) * 100;
             });
-            popup = L.popup()
-                .setLatLng(latlng)
-                .setContent(popup_tmpl({establecimiento: establecimiento_data,
-                                        winner: true,
-                                        v: votos_data,
-                                        dict_datos: config.diccionario_datos}))
-                .openOn(map); 
-            $('#results').html(overlay_tmpl({
+            
+            //Show overlay
+            $('#results').html(overlay_tpl({
                 e: establecimiento_data,
                 data: d,
                 dict_datos: config.diccionario_datos,
@@ -638,11 +655,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             $('#results').animate({right:'0%'}, 'fast', function(){
                 helpers.animate_barras();
             });
-
-            if (ctxt.selected_polling != establecimiento_data.id_establecimiento) {
-                ctxt.selected_polling = establecimiento_data.id_establecimiento;
-            }
-
             //Finally update permalink
             permalink.set(); 
         }

@@ -1,12 +1,9 @@
 <!--JET: Tooltip when one polling station is selected-->
 <div class="ttip_header"><%- establecimiento.descripcion %></div>
-<div class="ttip_body">El partido <%- dict_datos[v.rows[0].id_partido].nombre_partido %>
-    <% if (!winner) {;%> 
+<div class="ttip_body">El partido <%- dict_datos[v.rows[0].id_partido].nombre_partido %> 
     <span class="ttip_main">ha <% if (v.rows[0].diferencia > 0) { %>ganado<% }else {%>perdido<%}%> un total 
     de <%= vh.get_formatted_num(Math.abs(v.rows[0].diferencia),0) %></span> votos respecto a las PASO 
-    </br><span class="ttip_footer">Votos obtenidos <%= vh.get_formatted_num(v.rows[0].votos,0) %></span></div>
-    <% }else {%>
-    ha ganado por un margen de <span class="ttip_number"><%= (((v.rows[0].votos - v.rows[1].votos) / establecimiento.positivos) * 100).format(1, ",", '.') %>%</span> al partido <%- dict_datos[v.rows[1].id_partido].nombre_partido %></div>
-    <%}%>
+    </br><span class="ttip_footer">Votos obtenidos <%= vh.get_formatted_num(v.rows[0].votos,0) %></span>
+</div>
 
 
