@@ -1,16 +1,19 @@
 @media (max-width: 850px) {
-  .titulos p {
-    width: 98%;
+  #results {
+    width: 270px;
+    right: -280px;
   }
 
-  nav div.fil button.set_status_app {
-    background-image:none; 
-    padding-left: 0px;
+  #results ul li.candidato {
+    margin-bottom: 0px;
   }
 
-  nav div.fil button#home {
-    background-image: url("../img/sprite.svg");
-    text-indent: 15px;
+  ul#list_interna li div.cant_v {
+    margin: 0px 14px;
+  }
+
+  ul#list_interna li div.foto {
+    margin-top: 12px;
   }
 
 }
