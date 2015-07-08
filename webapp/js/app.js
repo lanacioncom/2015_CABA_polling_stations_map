@@ -44,6 +44,11 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         else {
             current_zoom_level = 12;
         }
+
+
+        var southWest = L.latLng(-34.705, -58.531),
+            northEast = L.latLng(-34.527, -58.335),
+            bounds = L.latLngBounds(southWest, northEast);
         
         map = L.map('mapa_cont', {
             center: [-34.61597432902992, -58.442115783691406],
@@ -51,6 +56,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             minZoom: current_zoom_level,
             maxZoom: 16,
             attributionControl: false,
+            maxBounds: bounds
         });
 
         map.addLayer(config.base_layer);
