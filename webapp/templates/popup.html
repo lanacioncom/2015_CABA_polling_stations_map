@@ -2,8 +2,7 @@
 <div class="ttip_header"><%- establecimiento.descripcion %></div>
 <div class="ttip_body">El partido <%- dict_datos[v.rows[0].id_partido].nombre_partido %>
     <% if (!winner) {;%> 
-    <span class="ttip_main">ha obtenido un <%= vh.get_formatted_pct(v.rows[0].votos,establecimiento.positivos,1) %>
-    de votos</span></div>
+    <span class="ttip_main">ha obtenido un <%= vh.get_formatted_pct(v.rows[0].votos,establecimiento.positivos,1) %>% de votos</span></div>
     <% }else {%>
     ha ganado por un margen de <span class="ttip_number"><%= (((v.rows[0].votos - v.rows[1].votos) / establecimiento.positivos) * 100).format(1, ",", '.') %>%</span> al partido <%- dict_datos[v.rows[1].id_partido].nombre_partido %></div>
     <%}%>

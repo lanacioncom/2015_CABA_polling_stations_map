@@ -46,8 +46,14 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         }
 
 
-        var southWest = L.latLng(-34.705, -58.531),
-            northEast = L.latLng(-34.527, -58.335),
+        //Original
+        // var southWest = L.latLng(-34.705, -58.531),
+        //     northEast = L.latLng(-34.527, -58.335),
+        //     bounds = L.latLngBounds(southWest, northEast);
+        
+        //New to allow overlay
+        var southWest = L.latLng(-34.738, -58.672),
+            northEast = L.latLng(-34.488, -58.219),
             bounds = L.latLngBounds(southWest, northEast);
         
         map = L.map('mapa_cont', {
