@@ -464,7 +464,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             ctxt.show_diff = false;
             permalink.set();
             update_map();
-            _gaq.push(['_trackEvent','HOME', ("Party_"+ctxt.selected_party) , (ctxt.show_diff+"_show_diff")]);
+            _gaq.push(['_trackEvent','2015CabaMap', "click", "Home"]);
             return false;
         });
 
@@ -481,7 +481,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 update_map();
                 d3.select("div#instructivo").remove();
             }
-            _gaq.push(['_trackEvent','set_status_app', ("Party_"+ctxt.selected_party) , (ctxt.show_diff+"_show_diff")]);
+            var key_GA  = config.diccionario_datos[ctxt.selected_party].nombre_partido + "__Show_paso_"+ctxt.show_diff;
+            _gaq.push(['_trackEvent','2015CabaMap', "click", key_GA]);
             return false;
         }
 
