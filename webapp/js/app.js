@@ -71,9 +71,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         var click_feature_tpl = _.template(templates.click_feature_sql);
         var click_feature_winner_tpl = _.template(templates.click_feature_winner_sql);
 
-        // Template for the credits
-        $('.creVent').html(_.template(templates.credits));
-
         // Overlay hide and show with css transitions
         var hideOverlay = function() {
             $('#overlay').css('left', '100%');
@@ -81,17 +78,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         var showOverlay = function() {
             $('#overlay').css('left', '73%');
         };
-
-        // Credits hide and show
-        $(".creditos").click(function(){
-           $(".creVent").fadeIn(200);
-           $(".creVent .txts").delay(300).fadeIn(200);
-        });
-
-        $(".cerrar").click(function(){
-           $(".creVent .txts").fadeOut(200);
-           $(".creVent").delay(300).fadeOut(200);
-        });
 
         // Hide overlay if dragged position is out of bounds
         map.on('dragend', function(e, x, y) {
@@ -630,6 +616,29 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         function restore_zoom_capabilities () {
             map.scrollWheelZoom.enable();
         }
+
+        /** ctos_btn*/
+        d3.select('#creditos').on('click', function(){ 
+            var append_to = d3.select('#append');
+            append_to.html(templates.credits).style('opacity', 0).transition().style('opacity', 1);  
+            d3.select('#append .cerrar').on('click', function(){
+                d3.select(".creVent")
+                    .transition().style('opacity', 0)
+                    .each('end', function(){append_to.html("");});
+                
+            }, false);  
+        }, false);
+
+        /** metodo_btn*/
+        d3.select('#metodo').on('click', function(){ 
+            var append_to = d3.select('#append');
+            append_to.html(templates.metodologia).style('opacity', 0).transition().style('opacity', 1);  
+            d3.select('#append .cerrar').on('click', function(){
+                d3.select(".creVent")
+                    .transition().style('opacity', 0)
+                    .each('end', function(){append_to.html("");});
+                }, false);
+        }, false);
 
         //Hide filter buttons for mobile
         d3.select("div.hamburguesa").on('click', function(){
