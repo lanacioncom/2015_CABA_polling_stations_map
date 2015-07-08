@@ -101,12 +101,9 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             }
         });
 
-        //config.street_base_layer.on("load",function() { console.log("all visible tiles of street have been loaded") });
-        //config.street_base_layer.on("loading",function() { console.log("all visible tiles of party are loading") });
-
         // Close popup and overlay
         map.on('popupclose', function() {
-            if (ctxt.featureClicked) ctxt.featureClicked = false;
+            if (ctxt.selected_polling) ctxt.selected_polling = null;
             helpers.close_slide();
         });
 
@@ -187,6 +184,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             }
         }
 
+        /** CIRCLE FUNCTIONALITY */
+
         // Use Leaflet to implement a D3 geometric transformation.
         function projectPoint(x, y) {
             /*jshint validthis: true */
@@ -260,6 +259,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             }
             return r;
         }
+
+        /** ARROWS FUNCTIONALITY */
 
         function reposition_arrows(d,i) {
             g.selectAll("line.arrow")
@@ -432,6 +433,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             }
         }
 
+        /** DRAW FUNCTIONALITY */
+
         //Draw controls
         map.addControl(draw.drawControlFull);
         //Draw control
@@ -442,39 +445,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         map.on('draw:deleted', draw_deleted);
         map.on('draw:created', draw_filter);
         map.on('draw:edited', draw_filter);
-
-        //Winner data
-        d3.select("button#home").on('click', function(){
-            // To hide filters if we are on mobile
-            d3.select("nav").classed("muestra", true);
-            ctxt.selected_party = "00";
-            ctxt.selected_polling = null;
-            ctxt.show_diff = false;
-            permalink.set();
-            update_map();
-            _gaq.push(['_trackEvent','2015CabaMap', "click", "Home"]);
-            return false;
-        });
-
-        //Test diff viz
-        d3.selectAll(".set_status_app").on('click', set_status_app);
-        function set_status_app(){
-        /*jshint validthis: true */
-            // To hide filters if we are on mobile
-            if (!this.classList.contains("active")) {
-                d3.select("button.active").classed("active", false);
-                d3.select(this).classed("active", true);
-                ctxt.show_diff = this.classList.contains("paso");
-                ctxt.selected_party = this.dataset.partido;
-                update_map();
-                d3.select("div#instructivo").remove();
-            }
-            var key_GA  = config.diccionario_datos[ctxt.selected_party].nombre_partido + "__Show_paso_"+ctxt.show_diff;
-            _gaq.push(['_trackEvent','2015CabaMap', "click", key_GA]);
-            return false;
-        }
-
-        /** DRAW FUNCTIONALITY */
 
         function draw_deleted(e) {
             if (!draw.drawnItems.getLayers().length) {
@@ -666,5 +636,42 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             d3.select("nav").classed("muestra", true);
             return false;
         });
+
+        //Winner data
+        d3.select("button#home").on('click', function(){
+            // To hide filters if we are on mobile
+            d3.select("nav").classed("muestra", false);
+            hideOverlay();
+            map.closePopup();
+            ctxt.selected_party = "00";
+            ctxt.selected_polling = null;
+            ctxt.show_diff = false;
+            permalink.set();
+            update_map();
+            _gaq.push(['_trackEvent','2015CabaMap', "click", "Home"]);
+            return false;
+        });
+
+        //Test diff viz
+        d3.selectAll(".set_status_app").on('click', set_status_app);
+        function set_status_app(){
+        /*jshint validthis: true */
+            // Hide navigation on mobile
+            d3.select("nav").classed("muestra", false);
+            hideOverlay();
+            map.closePopup();
+            // To hide filters if we are on mobile
+            if (!this.classList.contains("active")) {
+                d3.select("button.active").classed("active", false);
+                d3.select(this).classed("active", true);
+                ctxt.show_diff = this.classList.contains("paso");
+                ctxt.selected_party = this.dataset.partido;
+                update_map();
+                d3.select("div#instructivo").remove();
+            }
+            var key_GA  = config.diccionario_datos[ctxt.selected_party].nombre_partido + "__Show_paso_"+ctxt.show_diff;
+            _gaq.push(['_trackEvent','2015CabaMap', "click", key_GA]);
+            return false;
+        }
     });
 });
