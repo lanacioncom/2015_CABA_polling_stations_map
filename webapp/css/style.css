@@ -878,108 +878,22 @@ div.loader{
 /*///////// POPUP DE CREDITOS ///////////*/
 
 
-div.creVent{
-  width: 100%;
-  max-width: 990px;
-  height: 110%;
-  position: absolute;
-  top:80px;
-  left:0px;
-  background-color: rgba(255, 255, 255, 0.9);
-  z-index: 6000;
-  text-align: center;
-  display: none;
-}
-
-
-div.creVent div.titu{
-  width: 98%;
-  padding: 10px;
-  padding-bottom: 3px;
-  color:#000;
-  font-family: "TheSansBold";
-  background-color:#fff;
-  font-size: 18px;
-}
-
-div.creVent div.txts{
-  margin: 20px auto;
-  width: 95%;
-  max-width: 400px;
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 3px;
-  border: 1px solid #D8D8D8; 
-  position: relative;
-  display: none;
-}
-
-
-div.creVent div.cerrar, a.cerrar{
-  color:#fff;
-  padding: 8px 11px;
-  border-radius: 100px;
-  background: #000;
-  position: absolute;
-  top:-15px;
-  right:-15px;
-  cursor: pointer;
-  top: 23px;
-  right: 26%;
-  z-index: 1500;
-}
-
-a.cerrar{
-  color: #000;
-  background: #fff;
-  font-weight: bold;
-  top: 5px;
-  left: -19px;
-  right: auto;
-  display: inline-block;
-  text-decoration: none;
-  border: 1px solid #e7e7e7;
-}
-
-div.creVent div.txts div.cate{
-  font-weight: bold;
-  padding: 8px 0px;
-  margin-top:20px;
-}
-
-div.creVent div.txts div.nombre{
-  line-height: 1.5;
-  color:#474747;
-}
-
-div.creVent div.txts div.nombre a{
-  text-decoration: none;
-  color:#474747;
-  font-weight: bold;
-}
-
-div.creVent div.txts div.nombre a:hover{
-  color:#29ABE2;
-}
-
-/*///// FOOTER ////*/
-
 footer{
-  width: 97%;
-  padding:10px 0px;
-  max-width: 990px;
-  color:#999;
+    width: 98.5%;
+    padding:10px;
+    max-width: 990px;
+    color:#999;
 }
 
 footer div.creditos{
-  font-size: 12px;
-  background-color: #f7f7f7;
-  border: 1px solid #dadada;
-  padding: 5px 6px;
-  float: left;
-  border-radius: 3px;
-  cursor: pointer;
-  margin: -3px;
+    font-size: 12px;
+    background-color: #f7f7f7;
+    border: 1px solid #dadada;
+    padding: 5px 6px;
+    float: left;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: -3px;
 }
 
 footer div.meto{
@@ -987,16 +901,84 @@ footer div.meto{
 }
 
 footer div.datos{
-  font-size: 12px;
-  float:right;
-  margin-left: 4px;
-    padding-left: 4px;
-  font-family: arial;
-  border-left:1px solid #dadada; 
+   font-size: 12px;
+   float: right;
+   margin-left: 4px;
+   padding-right: 4px;
+   font-family: arial;
+   border-right: 1px solid #dadada;
 }
 
 footer div.datos span{
-  color:#29B5EA;
-  font-weight: bold;
+    color:#000;
+    font-weight: bold;
 } 
 
+div.creVent{
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0px;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 6000;
+    text-align: center;
+    padding-top: 72px;
+}
+
+
+div.creVent div.titu{
+    width: 98%;
+    padding: 10px;
+      padding-bottom: 3px;
+    color:#000;
+    font-family: "TheSansBold";
+    background-color:#fff;
+    font-size: 18px;
+}
+
+div.creVent div.txts{
+    margin: 20px auto;
+    width: 95%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 3px;
+    border: 1px solid #D8D8D8; 
+    position: relative;
+    /*display: none;*/
+}
+
+
+div.creVent div.txts div.cerrar{
+    color:#fff;
+     padding: 8px 10px;
+    border-radius: 100px;
+    background-color: #000;
+    position: absolute;
+    top:-15px;
+    right:-15px;
+    cursor: pointer;
+}
+
+div.creVent div.txts div.cate{
+    font-weight: bold;
+    padding: 8px 0px;
+    margin-top:20px;
+}
+
+div.creVent div.txts div.nombre{
+    line-height: 1.5;
+    color:#474747;
+}
+
+div.creVent div.txts div.nombre a{
+    text-decoration: none;
+    color:#474747;
+    font-weight: bold;
+}
+
+div.creVent div.txts div.nombre a:hover{
+    color:#29ABE2;
+}
