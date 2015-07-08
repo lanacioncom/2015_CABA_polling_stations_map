@@ -152,6 +152,28 @@ nav {
   position: relative;
 }
 
+nav div.hamburguesa{
+  width: calc(100% - 50px);
+  font-family: "TheSans", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  text-align: left;
+  padding: 7px 0px;
+  padding-left: 50px;
+  border-bottom: 1px solid #dadada;
+  background-image: url("../img/sprite.svg");
+  background-repeat: no-repeat;
+  background-position: -4px -127px;
+  background-size: 51px;
+  color:#A0A0A0;
+  cursor:pointer;
+  display: none;
+}
+
+nav.muestra{
+    height: 213px;
+    box-shadow: 0px 5px 10px #353535;
+ }
+
 nav div.flecha {
   width: 0; 
   height: 0; 
@@ -160,20 +182,9 @@ nav div.flecha {
   border-top: 20px solid #f00;
 }
 
-nav div.tit-filtros{
-  width: 100%;
-  font-size: 14px;
-  font-weight: 100;
-  float: left;
-  text-align: left;
-  color:#000;
-  margin: 10px 0px;
-  margin-bottom: 0px;
-  font-family: "TheSansBold", Arial, Helvetica, sans-serif;
-}
 
 nav div.fil{
-    width: 16%;
+  width: 16%;
   text-align: left;
   text-decoration: none;
   color: #808080;
@@ -227,7 +238,7 @@ nav div.fil button.set_status_app:hover {
 }
 
 nav div.fil button.paso{
-  background-position: 2px 0px;
+  background-position: -3px 0px;
   border-right:0px; 
 }
 
@@ -870,11 +881,11 @@ div.loader{
 div.creVent{
   width: 100%;
   max-width: 990px;
-  height: 100%;
+  height: 110%;
   position: absolute;
-  top:52px;
+  top:80px;
   left:0px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   z-index: 6000;
   text-align: center;
   display: none;
@@ -904,15 +915,18 @@ div.creVent div.txts{
 }
 
 
-div.creVent div.txts div.cerrar, a.cerrar{
+div.creVent div.cerrar, a.cerrar{
   color:#fff;
-  padding: 8px 12px;
+  padding: 8px 11px;
   border-radius: 100px;
   background: #000;
   position: absolute;
   top:-15px;
   right:-15px;
   cursor: pointer;
+  top: 23px;
+  right: 26%;
+  z-index: 1500;
 }
 
 a.cerrar{
@@ -951,8 +965,8 @@ div.creVent div.txts div.nombre a:hover{
 /*///// FOOTER ////*/
 
 footer{
-  width: 98.5%;
-  padding:10px;
+  width: 97%;
+  padding:10px 0px;
   max-width: 990px;
   color:#999;
 }
@@ -985,117 +999,4 @@ footer div.datos span{
   color:#29B5EA;
   font-weight: bold;
 } 
-
-
-/*/////////////////media queries ///////////////////*/
-/*/////////////////media queries ///////////////////*/
-
-
-@media (max-width: 850px) {
-  .titulos p {
-    width: 98%;
-  }
-
-  nav div.fil button.set_status_app {
-    background-image:none; 
-    padding-left: 0px;
-  }
-
-  nav div.fil button#home {
-    background-image: url("../img/sprite.svg");
-      text-indent: 15px;
-  }
-
-}
-
-
-@media (max-width: 650px) {
-	
-  .titulo {
-    font-size: 26px;
-    padding-bottom: 0px;
-  }
-
-   nav div.fil button.set_status_app {
-    padding: 8px 0px;
-    font-size: 11px;
-  }
-
-  nav div.fil button#home {
-    text-indent: 25px;
-    background-position: -4px -57px;
-  }
-
-  
-
-}
-
-@media (max-width: 540px) {
-
-  header {
-    padding: 5px 0px;
-    margin-bottom: 5px;
-  }
-
-  .titulo {
-    font-size: 22px;
-    padding-bottom: 0px;
-  }
-
-  .titulos p {
-    /*width: 95%;
-    font-size: 12px;
-    line-height: 1.5;*/
-    display: none;
-  }
-
-  nav{
-    margin-bottom: 5px;
-  }
-
-  nav div.fil{
-    width: 100%;
-    font-size: 12px;
-    border-bottom:1px solid #dadada;
-    padding: 1px 0px;
-  }
-
-  nav div.fil h2{
-    width: 60px;
-    float: left;
-    border-bottom:0px !important;
-    border-left: 5px solid #ddd; 
-    font-size: 12px;
-  }
-
-  nav div.fil button.set_status_app {
-    background-image: url("../img/sprite.svg");
-  }
-
-  nav div.fil button.set_status_app {
-    width: 36%;
-    background-color: #fff;
-    border-left:1px solid #dadada;
-  }
-
-  nav div.fil button#home {
-    width: calc(100% - 85px);
-    background-position: 25% -60px;
-      text-indent: 0px;
-  }
-
-  nav div.fil button.set_status_app {
-    padding: 5px 0px;
-    font-size: 12px;
-    background-position: 7% -30px;
-  }
-
-  nav div.fil button.paso{
-    background-position: 7% -3px;
-  }
-
-  #mapa_cont {
-    height: 280px;
-  }
-}
 

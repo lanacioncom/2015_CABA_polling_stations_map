@@ -1,0 +1,18 @@
+@media (max-width: 850px) {
+  .titulos p {
+    width: 98%;
+  }
+
+  nav div.fil button.set_status_app {
+    background-image:none; 
+    padding-left: 0px;
+  }
+
+  nav div.fil button#home {
+    background-image: url("../img/sprite.svg");
+    text-indent: 15px;
+  }
+
+}
+
+

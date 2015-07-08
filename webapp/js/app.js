@@ -15,18 +15,22 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
     $(function() {
     "use strict";
         var map;
-        // Template for the description of a given polling station
-        var popup_tmpl = _.template(templates.popup);
+        // Template for percentage tooltip
+        var popup_tpl = _.template(templates.popup);
+        // Template for the differences in votes tooltip
+        var popup_arrow_tpl = _.template(templates.popup_arrow);
         // Template to show error in case drawing does not intersect any polling station
-        var popup_simple_tmpl = _.template(templates.popup_simple);
+        var popup_simple_tpl = _.template(templates.popup_simple);
         // Template for the results of a given polling station
-        var overlay_tmpl = _.template(templates.overlay);
+        var overlay_tpl = _.template(templates.overlay);
 
         var transform = d3.geo.transform({point: projectPoint});
         var path = d3.geo.path().projection(transform).pointRadius(0);
         var presults = {};
         var features, arrows;
         var geom = null;
+
+        var current_zoom_level = null;
 
         //JET: Load sections 
         $.get("data/diccionario_datos.json", function(data){
@@ -35,16 +39,16 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         // Set initial zoom level for responsiveness
         if ($("body").width() < 650) {
-            config.current_zoomLevel = 11;
+            current_zoom_level = 11;
         }
         else {
-            config.current_zoomLevel = 12;
+            current_zoom_level = 12;
         }
         
         map = L.map('mapa_cont', {
             center: [-34.61597432902992, -58.442115783691406],
-            zoom: config.current_zoomLevel,
-            minZoom: config.current_zoomLevel,
+            zoom: current_zoom_level,
+            minZoom: current_zoom_level,
             maxZoom: 16,
             attributionControl: false,
         });
@@ -155,7 +159,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         // Reposition the SVG to cover the features.
         function reset() {
-            config.current_zoomLevel = map.getZoom();
+            current_zoom_level = map.getZoom();
             var bounds = path.bounds(geom),
                          topLeft = bounds[0],
                          bottomRight = bounds[1];
@@ -184,6 +188,13 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         function set_circle_radius(d) {
             var r = null;
+
+            //When showing differences adjust radius with zoom
+            if (ctxt.show_diff) {
+                r = config.zoom_radius[current_zoom_level];
+                return r
+            }
+
             var pid = null;
             var fid = d.properties.id_establecimiento;
             if (!ctxt.selected_party) {
@@ -215,13 +226,29 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         function set_circle_color(d) {
             var r = null;
+
+            //Winner
             if (ctxt.selected_party == "00") {
                 var fid = d.properties.id_establecimiento;
                 var pid = presults[ctxt.selected_party][fid].id_partido;
                 r = config.diccionario_datos[pid].color_partido;
             }
             else {
-                r = config.diccionario_datos[ctxt.selected_party].color_partido;
+                var pid = ctxt.selected_party;
+                if (ctxt.show_diff) {
+                    // color of circle for arrows
+                    var fid = d.properties.id_establecimiento;
+                    var v = presults[pid][fid].diferencia;
+                    if (v > 0) {
+                        r = config.diccionario_datos[ctxt.selected_party].color_partido;
+                    }
+                    else {
+                        r = "#000000";
+                    }
+                }
+                else {
+                    r = config.diccionario_datos[pid].color_partido;
+                }
             }
             return r;
         }
@@ -245,65 +272,12 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             }
         }
 
-        function redraw_map() {
-            map.scrollWheelZoom.disable();
-            switch_base_layers();
-            if (ctxt.show_diff) {
-                g.selectAll("path.establecimiento")
-                    .attr("d",path.pointRadius(3))
-                    .style("fill", set_circle_color);
-                g.selectAll("line.arrow").classed("disabled", false);
-                g.selectAll("line.arrow")
-                .attr("x1", function (d) {return path.centroid(d)[0];})
-                .attr("y1", function (d) {return path.centroid(d)[1];})
-                .attr("x2", function (d) {return path.centroid(d)[0];})
-                .attr("marker-end",set_arrow_marker_end)
-                .style("stroke", set_arrow_color)
-                .transition().ease("quad-in-out")
-                .duration(1000)
-                .attr("y2", set_arrow_length);
-            }else {
-                g.selectAll("line.arrow")
-                    .classed("disabled", true)
-                    .attr("marker-end","none")
-                    .attr("y2", reset_arrow_length);
-                //g.selectAll("path.establecimiento").classed("disabled", false);
-                g.selectAll("path").transition().ease("quad-in-out").duration(1000)
-                 .attr("d",path.pointRadius(set_circle_radius))
-                 .style("fill", set_circle_color);
-
-                if (ctxt.selected_polling) {
-                    var id_establecimiento = ctxt.selected_polling;
-                    config.sql.execute(templates.permalink_sql,{id_establecimiento: id_establecimiento})
-                    .done(function(data) {
-                        var position = JSON.parse(data.rows[0].g).coordinates;
-                        var latlng = L.latLng(position[1], position[0]);
-                        var d = data.rows[0];
-                        map.panTo(latlng);
-                        d3featureClick({properties: d},null,latlng);
-                    });
-                }
-            }
-        }
-
         function reposition_arrows(d,i) {
             g.selectAll("line.arrow")
                 .attr("x1", function (d) {return path.centroid(d)[0];})
                 .attr("y1", function (d) {return path.centroid(d)[1];})
                 .attr("x2", function (d) {return path.centroid(d)[0];})
                 .attr("y2", set_arrow_length);
-        }
-
-        function check_available_data() {
-            var p = ctxt.selected_party;
-            if (!ctxt.selected_party) {
-                ctxt.selected_party = "00";
-                p = "00";
-            }
-            if(p in presults) {
-                return true;
-            }
-            return false;
         }
 
         function set_arrow_marker_end(d) {
@@ -332,7 +306,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             var pid = null;
             var fid = d.properties.id_establecimiento;
             if (!ctxt.selected_party) {
-                pid = "winner";
+                pid = "00";
             }
             else {
                 pid = ctxt.selected_party;
@@ -340,8 +314,13 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             var v = presults[pid][fid].diferencia;
             var max = presults[pid].max_diff;
             //var s = d3.scale.linear().domain([0,max]).range([5,20]);
-            var s = d3.scale.linear().domain([0,673]).range([1,40]);
+            var s = d3.scale.linear().domain([0,673]).range([1,40*config.zoom_arrow_multipliers[current_zoom_level]]);
             var offset = parseInt(s(Math.abs(v)));
+            // Test rescaling when zoomed REMOVE
+            // if (fid == 7955){
+            //     console.log(v);
+            //     console.log(offset);
+            // }
             if (v > 0) {
                 offset = -offset;
             }
@@ -354,7 +333,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             var pid = null;
             var fid = d.properties.id_establecimiento;
             if (!ctxt.selected_party) {
-                pid = "winner";
+                pid = "00";
             }
             else {
                 pid = ctxt.selected_party;
@@ -374,6 +353,18 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             var r = null;
             var center = path.centroid(d);
             return center[1];
+        }
+
+        function check_available_data() {
+            var p = ctxt.selected_party;
+            if (!ctxt.selected_party) {
+                ctxt.selected_party = "00";
+                p = "00";
+            }
+            if(p in presults) {
+                return true;
+            }
+            return false;
         }
 
         function update_map() {
@@ -408,6 +399,51 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             }        
         }
 
+        function redraw_map() {
+            map.scrollWheelZoom.disable();
+            switch_base_layers();
+            features.classed("arrow", ctxt.show_diff);
+            if (ctxt.show_diff) {
+                //circles
+                features.attr("d",path.pointRadius(set_circle_radius))
+                        .style("fill", set_circle_color);
+                //arrows
+                arrows.classed("disabled", false);
+                arrows.attr("marker-end",set_arrow_marker_end)
+                    .attr("x1", function (d) {return path.centroid(d)[0];})
+                    .attr("y1", function (d) {return path.centroid(d)[1];})
+                    .attr("x2", function (d) {return path.centroid(d)[0];})
+                    .style("stroke", set_arrow_color)
+                    .transition().ease("quad-in-out")
+                    .duration(1000)
+                    .attr("y2", set_arrow_length)
+                    .call(d3endall, restore_zoom_capabilities);
+            }else {
+                //arrows
+                arrows.classed("disabled", true)
+                      .attr("marker-end","none")
+                      .attr("y2", reset_arrow_length);
+                //circles
+                features.transition().ease("quad-in-out").duration(1000)
+                        .attr("d",path.pointRadius(set_circle_radius))
+                        .style("fill", set_circle_color)
+                        .call(d3endall, restore_zoom_capabilities);;
+
+                // If we have a selected polling station simulate click
+                if (ctxt.selected_polling) {
+                    var id_establecimiento = ctxt.selected_polling;
+                    config.sql.execute(templates.permalink_sql,{id_establecimiento: id_establecimiento})
+                    .done(function(data) {
+                        var position = JSON.parse(data.rows[0].g).coordinates;
+                        var latlng = L.latLng(position[1], position[0]);
+                        var d = data.rows[0];
+                        map.panTo(latlng);
+                        d3featureClick({properties: d},null,latlng);
+                    });
+                }
+            }
+        }
+
         //Draw controls
         map.addControl(draw.drawControlFull);
         //Draw control
@@ -420,7 +456,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         map.on('draw:edited', draw_filter);
 
         //Winner data
-        d3.select("div#home").on('click', function(){
+        d3.select("button#home").on('click', function(){
             // To hide filters if we are on mobile
             d3.select("nav").classed("muestra", true);
             ctxt.selected_party = "00";
@@ -612,8 +648,21 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             permalink.set(); 
         }
 
+        //Helper counting function to wait to all elements of a transition to end
+        function d3endall(transition, callback) { 
+            if (transition.size() === 0) { callback() }
+            var n = 0; 
+            transition 
+                .each(function() { ++n; }) 
+                .each("end", function() { if (!--n) callback.apply(this, arguments); }); 
+        }
+
+        function restore_zoom_capabilities () {
+            map.scrollWheelZoom.enable();
+        }
+
         //Hide filter buttons for mobile
-        d3.select("div#hamburguesa").on("click", function(){
+        d3.select("div.hamburguesa").on('click', function(){
             d3.select("nav").classed("muestra", true);
             return false;
         });
