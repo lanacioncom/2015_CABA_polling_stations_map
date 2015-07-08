@@ -53,6 +53,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             attributionControl: false,
         });
 
+        map.addLayer(config.base_layer);
+
         //map.addLayer(config.street_base_layer);
 
         config.sql = new cartodb.SQL({
@@ -253,25 +255,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             return r;
         }
 
-        function switch_base_layers() {
-            if (ctxt.selected_party == "00") {
-                if (map.hasLayer(config.party_base_layer)) {
-                    map.removeLayer(config.party_base_layer);
-                } 
-                if (!map.hasLayer(config.street_base_layer)) {
-                    map.addLayer(config.street_base_layer);
-                }
-            }
-            else {
-                if (map.hasLayer(config.street_base_layer)) {
-                    map.removeLayer(config.street_base_layer);
-                }
-                if (!map.hasLayer(config.party_base_layer)) {
-                    map.addLayer(config.party_base_layer);
-                }
-            }
-        }
-
         function reposition_arrows(d,i) {
             g.selectAll("line.arrow")
                 .attr("x1", function (d) {return path.centroid(d)[0];})
@@ -401,7 +384,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         function redraw_map() {
             map.scrollWheelZoom.disable();
-            switch_base_layers();
             features.classed("aux", ctxt.show_diff);
             if (ctxt.show_diff) {
                 //circles

@@ -1,8 +1,8 @@
 define([], function() {
 
     var cdn_proxy = "http://olcreativa.lanacion.com.ar/dev/get_url/img.php?img=";
-    var mapboxUrl = cdn_proxy+'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
-    //var mapboxUrl = 'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
+    //var mapboxUrl = cdn_proxy+'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
+    var mapboxUrl = 'https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}';
 
     return {
     zoom_arrow_multipliers: {
@@ -29,14 +29,9 @@ define([], function() {
     current_zoomLevel: null,
     featureClicked: false,
     map: null,
-    street_base_layer: L.tileLayer(mapboxUrl, {
-                                                //id: 'olcreativa.c409ba3f',
-                                                id: 'olcreativa.bd1c1a65',
-                                                attribution: "OpenStreetMaps", 
-                                                token: 'pk.eyJ1Ijoib2xjcmVhdGl2YSIsImEiOiJEZWUxUmpzIn0.buFJd1-sVkgR01epcQz4Iw'}),
-    party_base_layer: L.tileLayer(mapboxUrl, {
-                                                id: 'olcreativa.bd1c1a65',  
-                                                attribution: "OpenStreetMaps", 
-                                                token: 'pk.eyJ1Ijoib2xjcmVhdGl2YSIsImEiOiJEZWUxUmpzIn0.buFJd1-sVkgR01epcQz4Iw'})
+    base_layer: L.tileLayer(mapboxUrl, {
+                                        id: 'olcreativa.mle7fnoa',  
+                                        attribution: "OpenStreetMaps", 
+                                        token: 'pk.eyJ1Ijoib2xjcmVhdGl2YSIsImEiOiJEZWUxUmpzIn0.buFJd1-sVkgR01epcQz4Iw'})
     };
 });
