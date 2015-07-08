@@ -38,7 +38,6 @@ header {
   padding: 10px;
   position: relative;
   float: left;
-  overflow: hidden;
 }
 
 div.titulos {
@@ -155,14 +154,14 @@ nav {
 }
 
 nav div.hamburguesa{
-  width: calc(100% - 50px);
+  width: 100%;
   font-family: "TheSans", Arial, Helvetica, sans-serif;
   font-size: 13px;
   text-align: left;
   padding: 7px 0px;
   padding-left: 50px;
   border-bottom: 1px solid #dadada;
-  background-image: url("../img/sprite.svg");
+  background-image: url("../img/sprite2.svg");
   background-repeat: no-repeat;
   background-position: -4px -127px;
   background-size: 51px;
@@ -171,18 +170,9 @@ nav div.hamburguesa{
   display: none;
 }
 
-nav.muestra{
-    height: 213px;
-    box-shadow: 0px 5px 10px #353535;
+.muestra{
+    height: 300px;
  }
-
-nav div.flecha {
-  width: 0; 
-  height: 0; 
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 20px solid #f00;
-}
 
 
 nav div.fil{
@@ -193,33 +183,57 @@ nav div.fil{
   padding: 0px;
   padding-right: 0.6%;
   background: #fff;
+  margin:5px 0px;
   float: left;
-  border-bottom: 5px solid #999;
+}
+
+nav div.fil div.tit{
+  width: 100%;
+  border-bottom:1px dotted #dadada;
+  padding: 5px 0px;
+  margin-bottom: 10px;
 }
 
 nav div.cate{
   font-family: "TheSans", Arial, Helvetica, sans-serif;
   font-size: 13px;
-  margin-top: 15px;
-  border-bottom: 1px solid #dadada;
+  margin: 15px 0px;
+  position: relative;
 }
 
 nav div.cate div.cat{
   width: 32%;
   display: inline-block;
   text-align: center;
-  border-right:1px solid #dadada;
   padding: 5px 0px; 
+  float: right;
+  font-size: 10px;
+}
+
+
+.flecha {
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #000;
+  position: absolute;
+  bottom: -10px;
+  right: 28px;
+}
+
+.flecha#f2 {
+  right: 90px;
 }
 
 nav div.fil h2 { 
-  width: 33.2%;
+  width: 25%;
   float: left;
   font-size: 14px;
-  padding: 8px 0px;
-  color:#999;
+  padding: 8px 10px;
+  color:#000;
   font-weight: normal;
-  border-right:1px solid #dadada; 
+  border-left:3px solid #dadada; 
 }
 
 input:focus,
@@ -230,23 +244,24 @@ button:focus {
 }
 
 nav div.fil button.set_status_app,  nav div.fil button#home{
-  display: inline-block;
-  width: 33.1%;
+  width: 29%;
   height: 35px;
-  background: #f7f7f7;
+  background-color: #fff;
+  display: inline-block;
   float: left;
-  cursor: pointer;
   border: 0px;
   text-align: center;
   padding: 10px 0px;
-  border-right:1px solid #dadada; 
+  margin:0px 1%;
+  border:1px solid #dadada; 
+  border-radius: 3px;
   font-size: 12px;
   color:#000;
-  background-image:url("../img/sprite.svg"); 
+  background-image:url("../img/sprite2.svg"); 
   background-repeat: no-repeat;
-  background-position: 16px -27px;
-  border-top: 1px solid #fff;
+  background-position: 12px -27px;
   transition: all 0.5s;
+  cursor: pointer;
 }
 
 
@@ -255,18 +270,28 @@ nav div.fil button.set_status_app:hover {
 }
 
 nav div.fil button.paso{
-  background-position: 17px 1px;
-  border-right:0px; 
+  background-position: 12px 1px;
 }
 
 nav div.filHome {
   width: 100%;
+  border: 0px;
+
+}
+
+nav div.filHome button.active{
+  background-color: #E8E8E8 !important;
 }
 
 nav div.fil button#home {
   width: 100%;
   background-position: 0px -57px;
-  border-right:0px; 
+  border-right:0px;
+  border-radius:3px; 
+  border:1px solid #dadada;
+  text-transform: uppercase;
+  font-size: 11px;
+  text-indent: 20px;
 }
 
 nav div.sel{
@@ -327,8 +352,9 @@ ul#list_interna li div.foto {
   width: 65px;
   height: 65px;
   border-radius: 50%;
-  background-image: url(../img/Sprite_anexoCABA3.png);
+  background-image: url(../img/Sprite2_anexoCABA3.png);
   background-repeat: no-repeat;
+  margin-top: 20px;
 }
 
 ul#list_interna li h5 {
@@ -669,12 +695,12 @@ div.loader{
 }
 
 #results {
-  width: 35%;
-  height: 97.5%;
+  width: 275px;
+  height: 100%;
   position: absolute;
   background: #fff;
   top: 0;
-  right: -35%;
+  right: -280px;
   border: 1px solid #E7E7E7;
 }
 #results div#line {
@@ -762,6 +788,7 @@ div.loader{
     right: 40px;
     position: absolute;
 }
+
 .arrow-after {
     width:0px;
     height:0px;
@@ -774,6 +801,7 @@ div.loader{
     right: 40px;
     position: absolute;
 }
+
 
 
 .porc_text div.porc_partido {
@@ -801,7 +829,6 @@ div.loader{
   margin-left:5px;
 }  
 
-
 #results ul#list {
   display: inline-block;
   width: 100%;
@@ -814,13 +841,29 @@ div.loader{
   list-style-type: none;
   width: 100%;
   overflow: auto;
-  padding: 20px;
+  padding: 2px 20px;
   padding-bottom: 10px;
 }
 
 #results ul li {
   border-bottom: 1px solid #dadada;
   padding: 13px 0;
+}
+
+#results a.cerrar{
+position: absolute;
+  background-color: #fff;
+  font-family: "TheSans", Arial, Helvetica, sans-serif;
+  border-radius: 100px;
+  padding: 3px 10px 6px 12px;
+  font-size: 16px;
+  top: 10px;
+  left: -16px;
+  border: 1px solid #F0F0F0;
+}
+
+#results a.cerrar:hover{
+  background-color: #F4F4F4;
 }
 
 #results ul li.candidato {
@@ -850,6 +893,7 @@ div.loader{
 #results ul .cont_barra {
   width: 85%;
   width: calc(100% - 170px); /*background: rgba(200, 200, 200, .1);*/
+  margin-top: -10px;
 }
 .cont_barra .barra {
   width: 0%;
@@ -896,7 +940,6 @@ div.loader{
 /*///////// POPUP DE CREDITOS ///////////*/
 
 
-<<<<<<< HEAD
 div.creVent{
   width: 100%;
   max-width: 990px;
@@ -919,13 +962,89 @@ div.creVent div.titu{
   font-family: "TheSansBold";
   background-color:#fff;
   font-size: 18px;
-=======
+}
+
+
+div.creVent{
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0px;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 6000;
+    text-align: center;
+    padding-top: 72px;
+}
+
+
+div.creVent div.titu{
+    width: 98%;
+    padding: 10px;
+      padding-bottom: 3px;
+    color:#000;
+    font-family: "TheSansBold";
+    background-color:#fff;
+    font-size: 18px;
+}
+
+div.creVent div.txts{
+    margin: 20px auto;
+    width: 95%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 3px;
+    border: 1px solid #D8D8D8; 
+    position: relative;
+    /*display: none;*/
+}
+
+
+div.creVent div.txts div.cerrar{
+    color:#fff;
+     padding: 8px 10px;
+    border-radius: 100px;
+    background-color: #000;
+    position: absolute;
+    top:-15px;
+    right:-15px;
+    cursor: pointer;
+}
+
+div.creVent div.txts div.cate{
+    font-weight: bold;
+    padding: 8px 0px;
+    margin-top:20px;
+}
+
+
+div.creVent div.txts div.nombre{
+    line-height: 1.5;
+    color:#474747;
+}
+
+div.creVent div.txts div.nombre a{
+    text-decoration: none;
+    color:#474747;
+    font-weight: bold;
+}
+
+div.creVent div.txts div.nombre a:hover{
+    color:#29ABE2;
+}
+
+
+/*///// FOOTER ////*/
+
 footer{
-    width: 98.5%;
-    padding:10px;
-    max-width: 990px;
-    color:#999;
->>>>>>> decd8d71f158574556851a6d25eb9f57a1dbf0cc
+  width: 100%;
+  padding:10px 0px;
+  max-width: 990px;
+  color:#999;
+  border-top:1px solid #dadada;
+  float: left;
 }
 
 footer div.creditos{
@@ -956,84 +1075,3 @@ footer div.datos span{
     color:#000;
     font-weight: bold;
 } 
-
-div.creVent{
-    width: 100%;
-    max-width: 1000px;
-    height: 100%;
-    position: absolute;
-    top:0;
-    left:0px;
-    background-color: rgba(255, 255, 255, 0.8);
-    z-index: 6000;
-    text-align: center;
-    padding-top: 72px;
-}
-
-
-div.creVent div.titu{
-    width: 98%;
-    padding: 10px;
-      padding-bottom: 3px;
-    color:#000;
-    font-family: "TheSansBold";
-    background-color:#fff;
-    font-size: 18px;
-}
-
-<<<<<<< HEAD
-/*///// FOOTER ////*/
-
-footer{
-  width: 100%;
-  padding:10px 0px;
-  max-width: 990px;
-  color:#999;
-  border-top:1px solid #dadada;
-  float: left;
-=======
-div.creVent div.txts{
-    margin: 20px auto;
-    width: 95%;
-    max-width: 400px;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 3px;
-    border: 1px solid #D8D8D8; 
-    position: relative;
-    /*display: none;*/
-}
-
-
-div.creVent div.txts div.cerrar{
-    color:#fff;
-     padding: 8px 10px;
-    border-radius: 100px;
-    background-color: #000;
-    position: absolute;
-    top:-15px;
-    right:-15px;
-    cursor: pointer;
->>>>>>> decd8d71f158574556851a6d25eb9f57a1dbf0cc
-}
-
-div.creVent div.txts div.cate{
-    font-weight: bold;
-    padding: 8px 0px;
-    margin-top:20px;
-}
-
-div.creVent div.txts div.nombre{
-    line-height: 1.5;
-    color:#474747;
-}
-
-div.creVent div.txts div.nombre a{
-    text-decoration: none;
-    color:#474747;
-    font-weight: bold;
-}
-
-div.creVent div.txts div.nombre a:hover{
-    color:#29ABE2;
-}
