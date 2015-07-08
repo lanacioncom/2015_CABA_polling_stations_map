@@ -648,7 +648,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         //Hide filter buttons for mobile
         d3.select("div.hamburguesa").on('click', function(){
-            d3.select("nav").classed("muestra", true);
+            this.classList.toggle("muestra");
+            //d3.select("nav").classed("muestra", true);
             return false;
         });
 
