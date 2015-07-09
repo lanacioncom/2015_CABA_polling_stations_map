@@ -198,6 +198,10 @@
     display: none;
   }
 
+  div.leaflet-draw {
+    display: none;
+  }
+
 
 }
 

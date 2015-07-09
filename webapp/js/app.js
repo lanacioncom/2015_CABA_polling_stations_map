@@ -58,7 +58,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         //     northEast = L.latLng(-34.527, -58.335),
         //     bounds = L.latLngBounds(southWest, northEast);
         
-        //New to allow overlay
+        //New to allow overlay interaction
         var southWest = L.latLng(-34.738, -58.672),
             northEast = L.latLng(-34.488, -58.219),
             bounds = L.latLngBounds(southWest, northEast);
@@ -85,12 +85,13 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         var click_feature_winner_tpl = _.template(templates.click_feature_winner_sql);
 
         // Overlay hide and show with css transitions
-        var hideOverlay = function() {
+        function hideOverlay() {
             $('#overlay').css('left', '100%');
-        };
-        var showOverlay = function() {
+        }
+
+        function showOverlay() {
             $('#overlay').css('left', '73%');
-        };
+        }
 
         // Hide overlay if dragged position is out of bounds
         map.on('dragend', function(e, x, y) {
@@ -166,6 +167,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                     d3.select("#refFlechas").classed("refDisabled", false);
                 }
             } 
+            // Show drawing helper
+            d3.select("div#instructivo").classed("disabled", false);
             //We need to check the permalink
             update_map();
         });
@@ -398,7 +401,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         }
 
         function redraw_map() {
-            map.scrollWheelZoom.disable();
+            disable_map_events();
             features.classed("aux", ctxt.show_diff);
             if (ctxt.show_diff) {
                 //circles
@@ -414,7 +417,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                     .transition().ease("quad-in-out")
                     .duration(1000)
                     .attr("y2", set_arrow_length)
-                    .call(d3endall, restore_zoom_capabilities);
+                    // Wait till the transition is over to re-enable leaflet map events
+                    .call(d3endall, enable_map_events);
             }else {
                 //arrows
                 arrows.classed("disabled", true)
@@ -424,7 +428,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 features.transition().ease("quad-in-out").duration(1000)
                         .attr("d",path.pointRadius(set_circle_radius))
                         .style("fill", set_circle_color)
-                        .call(d3endall, restore_zoom_capabilities);
+                        .call(d3endall, enable_map_events);
 
                 // If we have a selected polling station simulate click
                 if (ctxt.selected_polling) {
@@ -640,10 +644,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 .each("end", function() { if (!--n) callback.apply(this, arguments); }); 
         }
 
-        function restore_zoom_capabilities () {
-            map.scrollWheelZoom.enable();
-        }
-
         function reset_map() {
             // Reset map position
             if (is_small_screen()) {
@@ -652,6 +652,30 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             else {
                 map.setView(config.bsas_center, 12);
             }
+        }
+
+        function enable_map_events () {
+            // Enable drag and zoom handlers.
+            map.dragging.enable();
+            map.touchZoom.enable();
+            map.doubleClickZoom.enable();
+            map.scrollWheelZoom.enable();
+
+            // Enable tap handler, if present.
+            if (map.tap) map.tap.enable();
+            
+        }
+
+        function disable_map_events() {
+            /** Function to disable map events while transitioning */
+            // Disable drag and zoom handlers.
+            map.dragging.disable();
+            map.touchZoom.disable();
+            map.doubleClickZoom.disable();
+            map.scrollWheelZoom.disable();
+
+            // Disable tap handler, if present.
+            if (map.tap) map.tap.disable();
         }
 
         function reset_references() {
