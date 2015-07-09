@@ -48,6 +48,7 @@ div.titulos {
 }
 
 h1 {
+  margin: 0px;
   font-family: 'TheSansSemi', arial, Helvetica, sans-serif;
   font-size: 25px;
   color:#000;
@@ -79,6 +80,7 @@ h2 {
   width: 98%;
   padding:15px 0px;
   color:#999999;
+  margin: 0px;
 }
 
 
@@ -146,7 +148,7 @@ section {
 
 nav {
   width: 200px;
-  height: 475px;
+  height: 455px;
   font-size: 12px;
   text-align: center;
   position: relative;
@@ -181,7 +183,7 @@ nav div.fil{
   text-decoration: none;
   color: #808080;
   padding: 0px;
-  padding-right: 0.6%;
+  padding-right: 10px;
   background: #fff;
   margin:5px 0px;
   float: left;
@@ -223,11 +225,11 @@ nav div.cate div.cat#cat1{
   border-top: 5px solid #000;
   position: absolute;
   bottom: -10px;
-  right: 28px;
+  right: 38px;
 }
 
 .flecha#f2 {
-  right: 90px;
+  right: 100px;
 }
 
 nav div.fil h2 { 
@@ -238,6 +240,7 @@ nav div.fil h2 {
   color:#000;
   font-weight: normal;
   border-left:3px solid #dadada; 
+  margin: 0px;
 }
 
 input:focus,
@@ -478,7 +481,7 @@ ul#list_interna li div.cant_v span.porc{
 }
 
 
-/*/////////////////// REFERENCIAS ///////////////////////////*/
+/*/////////////////// REFERENCIAS MAPA ///////////////////////////*/
 
 ul#ref {
   width: 39%;
@@ -955,7 +958,6 @@ div.creVent{
   background-color: rgba(255, 255, 255, 0.9);
   z-index: 6000;
   text-align: center;
-  display: none;
 }
 
 
@@ -975,7 +977,7 @@ div.creVent{
     max-width: 1000px;
     height: 100%;
     position: absolute;
-    top:0;
+    top:-70px;
     left:0px;
     background-color: rgba(255, 255, 255, 0.8);
     z-index: 6000;
@@ -1009,7 +1011,7 @@ div.creVent div.txts{
 
 div.creVent div.txts div.cerrar{
     color:#fff;
-     padding: 8px 10px;
+     padding: 7px 10px;
     border-radius: 100px;
     background-color: #000;
     position: absolute;
@@ -1038,6 +1040,35 @@ div.creVent div.txts div.nombre a{
 
 div.creVent div.txts div.nombre a:hover{
     color:#29ABE2;
+}
+
+/*///////REFERENCIAS MAPA////////*/
+
+#refFlechas {
+	padding:5px;
+	position:relative;
+	float: right;
+	width:205px;
+	height:167px;
+	background-image:url("../img/referencias_sripte.svg");
+	background-color:rgb(255,255,255);
+	background-size:225px;
+	background-position:-3px 10px;
+		
+}
+
+h6 {
+	font-size:10px;
+	font:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+}
+
+.refTxt{
+	width:80%;
+	font-size:11px;
+	font:Arial, Helvetica, sans-serif;
+	font-weight:ligth;
+	padding:21px 0 0 27px;
 }
 
 
