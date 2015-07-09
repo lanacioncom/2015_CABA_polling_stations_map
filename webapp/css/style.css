@@ -566,13 +566,12 @@ position: absolute;
   font-size: 16px;
   top: 10px;
   left: -16px;
-  border: 1px solid #F0F0F0;
   cursor:pointer;
   z-index: 1000;
 }
 
 #results a.cerrar:hover{
-  background-color: #F4F4F4;
+  color:#AAAAAA;
 }
 
 #results ul li.candidato {
