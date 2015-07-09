@@ -1,3 +1,4 @@
-SELECT *, st_asgeojson(the_geom) as g 
-FROM cache_winner_caba_2015 
+SELECT id_establecimiento, descripcion, domicilio, id_comuna, 
+electores, votantes, positivos, validos, st_asgeojson(the_geom) as g 
+FROM establecimientos_t_caba_2015
 WHERE id_establecimiento = {{id_establecimiento}};
