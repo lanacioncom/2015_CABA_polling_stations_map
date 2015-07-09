@@ -764,7 +764,7 @@ h6 {
 
 .refTxt{
 	width:82%;
-	font-size:11px;
+	font-size:11px !important;
 	font:Arial, Helvetica, sans-serif;
 	font-weight:ligth;
 	padding:21px 0 0 27px;
