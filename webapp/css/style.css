@@ -336,8 +336,6 @@ nav div.bk_fit button.active, nav div.bk_ayl button.active {
   padding: 9px 12px;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 3px;
-  /*opacity: 0;*/
-  /* display: none; */
 }
 
 .arrow-left {
