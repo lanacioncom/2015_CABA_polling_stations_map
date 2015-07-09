@@ -150,6 +150,11 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
             //Get context from permalink
             permalink.get();
+            if (ctxt.selected_party != "00") {
+                d3.select("button.active").classed("active", false);
+                var el_id = ctxt.show_diff.toString()+"_"+ctxt.selected_party;
+                d3.select("button#"+el_id).classed("active", true);
+            } 
             //We need to check the permalink
             update_map();
         });
@@ -660,16 +665,20 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         //Winner data
         d3.select("button#home").on('click', function(){
-            // To hide filters if we are on mobile
+            // Hide navigation on mobile
             d3.select("nav").classed("muestra", false);
             hideOverlay();
             map.closePopup();
-            ctxt.selected_party = "00";
-            ctxt.selected_polling = null;
-            ctxt.show_diff = false;
-            permalink.set();
-            update_map();
-            _gaq.push(['_trackEvent','2015CabaMap', "click", "Home"]);
+            if (!this.classList.contains("active")) {
+                d3.select("button.active").classed("active", false);
+                d3.select(this).classed("active", true);
+                ctxt.selected_party = "00";
+                ctxt.selected_polling = null;
+                ctxt.show_diff = false;
+                permalink.set();
+                update_map();
+                _gaq.push(['_trackEvent','2015CabaMap', "click", "Home"]);
+            }
             return false;
         });
 
@@ -687,11 +696,12 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 d3.select(this).classed("active", true);
                 ctxt.show_diff = this.classList.contains("paso");
                 ctxt.selected_party = this.dataset.partido;
+                permalink.set();
                 update_map();
                 d3.select("div#instructivo").remove();
+                var key_GA  = config.diccionario_datos[ctxt.selected_party].nombre_partido + "__Show_paso_"+ctxt.show_diff;
+                _gaq.push(['_trackEvent','2015CabaMap', "click", key_GA]);
             }
-            var key_GA  = config.diccionario_datos[ctxt.selected_party].nombre_partido + "__Show_paso_"+ctxt.show_diff;
-            _gaq.push(['_trackEvent','2015CabaMap', "click", key_GA]);
             return false;
         }
     });
