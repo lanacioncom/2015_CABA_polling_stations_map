@@ -33,7 +33,7 @@ body {
 /*header*/
 header {
   width: 200px;
-  border-bottom: dotted 1px #dadada;
+  /*border-bottom: dotted 1px #dadada;*/
   border-right: 1px solid #dadada;
   padding: 10px;
   position: relative;
@@ -171,7 +171,7 @@ nav div.hamburguesa{
 }
 
 .muestra{
-    height: 300px;
+    height: 365px;
  }
 
 
@@ -206,8 +206,12 @@ nav div.cate div.cat{
   display: inline-block;
   text-align: center;
   padding: 5px 0px; 
-  float: right;
+  float: left;
   font-size: 10px;
+}
+
+nav div.cate div.cat#cat1{
+  margin-left: 72px;
 }
 
 
@@ -352,7 +356,7 @@ ul#list_interna li div.foto {
   width: 65px;
   height: 65px;
   border-radius: 50%;
-  background-image: url(../img/Sprite2_anexoCABA3.png);
+  background-image: url(../img/Sprite_anexoCABA3.png);
   background-repeat: no-repeat;
   margin-top: 20px;
 }
@@ -860,6 +864,7 @@ position: absolute;
   top: 10px;
   left: -16px;
   border: 1px solid #F0F0F0;
+  cursor:pointer;
 }
 
 #results a.cerrar:hover{
