@@ -746,7 +746,7 @@ div.creVent div.txts div.nombre a:hover{
 	  float: right;
 	  width: 172px;
 	  height: 167px;
-	  background-image: url("../img/referencias_sripte.svg");
+	  background-image: url("../img/referencias_sprite.svg");
 	  background-color: rgba(255,255,255,0.7);
 	  background-size: 235px;
 	  background-position: 0px 14px;
@@ -775,7 +775,7 @@ h6 {
 	  float: right;
 	  width: 145px;
 	  height: 140px;
-	  background-image: url("../img/referencias_sripte.svg");
+	  background-image: url("../img/referencias_sprite.svg");
 	  background-color: rgba(255,255,255,0.7);
 	  background-size: 235px;
 	  background-position: 0px -148px;
@@ -794,7 +794,7 @@ h6 {
 	 cursor:pointer;
 	 width: 20px;
 	 height: 20px;
-	 background-image: url("../img/referencias_sripte.svg");
+	 background-image: url("../img/referencias_sprite.svg");
 	 background-position: -7px -309px;
 	 position: absolute;
 	 top: 10px;
