@@ -46,14 +46,15 @@
   }
 
   nav div.fil{
-    width: 100%;
+    width: 90%;
+    margin: 5px 5%;
     font-size: 12px;
-    border-bottom:1px solid #dadada;
+    /*border-bottom:1px solid #dadada;*/
     padding: 1px 0px;
   }
 
   nav div.fil h2{
-    width: 60px;
+    width: 44px;
     float: left;
     border-bottom:0px !important;
     border-left: 5px solid #ddd; 
@@ -61,30 +62,49 @@
     padding-left: 5px;
   }
 
-  nav div.fil button.set_status_app {
-    background-image: url("../img/sprite.svg");
+
+   nav div.filHome {
+    border-bottom: 0px;
+   }
+ 
+  nav div.fil button#home {
+      background-position: 2% -57px;
+      text-indent: 0px;
+      padding: 8px 0px;
+      text-align: center;
+      margin-top: 5px;
   }
 
   nav div.fil button.set_status_app {
     width: 36%;
-    background-color: #fff;
-    border-left:1px solid #dadada;
-  }
-
-  nav div.fil button#home {
-    width: calc(100% - 85px);
-    background-position: 25% -60px;
-      text-indent: 0px;
-  }
-
-  nav div.fil button.set_status_app {
     padding: 5px 0px;
     font-size: 12px;
-    background-position: 7% -30px;
+    background-position: 50% -27px;
+    background-image: url("../img/sprite.svg");
   }
 
   nav div.fil button.paso{
-    background-position: 7% -3px;
+    background-position: 50% 0px;
+  }
+
+  nav div.fil div.tit {
+    display: none;
+  }
+
+  nav div.cate{
+    border-bottom: 0px;
+  }
+
+  nav div.cate div.cat {
+    width: 38%;
+  }
+
+  nav div.cate div.cat#cat1 {
+    margin-left: 59px;
+  }
+
+  .flecha {
+    display: none;
   }
 
   section#cont_data {
@@ -96,7 +116,7 @@
   }
 
   div.creVent {
-      top: 40px;
+    top: -30px;
   }
 
   div.creVent div.txts {
@@ -107,7 +127,44 @@
     display: none;
   }
 
+  #results {
+    width: 170px;
+  }
+  
+  #results ul li h5 {
+    width: 30%;
+    font-size: 12px;
+    padding: 8px 0 2px 3px;
+    font-family: 'TheSansBold', arial, Helvetica, sans-serif;
+  }
+
   #results ul li.candidato h5 span {
+    display: none;
+  }
+
+  #results ul .cont_barra {
+    width: 85%;
+      width: calc(100% - 140px);
+  margin: 15px 10px;
+    margin-bottom: 15px;
+  }
+
+  .cont_barra .barra {
+    height: 12px;
+  }
+
+  .cont_barra .barra .porc {
+    font: 15px arial;
+    font-weight: bold;
+    right: -50px;
+  }
+
+  .porc_partido {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  ul#list_interna li div.cant_v {
     display: none;
   }
 
@@ -125,5 +182,15 @@
     width: 96%;
     padding: 10px 2%;
   }
+
+  div.creVent div.txts div.cerrar {
+
+    position: fixed;
+    top: 65px;
+    right: 5px;
+    cursor: pointer;
+  }
+
+
 }
 

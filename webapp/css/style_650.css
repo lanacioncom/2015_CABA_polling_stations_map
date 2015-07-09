@@ -14,7 +14,7 @@
 
   nav {
     width: 150px;
-    height: 404px;
+    height: 390px;
   }
 
   nav div.fil button#home {
@@ -36,12 +36,16 @@
     padding: 5px 2px;
   }
 
+  nav div.cate div.cat#cat1 {
+    margin-left: 43px;
+  }
+
   .flecha {
-      right: 25px;
+      right: 32px;
   }
 
   .flecha#f2 {
-    right: 73px;
+    right: 82px;
   }
 
   nav div.fil button.set_status_app {

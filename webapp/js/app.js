@@ -624,7 +624,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         }
 
         /** ctos_btn*/
-        d3.select('#creditos').on('click', function(){ 
+        d3.select('#creditos').on('click', function(){
             var append_to = d3.select('#append');
             append_to.html(templates.credits).style('opacity', 0).transition().style('opacity', 1);  
             d3.select('#append .cerrar').on('click', function(){
@@ -648,7 +648,13 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         //Hide filter buttons for mobile
         d3.select("div.hamburguesa").on('click', function(){
-            d3.select("nav").classed("muestra", true);
+            //this.classList.toggle("muestra");
+            if (d3.select("nav").classed("muestra")) {
+                d3.select("nav").classed("muestra", false);
+            } else {
+                d3.select("nav").classed("muestra", true);
+            }
+            //d3.select("nav").classed("muestra", true);
             return false;
         });
 
