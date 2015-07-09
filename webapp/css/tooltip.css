@@ -1,6 +1,6 @@
 /*Tooltip styles*/
 div.ttip_header {
-    width: 150px;
+    width: 160px;
     font-size:13px;
     font-weight: bold;
     padding-bottom: 5px;
@@ -10,7 +10,7 @@ div.ttip_header {
 }
 
 div.ttip_body {
-    width: 150px;
+    width: 160px;
     font-size:13px;
     line-height:17px;
     color:#444444;
