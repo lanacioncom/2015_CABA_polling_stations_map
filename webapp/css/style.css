@@ -336,8 +336,6 @@ nav div.bk_fit button.active, nav div.bk_ayl button.active {
   padding: 9px 12px;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 3px;
-  /*opacity: 0;*/
-  /* display: none; */
 }
 
 .arrow-left {
@@ -589,13 +587,12 @@ position: absolute;
   font-size: 16px;
   top: 10px;
   left: -16px;
-  border: 1px solid #F0F0F0;
   cursor:pointer;
   z-index: 1000;
 }
 
 #results a.cerrar:hover{
-  background-color: #F4F4F4;
+  color:#AAAAAA;
 }
 
 #results ul li.candidato {
