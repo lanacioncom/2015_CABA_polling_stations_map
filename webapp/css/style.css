@@ -1044,20 +1044,27 @@ div.creVent div.txts div.nombre a:hover{
 
 /*///////REFERENCIAS MAPA////////*/
 
+.refActive{
+	display:none;
+}
+
 #refFlechas {
-	padding:5px;
-	position:relative;
-	float: right;
-	width:205px;
-	height:167px;
-	background-image:url("../img/referencias_sripte.svg");
-	background-color:rgb(255,255,255);
-	background-size:225px;
-	background-position:-3px 10px;
-		
+	  padding: 6px 5px 5px 10px;
+	  float: right;
+	  width: 172px;
+	  height: 167px;
+	  background-image: url("../img/referencias_sripte.svg");
+	  background-color: rgba(255,255,255,0.7);
+	  background-size: 235px;
+	  background-position: 0px 14px;
+	  position: absolute;
+	  bottom: 5px;
+	  right: 5px;
+	  /*display:none;*/
 }
 
 h6 {
+	padding-top: 5px;
 	font-size:10px;
 	font:Arial, Helvetica, sans-serif;
 	font-weight:bold;
@@ -1071,6 +1078,41 @@ h6 {
 	padding:21px 0 0 27px;
 }
 
+#refCirculos {
+	  padding: 6px 5px 5px 10px;
+	  float: right;
+	  width: 145px;
+	  height: 140px;
+	  background-image: url("../img/referencias_sripte.svg");
+	  background-color: rgba(255,255,255,0.7);
+	  background-size: 235px;
+	  background-position: 0px -148px;
+	  position: absolute;
+	  bottom: 5px;
+	  right: 5px;
+	  display:none;
+}
+
+
+
+#refCirculos .refTxt {
+	padding:6px 0px 0px 0px;
+}
+
+.ref_cerrar {
+	 cursor:pointer;
+	 width: 20px;
+	 height: 20px;
+	 background-image: url("../img/referencias_sripte.svg");
+	 background-position: -7px -309px;
+	 position: absolute;
+	 top: 10px;
+	 right: 10px;
+}
+
+.ref_cerrar:hover {
+	opacity:0.7;
+}
 
 /*///// FOOTER ////*/
 
