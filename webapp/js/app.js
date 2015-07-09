@@ -80,10 +80,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             user: config.CARTODB_USER
         });
 
-        // Template that stores the query to execute once a polling station has been clicked
-        var click_feature_tpl = _.template(templates.click_feature_sql);
-        var click_feature_winner_tpl = _.template(templates.click_feature_winner_sql);
-
         // Overlay hide and show with css transitions
         function hideOverlay() {
             $('#overlay').css('left', '100%');
@@ -92,20 +88,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         function showOverlay() {
             $('#overlay').css('left', '73%');
         }
-
-        // Hide overlay if dragged position is out of bounds
-        map.on('dragend', function(e, x, y) {
-            if (config.current_latlng !== null && !map.getBounds().contains(config.current_latlng)) {
-                hideOverlay();
-                map.closePopup();
-            }
-        });
-
-        // Close popup and overlay
-        map.on('popupclose', function() {
-            if (ctxt.selected_polling) ctxt.selected_polling = null;
-            helpers.close_slide();
-        });
 
         // D3 layer
         var svg = d3.select(map.getPanes().overlayPane)
@@ -429,19 +411,18 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                         .attr("d",path.pointRadius(set_circle_radius))
                         .style("fill", set_circle_color)
                         .call(d3endall, enable_map_events);
-
-                // If we have a selected polling station simulate click
-                if (ctxt.selected_polling) {
-                    var id_establecimiento = ctxt.selected_polling;
-                    config.sql.execute(templates.permalink_sql,{id_establecimiento: id_establecimiento})
-                    .done(function(data) {
-                        var position = JSON.parse(data.rows[0].g).coordinates;
-                        var latlng = L.latLng(position[1], position[0]);
-                        var d = data.rows[0];
-                        map.panTo(latlng);
-                        d3featureClick({properties: d},null,latlng);
-                    });
-                }
+            }
+            // If we have a selected polling station simulate click
+            if (ctxt.selected_polling) {
+                var id_establecimiento = ctxt.selected_polling;
+                config.sql.execute(templates.permalink_sql,{id_establecimiento: id_establecimiento})
+                .done(function(data) {
+                    var position = JSON.parse(data.rows[0].g).coordinates;
+                    var latlng = L.latLng(position[1], position[0]);
+                    var d = data.rows[0];
+                    map.panTo(latlng);
+                    d3featureClick({properties: d},null,latlng);
+                });
             }
         }
 
@@ -451,12 +432,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         map.addControl(draw.drawControlFull);
         //Draw control
         map.addLayer(draw.drawnItems);
-
-        map.on('draw:drawstart', draw.drawstart);
-        map.on('draw:drawstop', draw.drawstop);
-        map.on('draw:deleted', draw_deleted);
-        map.on('draw:created', draw_filter);
-        map.on('draw:edited', draw_filter);
 
         function draw_deleted(e) {
             if (!draw.drawnItems.getLayers().length) {
@@ -530,14 +505,18 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             });
         }
 
-        /** FEATURE CLICK FUNCTIONALITY */
+        /** D3 LAYER EVENTS */
 
         // Get data for the clicked polling station and show popup and overlay
         function d3featureClick(d, i, latlng) {
             //Update context
             if (ctxt.selected_polling != d.properties.id_establecimiento) {
-                ctxt.selected_polling = d.properties.id_establecimiento;
+                map.closePopup();
+                ctxt.selected_polling = d.properties.id_establecimiento;                
             }
+
+            //Finally update permalink
+            permalink.set();
 
             // google analytics
             if (i !== null) {
@@ -549,8 +528,11 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 $('div#instructivo').fadeOut(200); 
             }
 
-            $('#overlay *').fadeOut(200, function() { $(this).remove();});
-            showOverlay();
+            if (ctxt.selected_party == "00") {
+                $('#overlay *').fadeOut(200, function() { $(this).remove();});
+                showOverlay();
+            }
+
             if (!latlng) {
                 latlng = L.latLng(d.geometry.coordinates[1], d.geometry.coordinates[0]);
             }
@@ -622,17 +604,12 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 max: _.max(d, function(item){ return item.votos; }),
                 vh: view_helpers
             }));
-
-            $("#results a.cerrar").click(function(){
-                helpers.close_slide();
-            });
-
             
             $('#results').animate({right:'0%'}, 'fast', function(){
                 helpers.animate_barras();
-            });
-            //Finally update permalink
-            permalink.set(); 
+            }); 
+
+            d3.select("#results a.cerrar").on("click", helpers.close_slide);
         }
 
         //Helper counting function to wait to all elements of a transition to end
@@ -688,6 +665,54 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             }
         }
 
+        /** HTML EVENTS */
+
+        //HOME BUTTON
+        d3.select("button#home").on('click', function(){
+            // Hide navigation on mobile
+            d3.select("nav").classed("muestra", false);
+            hideOverlay();
+            
+            map.closePopup();
+            if (!this.classList.contains("active")) {
+                d3.select("button.active").classed("active", false);
+                d3.select(this).classed("active", true);
+                ctxt.selected_party = "00";
+                ctxt.selected_polling = null;
+                ctxt.show_diff = false;
+                reset_references();
+                permalink.set();
+                //reset_map();
+                update_map();
+                _gaq.push(['_trackEvent','2015CabaMap', "click", "Home"]);
+            }
+            return false;
+        });
+
+        //FILTER BUTTONS
+        d3.selectAll(".set_status_app").on('click', set_status_app);
+        function set_status_app(){
+        /*jshint validthis: true */
+            // Hide navigation on mobile
+            d3.select("nav").classed("muestra", false);
+            hideOverlay();
+            map.closePopup();
+            // To hide filters if we are on mobile
+            if (!this.classList.contains("active")) {
+                d3.select("button.active").classed("active", false);
+                d3.select(this).classed("active", true);
+                ctxt.show_diff = this.classList.contains("paso");
+                ctxt.selected_party = this.dataset.partido;
+                reset_references();
+                permalink.set();
+                update_map();
+                //d3.select("div#instructivo").remove();
+                var key_GA  = config.diccionario_datos[ctxt.selected_party].nombre_partido + "__Show_paso_"+ctxt.show_diff;
+                _gaq.push(['_trackEvent','2015CabaMap', "click", key_GA]);
+            }
+            return false;
+        }
+
         /** ctos_btn*/
         d3.select('#creditos').on('click', function(){
             var append_to = d3.select('#append');
@@ -723,28 +748,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             return false;
         });
 
-        //Winner data
-        d3.select("button#home").on('click', function(){
-            // Hide navigation on mobile
-            d3.select("nav").classed("muestra", false);
-            hideOverlay();
-            
-            map.closePopup();
-            if (!this.classList.contains("active")) {
-                d3.select("button.active").classed("active", false);
-                d3.select(this).classed("active", true);
-                ctxt.selected_party = "00";
-                ctxt.selected_polling = null;
-                ctxt.show_diff = false;
-                reset_references();
-                permalink.set();
-                //reset_map();
-                update_map();
-                _gaq.push(['_trackEvent','2015CabaMap', "click", "Home"]);
-            }
-            return false;
-        });
-
         //Hide drawing helper text on click
         d3.select("div#instructivo").on('click', function(d) {
             d3.select(this).transition().duration(500).style('opacity', 0);
@@ -752,32 +755,35 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         //References behavior
         d3.selectAll("div.ref_cerrar").on('click', function(d) {
-            //console.log(d3.select(this).node().parent());
             d3.select(this.parentNode).classed("refDisabled", true);
         });
 
-        //Test diff viz
-        d3.selectAll(".set_status_app").on('click', set_status_app);
-        function set_status_app(){
-        /*jshint validthis: true */
-            // Hide navigation on mobile
-            d3.select("nav").classed("muestra", false);
-            hideOverlay();
-            map.closePopup();
-            // To hide filters if we are on mobile
-            if (!this.classList.contains("active")) {
-                d3.select("button.active").classed("active", false);
-                d3.select(this).classed("active", true);
-                ctxt.show_diff = this.classList.contains("paso");
-                ctxt.selected_party = this.dataset.partido;
-                reset_references();
-                permalink.set();
-                update_map();
-                //d3.select("div#instructivo").remove();
-                var key_GA  = config.diccionario_datos[ctxt.selected_party].nombre_partido + "__Show_paso_"+ctxt.show_diff;
-                _gaq.push(['_trackEvent','2015CabaMap', "click", key_GA]);
+        /** MAP EVENTS */
+
+        // Hide overlay if dragged position is out of bounds
+        map.on('dragend', function(e, x, y) {
+            if (config.current_latlng !== null && !map.getBounds().contains(config.current_latlng)) {
+                map.closePopup();
             }
-            return false;
-        }
+        });
+
+        // Close popup and overlay
+        map.on('popupclose', function(e) {
+            console.log(e);
+            if (ctxt.selected_polling) {
+                ctxt.selected_polling = null;
+                permalink.set();
+            }
+            if (ctxt.selected_party == "00") {
+                helpers.close_slide();
+            }
+        });
+
+        /** DRAW LAYER EVENTS */
+        map.on('draw:drawstart', draw.drawstart);
+        map.on('draw:drawstop', draw.drawstop);
+        map.on('draw:deleted', draw_deleted);
+        map.on('draw:created', draw_filter);
+        map.on('draw:edited', draw_filter);
     });
 });

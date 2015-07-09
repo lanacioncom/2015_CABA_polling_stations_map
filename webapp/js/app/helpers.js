@@ -8,9 +8,6 @@ define(['app/context', 'app/permalink', 'app/config'], function(ctxt, permalink,
                     $('.leaflet-popup-pane *').hide();
                 }
             });
-            ctxt.selected_polling = null;
-            permalink.set();
-
         },
         animate_barras: function() {
             $("#results .cont_barra .barra").each(function(i, el){

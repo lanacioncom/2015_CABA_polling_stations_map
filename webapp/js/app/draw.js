@@ -21,8 +21,8 @@ define(['draw', 'app/config', 'app/context'], function (dummy, config, ctxt) {
     L.drawLocal.edit.toolbar.buttons.remove = 'Borrar selección';
     L.drawLocal.edit.toolbar.buttons.removeDisabled = 'No hay elementos que borrar';
     L.drawLocal.edit.handlers.remove.tooltip.text = 'Clickear en la región seleccionada para borrar</br> luego APLICAR';
-    L.drawLocal.edit.handlers.edit.tooltip.text = 'Clickeá CANCELAR para descartar los cambios';
-    L.drawLocal.edit.handlers.edit.tooltip.subtext = 'Arrastra los puntos para modificar la selección</br> luego APLICAR';
+    L.drawLocal.edit.handlers.edit.tooltip.text = 'Clickear CANCELAR para descartar los cambios';
+    L.drawLocal.edit.handlers.edit.tooltip.subtext = 'Arrastrar los vértices para modificar la selección</br> luego APLICAR';
 
     var drawnItems = new L.FeatureGroup();
     var drawControlFull = new L.Control.Draw({
