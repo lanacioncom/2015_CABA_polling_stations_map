@@ -299,11 +299,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             //var s = d3.scale.linear().domain([0,max]).range([5,20]);
             var s = d3.scale.linear().domain([0,673]).range([1,40*config.zoom_arrow_multipliers[current_zoom_level]]);
             var offset = parseInt(s(Math.abs(v)));
-            // Test rescaling when zoomed REMOVE
-            // if (fid == 7955){
-            //     console.log(v);
-            //     console.log(offset);
-            // }
             if (v > 0) {
                 offset = -offset;
             }
@@ -769,7 +764,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         // Close popup and overlay
         map.on('popupclose', function(e) {
-            console.log(e);
             if (ctxt.selected_polling) {
                 ctxt.selected_polling = null;
                 permalink.set();
