@@ -63,7 +63,7 @@ gulp.task('minify-css', function () {
                 'css/style_850.css', 'css/style_650.css', 'css/style_550.css',
                 'css/map.css', 'css/tooltip.css','css/draw_controls.css',
                 'css/leaflet.draw.css'], { cwd: conf.app_cwd })
-    .pipe(minifyCSS())
+    .pipe(minifyCSS({advanced: false}))
     .pipe(concat(css_file_min))
     .pipe(gulp.dest('../build/css'));
 });
