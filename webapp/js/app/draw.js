@@ -7,10 +7,10 @@ define(['draw', 'app/config', 'app/context'], function (dummy, config, ctxt) {
     L.drawLocal.draw.toolbar.actions.text = 'Cancelar';
     L.drawLocal.draw.toolbar.undo.title = 'Borrar el último punto pintado';
     L.drawLocal.draw.toolbar.undo.text = 'Borrar último punto';
-    L.drawLocal.draw.handlers.polygon.tooltip.start = 'Haz click para marcar el punto inicial';
-    L.drawLocal.draw.handlers.polygon.tooltip.cont = 'Haz click para ir creando puntos';
-    L.drawLocal.draw.handlers.polygon.tooltip.end = 'Haz click en el primer punto para cerrar la forma';
-    L.drawLocal.draw.handlers.rectangle.tooltip.start = 'Haz click y arrastra para crear el rectángulo';
+    L.drawLocal.draw.handlers.polygon.tooltip.start = 'Clickear para marcar el punto inicial';
+    L.drawLocal.draw.handlers.polygon.tooltip.cont = 'Clickear para ir creando puntos';
+    L.drawLocal.draw.handlers.polygon.tooltip.end = 'Clickear en el primer punto para cerrar la forma';
+    L.drawLocal.draw.handlers.rectangle.tooltip.start = 'Clickear y arrastrar para crear el rectángulo';
     L.drawLocal.draw.handlers.simpleshape.tooltip.end = 'Soltá el mouse para finalizar la selección';
     L.drawLocal.edit.toolbar.actions.save.title = 'Guardar cambios';
     L.drawLocal.edit.toolbar.actions.save.text = 'Guardar';
@@ -20,9 +20,9 @@ define(['draw', 'app/config', 'app/context'], function (dummy, config, ctxt) {
     L.drawLocal.edit.toolbar.buttons.editDisabled = 'No hay elementos que editar';
     L.drawLocal.edit.toolbar.buttons.remove = 'Borrar selección';
     L.drawLocal.edit.toolbar.buttons.removeDisabled = 'No hay elementos que borrar';
-    L.drawLocal.edit.handlers.remove.tooltip.text = 'Haz click sobre la selección para borrar';
+    L.drawLocal.edit.handlers.remove.tooltip.text = 'Clickear en la selección para borrar, luego GUARDAR';
     L.drawLocal.edit.handlers.edit.tooltip.text = 'Arrastra los puntos para modificar la selección';
-    L.drawLocal.edit.handlers.edit.tooltip.subtext = 'Haz click para cancelar los cambios';
+    L.drawLocal.edit.handlers.edit.tooltip.subtext = 'Clickear para cancelar los cambios';
 
     var drawnItems = new L.FeatureGroup();
     var drawControlFull = new L.Control.Draw({
