@@ -336,7 +336,7 @@ nav div.bk_fit button.active, nav div.bk_ayl button.active {
   padding: 9px 12px;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 3px;
-  opacity: 0;
+  /*opacity: 0;*/
   /* display: none; */
 }
 
@@ -508,6 +508,7 @@ div.loader{
   top: 0;
   right: -280px;
   border: 1px solid #E7E7E7;
+  z-index:1500;
 }
 #results div#line {
   width: 7px;
@@ -787,7 +788,7 @@ h6 {
 }
 
 .refTxt{
-	width:80%;
+	width:82%;
 	font-size:11px;
 	font:Arial, Helvetica, sans-serif;
 	font-weight:ligth;
