@@ -524,6 +524,12 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             if (ctxt.selected_polling != d.properties.id_establecimiento) {
                 ctxt.selected_polling = d.properties.id_establecimiento;
             }
+
+            // google analytics
+            if (i !== null) {
+                var key_GA  = "Establecimiento_"+ctxt.selected_polling;
+                _gaq.push(['_trackEvent','2015CabaMap', "click", key_GA]);
+            }
             // Ger rid of helper texts
             if ($('div#instructivo').is(":visible")) {
                 $('div#instructivo').fadeOut(200); 
@@ -585,7 +591,6 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
             //Tooltip
             ttip_data.winner = true;
-            console.log(ttip_data);
             popup = L.popup().setLatLng(latlng)
                              .setContent(popup_tpl(ttip_data))
                              .openOn(map);

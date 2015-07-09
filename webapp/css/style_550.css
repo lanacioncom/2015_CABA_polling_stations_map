@@ -128,11 +128,11 @@
   }
 
   #results {
-    width: 170px;
+    width: 130px;
   }
   
   #results ul li h5 {
-    width: 30%;
+   width: 80%;
     font-size: 12px;
     padding: 8px 0 2px 3px;
     font-family: 'TheSansBold', arial, Helvetica, sans-serif;
@@ -143,10 +143,13 @@
   }
 
   #results ul .cont_barra {
-    width: 85%;
-      width: calc(100% - 140px);
-  margin: 15px 10px;
-    margin-bottom: 15px;
+    width: calc(100% - 85px);
+    margin: 5px 2px;
+    margin-bottom: 3px;
+  }
+
+  #results ul li {
+      padding: 10px 0;
   }
 
   .cont_barra .barra {
@@ -189,6 +192,10 @@
     top: 65px;
     right: 5px;
     cursor: pointer;
+  }
+
+  #instructivo, #refFlechas, #refCirculos{
+    display: none;
   }
 
 
