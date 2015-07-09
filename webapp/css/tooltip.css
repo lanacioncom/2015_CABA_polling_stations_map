@@ -5,7 +5,8 @@ div.ttip_header {
     font-weight: bold;
     padding-bottom: 5px;
     line-height:14px;
-
+  border-bottom: 1px dashed #dadada;
+  margin-bottom: 5px;
 }
 
 div.ttip_body {
@@ -28,9 +29,12 @@ div.ttip_body span {
 }
 
 div.ttip_body span.ttip_footer {
-    color:#000000;
-    font-weight:bold;
-    line-height:14px;
+    color: #000000;
+  font-weight: bold;
+  line-height: 36px;
+  border-top: 1px dashed #dadada;
+  padding-top: 5px;
+  margin-top: 5px;
 }
 
 div.ttip_body span.ttip_main {
