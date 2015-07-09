@@ -1,7 +1,6 @@
 define(['app/context', 'app/permalink', 'app/config'], function(ctxt, permalink, config) {
 
     return {
-        check_location: function() {return location.hash;},
         close_slide: function() {
             $('#results').animate({right:'-50%'},'fast', function(){
                 $('#results').html('');

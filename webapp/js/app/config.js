@@ -21,7 +21,6 @@ define([], function() {
         15: 4,
         16: 5
     },
-    carto_layers:{ '2015_caba': null},
     bsas_center: [-34.61597432902992, -58.442115783691406],
     CARTODB_USER: 'lndata',
     sql: null,
@@ -29,8 +28,6 @@ define([], function() {
     diccionario_datos: null,
     current_latlng: null,
     current_zoomLevel: null,
-    featureClicked: false,
-    map: null,
     base_layer: L.tileLayer(mapboxUrl, {
                                         id: 'olcreativa.mle7fnoa',  
                                         attribution: "OpenStreetMaps", 
