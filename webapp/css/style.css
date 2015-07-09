@@ -474,7 +474,7 @@ ul#list_interna li div.cant_v span.porc{
 }
 
 
-/*/////////////////// REFERENCIAS ///////////////////////////*/
+/*/////////////////// REFERENCIAS MAPA ///////////////////////////*/
 
 ul#ref {
   width: 39%;
@@ -1033,6 +1033,35 @@ div.creVent div.txts div.nombre a{
 
 div.creVent div.txts div.nombre a:hover{
     color:#29ABE2;
+}
+
+/*///////REFERENCIAS MAPA////////*/
+
+#refFlechas {
+	padding:5px;
+	position:relative;
+	float: right;
+	width:205px;
+	height:167px;
+	background-image:url("../img/referencias_sripte.svg");
+	background-color:rgb(255,255,255);
+	background-size:225px;
+	background-position:-3px 10px;
+		
+}
+
+h6 {
+	font-size:10px;
+	font:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+}
+
+.refTxt{
+	width:80%;
+	font-size:11px;
+	font:Arial, Helvetica, sans-serif;
+	font-weight:ligth;
+	padding:21px 0 0 27px;
 }
 
 
