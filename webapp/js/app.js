@@ -648,7 +648,12 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         //Hide filter buttons for mobile
         d3.select("div.hamburguesa").on('click', function(){
-            this.classList.toggle("muestra");
+            //this.classList.toggle("muestra");
+            if (d3.select("nav").classed("muestra")) {
+                d3.select("nav").classed("muestra", false);
+            } else {
+                d3.select("nav").classed("muestra", true);
+            }
             //d3.select("nav").classed("muestra", true);
             return false;
         });
