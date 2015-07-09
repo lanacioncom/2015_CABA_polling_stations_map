@@ -194,7 +194,11 @@
     cursor: pointer;
   }
 
-  #instructivo, #refFlechas, #refCirculos{
+  /*#instructivo, #refFlechas, #refCirculos{
+    display: none;
+  }*/
+
+  #instructivo{
     display: none;
   }
 
