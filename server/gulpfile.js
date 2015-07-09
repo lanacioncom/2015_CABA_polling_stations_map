@@ -14,8 +14,8 @@ var gulp = require('gulp'),
 
 
 var conf = {
-    app_cwd:'../webapp/',
-    commit:null
+    app_cwd: '../webapp/',
+    commit: null
 };
 
 function get_id_git() {
@@ -36,9 +36,9 @@ function get_id_git() {
 
 // Get last commit id and store it in conf
 get_id_git();
-var js_all = 'js/all.v.'+get_id_git()+'.min.js';
+var js_all = 'all.v'+conf.commit+'.min.js';
 var js_vendor = 'vendor.v'+conf.commit+'.min.js';
-var css_file_min = 'all.v.'+get_id_git()+'.min.css';
+var css_file_min = 'all.v.'+conf.commit+'.min.css';
 
 
 gulp.task('clear_build', function() {
@@ -59,8 +59,10 @@ gulp.task('roptimize', function() {
 });
 
 gulp.task('minify-css', function () {
-	gulp.src(['css/cartodb.css', 'css/fonts.css', 
-              'css/style.css', 'css/leaflet.draw.css'], { cwd: '../webapp' })
+	gulp.src(['css/cartodb.css', 'css/fonts.css', 'css/style.css',
+                'css/style_850.css', 'css/style_650.css', 'css/style_550.css',
+                'css/map.css', 'css/tooltip.css','css/draw_controls.css',
+                'css/leaflet.draw.css'], { cwd: conf.app_cwd })
     .pipe(minifyCSS())
     .pipe(concat(css_file_min))
     .pipe(gulp.dest('../build/css'));
@@ -68,19 +70,29 @@ gulp.task('minify-css', function () {
 
 // test JS
 gulp.task('test_js_prod', function(){
-	return gulp.src(['js/app-opt.js'], { cwd: '../webapp' })
+	return gulp.src(['js/app-opt.js'], { cwd: conf.app_cwd })
 		.pipe(jshint({multistr: true}))
 		.pipe(jshint.reporter('default'))
 		.pipe(jshint.reporter(stylish));
 });
 
-gulp.task('js', ['test_js_prod'], function () {
-	return gulp.src(['js/app-opt.js'] , { cwd: '../webapp' })
-		.pipe(sourcemaps.init())
-		.pipe(uglify())
-		.pipe(concat(js_all))
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest('../build'));
+gulp.task('js', function () {
+    var all = gulp.src(['opt/app-opt.js'] , { cwd: conf.app_cwd })
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(concat(js_all))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('../build/js'));
+    
+    var vendor = gulp.src(['libs/requirejs/require.js'], { cwd: conf.app_cwd })
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(concat(js_vendor))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('../build/libs'));
+
+    return merge(all,vendor);
+    
 });
 
 gulp.task('copy', function () {
@@ -88,10 +100,10 @@ gulp.task('copy', function () {
 		conditionals: true,
 		spare:true
 	};
-	var html = gulp.src('*.html', { cwd: '../webapp' })
+	var html = gulp.src('*.html', { cwd: conf.app_cwd })
 		.pipe(htmlreplace({
 			js: {
-                src: [[js_all, 'libs/require.min.js']],
+                src: [['js/'+js_all, 'libs/'+js_vendor]],
                 tpl: '<script data-main="%s" src="%s"></script>'
             },
             css: ['css/'+css_file_min]
@@ -99,19 +111,19 @@ gulp.task('copy', function () {
 		.pipe(minifyHTML(opts))
 		.pipe(gulp.dest('../build'));
 
-    var libs = gulp.src(['libs/require.min.js', 'libs/cartodb.min.js'], { cwd: '../webapp' })
+    var libs = gulp.src(['libs/cartodb.min.js'], { cwd: conf.app_cwd })
         .pipe(gulp.dest('../build/libs/'));
 	
-	var fonts = gulp.src('css/fonts/*', { cwd: '../webapp' })
+	var fonts = gulp.src('css/fonts/*', { cwd: conf.app_cwd })
 		.pipe(gulp.dest('../build/css/fonts'));
 
-	var img = gulp.src('img/*', { cwd: '../webapp' })
+	var img = gulp.src('img/*', { cwd: conf.app_cwd })
 		.pipe(gulp.dest('../build/img'));
 
-    var css_img = gulp.src(['css/images/*.png'], { cwd: '../webapp' })
+    var css_img = gulp.src(['css/images/*.png'], { cwd: conf.app_cwd })
         .pipe(gulp.dest('../build/css/images'));
 
-	var data = gulp.src('data/*', { cwd: '../webapp' })
+	var data = gulp.src('data/*', { cwd: conf.app_cwd })
 	    .pipe(gulp.dest('../build/data'));
 
 	return merge(html, fonts, img, data);
@@ -123,9 +135,9 @@ gulp.task('build', ['roptimize', 'minify-css', 'js', 'copy']);
 // SERVER TASKS
 gulp.task('connect', function() {
   connect.server({
-    root: '../webapp',
-    livereload: true
-    // port:8000
+    root: conf.app_cwd,
+    livereload: true,
+    port:8000
   });
 });
 
@@ -135,7 +147,7 @@ gulp.task('html', function () {
 });
 
 gulp.task('test_js', function(){
-    return gulp.src(['js/app.js'], { cwd: '../webapp' })
+    return gulp.src(['js/app.js'], { cwd: conf.app_cwd })
         .pipe(jshint({multistr: true}))
         .pipe(jshint.reporter('default'))
         .pipe(jshint.reporter(stylish));
