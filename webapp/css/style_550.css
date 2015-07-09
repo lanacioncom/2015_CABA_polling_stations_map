@@ -99,6 +99,10 @@
     width: 38%;
   }
 
+  nav div.cate div.cat#cat1 {
+    margin-left: 59px;
+  }
+
   .flecha {
     display: none;
   }
@@ -112,7 +116,7 @@
   }
 
   div.creVent {
-      top: 40px;
+    top: -30px;
   }
 
   div.creVent div.txts {
@@ -178,5 +182,15 @@
     width: 96%;
     padding: 10px 2%;
   }
+
+  div.creVent div.txts div.cerrar {
+
+    position: fixed;
+    top: 65px;
+    right: 5px;
+    cursor: pointer;
+  }
+
+
 }
 
