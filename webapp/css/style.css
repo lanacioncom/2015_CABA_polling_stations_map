@@ -868,6 +868,7 @@ position: absolute;
   left: -16px;
   border: 1px solid #F0F0F0;
   cursor:pointer;
+  z-index: 1000;
 }
 
 #results a.cerrar:hover{

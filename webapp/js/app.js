@@ -38,7 +38,8 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
         });
 
         // Set initial zoom level for responsiveness
-        if ($("body").width() < 700) {
+        config.screen_width = $("body").width();
+        if (config.screen_width < 700) {
             current_zoom_level = 11;
         }
         else {
