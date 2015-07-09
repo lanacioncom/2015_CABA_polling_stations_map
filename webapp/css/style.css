@@ -415,27 +415,6 @@ ul#list_interna li div.cant_v span.porc{
 .bregman {
     background-position: -1px -198px;
 }
-
-/*referencias*/
-/*
-.referencias {
-  position: absolute;
-  bottom: 85px;
-    left: 350px;
-    display:none;
-  
-}
-
-.ref span {
-  display: inline-block;
-  width:15px;
-  height:15px;
-  background-color:red;
-  margin:3px 7px 3px 3px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-}*/
   
 
 /*//////// TOOLTIP 2 //////*/
@@ -759,7 +738,7 @@ div.creVent div.txts div.nombre a:hover{
 
 /*///////REFERENCIAS MAPA////////*/
 
-.refActive{
+.refDisabled{
 	display:none;
 }
 
@@ -775,7 +754,6 @@ div.creVent div.txts div.nombre a:hover{
 	  position: absolute;
 	  bottom: 5px;
 	  right: 5px;
-	  /*display:none;*/
 }
 
 h6 {
@@ -805,7 +783,6 @@ h6 {
 	  position: absolute;
 	  bottom: 5px;
 	  right: 5px;
-	  display:none;
 }
 
 

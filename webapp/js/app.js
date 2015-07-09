@@ -39,14 +39,20 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
 
         // Set initial zoom level for responsiveness
         config.screen_width = $("body").width();
-        if (config.screen_width < 700) {
+        if (is_small_screen()) {
             current_zoom_level = 11;
         }
         else {
             current_zoom_level = 12;
         }
 
-
+        function is_small_screen() {
+            if (config.screen_width < 700) {
+                return true;
+            } else {
+                return false;
+            }
+        }
         //Original
         // var southWest = L.latLng(-34.705, -58.531),
         //     northEast = L.latLng(-34.527, -58.335),
@@ -58,7 +64,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             bounds = L.latLngBounds(southWest, northEast);
         
         map = L.map('mapa_cont', {
-            center: [-34.61597432902992, -58.442115783691406],
+            center: config.bsas_center,
             zoom: current_zoom_level,
             minZoom: current_zoom_level,
             maxZoom: 16,
@@ -155,6 +161,10 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 d3.select("button.active").classed("active", false);
                 var el_id = ctxt.show_diff.toString()+"_"+ctxt.selected_party;
                 d3.select("button#"+el_id).classed("active", true);
+                if (ctxt.show_diff) {
+                    d3.select("#refCirculos").classed("refDisabled", true);
+                    d3.select("#refFlechas").classed("refDisabled", false);
+                }
             } 
             //We need to check the permalink
             update_map();
@@ -634,6 +644,26 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             map.scrollWheelZoom.enable();
         }
 
+        function reset_map() {
+            // Reset map position
+            if (is_small_screen()) {
+                map.setView(config.bsas_center, 11);
+            }
+            else {
+                map.setView(config.bsas_center, 12);
+            }
+        }
+
+        function reset_references() {
+            if (ctxt.show_diff) {
+                d3.select("#refCirculos").classed("refDisabled", true);
+                d3.select("#refFlechas").classed("refDisabled", false);
+            } else {
+                d3.select("#refFlechas").classed("refDisabled", true);
+                d3.select("#refCirculos").classed("refDisabled", false);
+            }
+        }
+
         /** ctos_btn*/
         d3.select('#creditos').on('click', function(){
             var append_to = d3.select('#append');
@@ -674,6 +704,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             // Hide navigation on mobile
             d3.select("nav").classed("muestra", false);
             hideOverlay();
+            
             map.closePopup();
             if (!this.classList.contains("active")) {
                 d3.select("button.active").classed("active", false);
@@ -681,11 +712,24 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 ctxt.selected_party = "00";
                 ctxt.selected_polling = null;
                 ctxt.show_diff = false;
+                reset_references();
                 permalink.set();
+                //reset_map();
                 update_map();
                 _gaq.push(['_trackEvent','2015CabaMap', "click", "Home"]);
             }
             return false;
+        });
+
+        //Hide drawing helper text on click
+        d3.select("div#instructivo").on('click', function(d) {
+            d3.select(this).transition().duration(500).style('opacity', 0);
+        });
+
+        //References behavior
+        d3.selectAll("div.ref_cerrar").on('click', function(d) {
+            //console.log(d3.select(this).node().parent());
+            d3.select(this.parentNode).classed("refDisabled", true);
         });
 
         //Test diff viz
@@ -702,9 +746,10 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                 d3.select(this).classed("active", true);
                 ctxt.show_diff = this.classList.contains("paso");
                 ctxt.selected_party = this.dataset.partido;
+                reset_references();
                 permalink.set();
                 update_map();
-                d3.select("div#instructivo").remove();
+                //d3.select("div#instructivo").remove();
                 var key_GA  = config.diccionario_datos[ctxt.selected_party].nombre_partido + "__Show_paso_"+ctxt.show_diff;
                 _gaq.push(['_trackEvent','2015CabaMap', "click", key_GA]);
             }

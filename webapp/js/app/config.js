@@ -22,6 +22,7 @@ define([], function() {
         16: 5
     },
     carto_layers:{ '2015_caba': null},
+    bsas_center: [-34.61597432902992, -58.442115783691406],
     CARTODB_USER: 'lndata',
     sql: null,
     screen_width: null,
