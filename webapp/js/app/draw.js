@@ -12,17 +12,17 @@ define(['draw', 'app/config', 'app/context'], function (dummy, config, ctxt) {
     L.drawLocal.draw.handlers.polygon.tooltip.end = 'Clickear en el primer punto para cerrar la forma';
     L.drawLocal.draw.handlers.rectangle.tooltip.start = 'Clickear y arrastrar para crear el rectángulo';
     L.drawLocal.draw.handlers.simpleshape.tooltip.end = 'Soltá el mouse para finalizar la selección';
-    L.drawLocal.edit.toolbar.actions.save.title = 'Guardar cambios';
-    L.drawLocal.edit.toolbar.actions.save.text = 'Guardar';
+    L.drawLocal.edit.toolbar.actions.save.title = 'Aplicar cambios';
+    L.drawLocal.edit.toolbar.actions.save.text = 'Aplicar';
     L.drawLocal.edit.toolbar.actions.cancel.title = 'Cancelar los cambios';
     L.drawLocal.edit.toolbar.actions.cancel.text = 'Cancelar';
     L.drawLocal.edit.toolbar.buttons.edit = 'Editar selección';
     L.drawLocal.edit.toolbar.buttons.editDisabled = 'No hay elementos que editar';
     L.drawLocal.edit.toolbar.buttons.remove = 'Borrar selección';
     L.drawLocal.edit.toolbar.buttons.removeDisabled = 'No hay elementos que borrar';
-    L.drawLocal.edit.handlers.remove.tooltip.text = 'Clickear en la selección para borrar, luego GUARDAR';
-    L.drawLocal.edit.handlers.edit.tooltip.text = 'Arrastra los puntos para modificar la selección';
-    L.drawLocal.edit.handlers.edit.tooltip.subtext = 'Clickear para cancelar los cambios';
+    L.drawLocal.edit.handlers.remove.tooltip.text = 'Clickear en la región seleccionada para borrar</br> luego APLICAR';
+    L.drawLocal.edit.handlers.edit.tooltip.text = 'Clickeá CANCELAR para descartar los cambios';
+    L.drawLocal.edit.handlers.edit.tooltip.subtext = 'Arrastra los puntos para modificar la selección</br> luego APLICAR';
 
     var drawnItems = new L.FeatureGroup();
     var drawControlFull = new L.Control.Draw({

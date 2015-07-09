@@ -496,7 +496,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
             .done(function(data) {
                 // Check to see if there's any intersection
                 if (data.total_rows) { 
-                    var establecimiento_data = {descripcion: "SELECCIÓN"};
+                    var establecimiento_data = {descripcion: "REGIÓN SELECCIONADA"};
                     var ids = [];
                     var d = data.rows;
                     d.forEach(function(d) {
