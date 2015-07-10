@@ -493,7 +493,7 @@ function(config, ctxt, templates, helpers, view_helpers, draw, permalink, d3) {
                     var msg_body = "No se ha encontrado ningún establecimiento con la selección actual";
                     var popup = L.popup()
                         .setLatLng(latlng)
-                        .setContent(popup_simple_tmpl({message_header: msg_header,
+                        .setContent(popup_simple_tpl({message_header: msg_header,
                                         message_body: msg_body}))
                         .openOn(map);
                 }
