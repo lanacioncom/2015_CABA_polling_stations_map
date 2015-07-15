@@ -1,7 +1,7 @@
 {
-  "name": "2015_paso_caba_mapa_candidatos",
+  "name": "2015_caba_map",
   "version": "1.0.0",
-  "description": "Mapa 2015 PASO CABA candidatos por establecimiento",
+  "description": "Mapa elecciones 2015 CABA por establecimiento y partido (comparativa PASO)",
   "main": "../webapp/js/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,9 +10,9 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git://github.com/lanacioncom/2015_paso_caba_mapa_candidatos.git"
+    "url": "git://github.com/lanacioncom/2015_caba_map.git"
   },
-  "author": "",
+  "author": "Juan Elosua <juan.elosua@gmail.com>",
   "contributors": [
     "Cristian Bertelegni <CBertelegni@lanacion.com.ar>",
     "Juan Elosua <juan.elosua@gmail.com>",
@@ -21,7 +21,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lanacioncom/2015_paso_caba_mapa_candidatos/issues"
+    "url": "https://github.com/lanacioncom/2015_caba_map/issues"
   },
   "devDependencies": {
     "del": "^1.1.1",

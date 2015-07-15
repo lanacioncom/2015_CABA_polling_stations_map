@@ -2,16 +2,16 @@ Deployment usage
 ================
 
 ## Requirements
-* Have [_nodejs_](https://nodejs.org/) installed
+* Have [_nodejs_](https://nodejs.org/) && [_bower_](http://bower.io/) installed
 
 ## Process
-1. Go to the deploy folder
+1. Go to the server folder
 
-        $ cd deploy
+        $ cd server
 
 2. Install dependencies
 
-        $ npm install
+        $ npm install && bower install
 
 3. Clean pevious builds (_optional_)
 
@@ -28,4 +28,4 @@ Deployment usage
 5. Open a browser on **http://localhost:8080** and check that everything looks fine
 
 ## Implementation notes
-* We are using the last commit found on the local git repo master branch to version the static files accordingly. Probably there should be a better way to locate the git commit but hell!! it works. (Any other way recommendations are more than welcomed through [github issue](https://github.com/lanacioncom/2015_paso_caba_mapa_candidatos/issues))
+* We are using the last commit found on the local git repo master branch to version the static files accordingly. Probably there should be a better way to locate the git commit but hell!! it works. (Any other way recommendations are more than welcomed through [github issue](https://github.com/lanacioncom/2015_caba_map/issues))

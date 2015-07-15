@@ -14,8 +14,6 @@
     "tests"
   ],
   "dependencies": {
-    "jquery.nicescroll": "~3.6.0",
-    "select2": "~3.5.2",
     "d3": "~3.5.5",
     "requirejs": "jrburke/requirejs#~2.1.18",
     "queue-async": "~1.0.7",

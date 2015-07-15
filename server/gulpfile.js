@@ -169,5 +169,5 @@ gulp.task('server_pro', function() {
 
 // default task
 gulp.task('default', function() {
-  console.log("2015_paso_caba_mapa_candidatos");
+  console.log("2015_caba_map");
 });

@@ -30,4 +30,4 @@ Backend usage
 
 ## Implementation notes
 
-* We have used postgres as the DB because our final destination was the cartodb postgis DB and also because of the magic behind [postgres window functions](http://www.postgresql.org/docs/9.4/static/functions-window.html) that we have used to create the margin of victory of a candidate over the next one in a given polling station directly on SQL.
+* We have used postgres as the DB because our final destination was the cartodb postgis DB and also because of the magic behind [postgres window functions](http://www.postgresql.org/docs/9.4/static/functions-window.html) that we have used to create the margin of victory of a party over the next one in a given polling station directly on SQL.
