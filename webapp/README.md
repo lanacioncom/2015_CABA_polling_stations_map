@@ -17,7 +17,7 @@ Frontend usage
 
         $ gulp server
 
-4. Open a browser on **http://localhost:8080** and play around. The server is using livereload so that any changes on the js or html files will be automatically published to the server.
+4. Open a browser on **http://localhost:8000** and play around. The server is using livereload so that any changes on the js or html files will be automatically published to the server.
 
 ## Implementation notes
 
