@@ -20,7 +20,7 @@ We then have imported the final results to _cartodb_ postgis DB.
 Usage info: [here](backend/README.md)
 
 ## Frontend
-For the frontend we wanted to use [D3js](http://d3js.org) as an overlay on top of leaflet because that would give us more control and speed over the interaction with the reader that in our previous project [2015 PASO CABA map](git://github.com/lanacioncom/2015_paso_caba_map.git).
+For the frontend we wanted to use [D3js](http://d3js.org/) as an overlay on top of leaflet because that would give us more control and speed over the interaction with the reader that in our previous project [2015 PASO CABA map](git://github.com/lanacioncom/2015_paso_caba_map.git).
 
 We also wanted to engage the reader into finding the region they related more with to check the elections results or make custom analysis. We were playing with the idea of letting the reader paint over the map to select the polling stations they wanted to get the results from. Sometimes administrative levels are just too rigid and do not capture the living parts of a city.
 
@@ -46,7 +46,7 @@ Usage info: [here](server/README.md)
 * Backend:
     [csvkit](https://csvkit.readthedocs.org/en/0.9.1/index.html), [dataset](https://dataset.readthedocs.org/en/latest/), [cartodb](https://cartodb.com/)
 * Frontend:
-    [d3js](http://d3js.org), [leaflet](), [leaflet-draw-plugin](), [cartodbjs](http://docs.cartodb.com/cartodb-platform/cartodb-js.html), [underscore](http://underscorejs.org/), [requirejs](http://requirejs.org/), 
+    [d3js](http://d3js.org/), [leaflet](http://leafletjs.com/), [leaflet-draw-plugin](https://github.com/Leaflet/Leaflet.draw), [cartodbjs](http://docs.cartodb.com/cartodb-platform/cartodb-js.html), [underscore](http://underscorejs.org/), [requirejs](http://requirejs.org/), 
 
 
 ## Credits
