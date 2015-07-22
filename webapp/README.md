@@ -38,4 +38,6 @@ Frontend usage
 
 * Also we have found that because we are using D3 on the overlayPane of leaflet together with the drawing plugin on removal of the drawing layer a orphan SVG kept interfering with the d3 layer interaction so we did a bit of a hack around css _pointer-events_ properties that should be investigated further.
 
+* Finally cartodb.min.js was not available as a standalone bower project so we have included it in the github project inside the libs folder.
+
 
