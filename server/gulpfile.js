@@ -15,27 +15,37 @@ var gulp = require('gulp'),
 
 var conf = {
     app_cwd: '../webapp/',
-    commit: null
+    commit: "xxx"
 };
 
-function get_id_git() {
-    var fs = require('fs');
-    var path = require('path');
-    var file_path = path.join(__dirname, '../.git/refs/remotes/origin/master');
-    console.log(file_path);
-    try { 
-        var v = fs.readFileSync(file_path, 'utf-8');
-        console.log("ultimo commit: %s", v);
-        conf.commit = v.slice(0,10);
-    } catch (e) {
-        if (e.code !== 'ENOENT') throw e;
-        console.log("no se encontró el el id del ultimo commit");
-        conf.commit = "xxx";
-    }
-};
+// function get_id_git() {
+//     var fs = require('fs');
+//     var path = require('path');
+//     var file_path = path.join(__dirname, '../.git/refs/remotes/origin/master');
+//     console.log(file_path);
+//     try { 
+//         var v = fs.readFileSync(file_path, 'utf-8');
+//         console.log("ultimo commit: %s", v);
+//         conf.commit = v.slice(0,10);
+//     } catch (e) {
+//         if (e.code !== 'ENOENT') throw e;
+//         console.log("no se encontró el el id del ultimo commit");
+//         conf.commit = "xxx";
+//     }
+// };
 
 // Get last commit id and store it in conf
-get_id_git();
+// get_id_git();
+
+
+// version for statics
+var version = "0";
+function set_vertsion(){
+  conf.commit = Math.floor(Date.now() / 1000);
+}
+set_vertsion();
+
+
 var js_all = 'all.v'+conf.commit+'.min.js';
 var js_vendor = 'vendor.v'+conf.commit+'.min.js';
 var css_file_min = 'all.v.'+conf.commit+'.min.css';
